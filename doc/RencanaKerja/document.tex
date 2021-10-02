@@ -16,7 +16,7 @@
 \makeatletter
 \renewcommand{\@maketitle} {\begin{center} {\LARGE \textbf{ \textsc{\@title}} \par} \bigskip {\large \textbf{\textsc{\@author}} }\end{center} }
 \renewcommand{\thispagestyle}[1]{}
-\markright{\textbf{\textsc{AIF401/AIF402 \textemdash Rencana Kerja Skripsi \textemdash Sem. Genap 2016/2017}}}
+\markright{\textbf{\textsc{AIF401/AIF402 \textemdash Rencana Kerja Skripsi \textemdash Sem. Genap 2021/2022}}}
 
 \newcommand{\HRule}{\rule{\linewidth}{0.4mm}}
 \renewcommand{\baselinestretch}{1}
@@ -31,11 +31,11 @@
 \author{\nama \textendash \@npm} 
 
 %tulis nama dan NPM anda di sini:
-\newcommand{\nama}{Lionov}
-\newcommand{\@npm}{1997730020}
-\newcommand{\@judultopik}{Simulasi Kerumunan di Museum} % Judul/topik anda
+\newcommand{\nama}{Reinalta Sugianto}
+\newcommand{\@npm}{2017730035}
+\newcommand{\@judultopik}{Perekaman Kehadiran Daring Otomatis} % Judul/topik anda
 \newcommand{\jumpemb}{1} % Jumlah pembimbing, 1 atau 2
-\newcommand{\tanggal}{01/01/1900}
+\newcommand{\tanggal}{04/10/2021}
 
 % Dokumen hasil template ini harus dicetak bolak-balik !!!!
 
@@ -44,17 +44,9 @@
 \pagenumbering{arabic}
 
 \section{Deskripsi}
-Tuliskan deskripsi dari topik skripsi yang akan anda ajukan. Di sini dapat dituliskan latar belakang, seperti apa penelitian yang sudah ada sebelumnya dan apa yang akan anda kerjakan. Sertakan gambar agar penjelasan anda menjadi lebih baik.
+Sebelum adanya pandemi, perekaman kehadiran perkuliahan dilakukan secara fisik. Ada beberapa cara perekaman kehadiran perkulihan, seperti menggunakan \textit{fingerprint} atau dicatat langsung oleh dosen bagi mahasiswa. Pada masa pandemi ini perekaman kehadiran di UNPAR dilakukan dengan menggunakan aplikasi atau situs web. Cara perekaman kehadiran di UNPAR ini mumbutuhkan waktu lebih agar dapat tercatat perekaman kehadirannya, karena butuh waktu untuk membuka situs web serta perlu memasukan \textit{email} dan \textit{password}. Perekaman kehadiran daring otomatis ini akan menggunakan Selenium WebDriver.
 
-Pada skripsi ini, akan dibuat sebuah perangkat lunak yang dapat menampilkan visualisasi dan simulasi kerumunan orang yang berkunjung ke sebuah museum. Dengan menggunakan perangkat lunak tersebut, pengelola museum dapat mengatur tempat peletakan objek sehingga tidak terjadi kerumunan yang terlalu padat.
-
-Dari berbagai macam teknik yang dapat digunakan untuk melakukan simulasi kerumunan, dipilih dua buah teknik yaitu teknik {\it flow tiles} dan {\it social force model (steering behaviour)}.
-
-Dst, dst, dst, \ldots\ldots\ldots 
-
-Perangkat lunak akan dibuat dengan bantuan {\it framework} OpenSteer. Sebagai studi kasus, museum yang digunakan untuk melakukan simulasi adalah Museum Geologi Bandung.
-
-Dst, dst, dst, \ldots\ldots\ldots 
+Selenium WebDriver adalah sebuah \textit{tools} yang berguna untuk melakukan otomatisasi terhadap web pada browser. Selenium WebDriver ini tersedia untuk bahasa permrograman Ruby, Java, Python, C#, dan JavaScript. Skripsi ini dibuat untuk mahasiswa dapat melakukan perekaman kehadiran dengan satu "klik" . Pengertian dari satu "klik" ini adalah untuk mengurangi waktu yang dibutuhkan mahasiswa berinteraksi dengan aplikasi atau situs web UNPAR, bukan untuk mempercepat waktu agar kehadiran terekam. 
 
 \section{Rumusan Masalah}
 Tuliskan rumusan dari masalah yang akan anda bahas pada skripsi ini. Rumusan masalah biasanya berupa kalimat pertanyaan. Gunakan itemize seperti contoh di bagian Deskripsi Perangkat Lunak.
