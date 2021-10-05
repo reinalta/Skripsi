@@ -44,9 +44,13 @@
 \pagenumbering{arabic}
 
 \section{Deskripsi}
-Sebelum adanya pandemi, perekaman kehadiran perkuliahan dilakukan secara fisik. Ada beberapa cara perekaman kehadiran perkulihan, seperti menggunakan \textit{fingerprint} atau dicatat langsung oleh dosen bagi mahasiswa. Pada masa pandemi ini perekaman kehadiran di UNPAR dilakukan dengan menggunakan aplikasi atau situs web. Cara perekaman kehadiran di UNPAR ini mumbutuhkan waktu lebih agar dapat tercatat perekaman kehadirannya, karena butuh waktu untuk membuka situs web serta perlu memasukan \textit{email} dan \textit{password}. Perekaman kehadiran daring otomatis ini akan menggunakan Selenium WebDriver.
+Perkuliahan di UNPAR biasanya membutuhkan perekaman kehadiran untuk mengetahui kehadiran mahasiswa dan dosen, bagi mahasiswa UNPAR perekaman kehadiran biasanya dilakukan dengan melakukan tanda tangan pada daftar kehadiran dan dicatat langsung oleh dosen yang memanggil mahasiswanya, sedangkan bagi dosen UNPAR perekaman kehadiran dilakukan dengan menggunakan  \textit{fingerprint}. Waktu yang dibutuhkan sekitar kurang dari 5 detik untuk perekaman kehadiran.
 
-Selenium WebDriver adalah sebuah \textit{tools} yang berguna untuk melakukan otomatisasi terhadap web pada browser. Selenium WebDriver ini tersedia untuk bahasa permrograman Ruby, Java, Python, C\#, dan JavaScript. Skripsi ini dibuat untuk mahasiswa dapat melakukan perekaman kehadiran dengan satu "klik". Pengertian dari satu "klik" ini adalah untuk mengurangi waktu yang dibutuhkan mahasiswa berinteraksi dengan aplikasi atau situs web UNPAR, bukan untuk mempercepat waktu agar kehadiran terekam. 
+Pada tahun 2020 terjadi pandemi Covid-19 di seluruh negara. Pandemi Covid-19 masuk ke Indonesia pada awal bulan Maret tahun 2020. Covid-19 adalah penyakit yang disebabkan oleh virus \textit{severe acute respiratory syndrome coronavirus 2} (SARS-CoV-2). Penularan virus Covid-19 terjadi saat seseorang menyentuh barang yang sudah terkontaminasi oleh droplet orang yang terkena virus Covid-19 atau terkena droplet orang lain saat berinteraksi langsung dengan orang yang terkena virus Covid-19.  Akibat pandemi Covid-19 yang dapat menular ini, maka hampir seluruh kegiatan di Indonesia dilakukan secara daring untuk mengurangi interaksi orang secara langsung yang dapat meningkatkan angka penularan virus tersebut. 
+
+Pembelajaran secara daring diberlakukan oleh UNPAR di akhir bulan Maret untuk seluruh kegiatan perkuliahan demi mencegah penularan virus Covid-19. Akibat diberlakukannya pembelajaran secara daring, maka perekaman kehadiran di UNPAR dilakukan dengan menggunakan aplikasi atau situs web milik UNPAR. Cara perekaman kehadiran secara daring di UNPAR ini mumbutuhkan waktu lebih agar dapat tercatat perekaman kehadirannya, karena butuh waktu untuk membuka situs web serta perlu memasukan \textit{email} dan \textit{password} hingga akhirnya melakukan perekaman kehadiran. 
+
+Pembuatan Perekaman kehadiran daring otomatis ini akan menggunakan Selenium WebDriver. Selenium WebDriver adalah sebuah \textit{tools} yang berguna untuk melakukan otomatisasi terhadap web pada browser. Selenium WebDriver ini tersedia untuk bahasa permrograman Ruby, Java, Python, C\#, dan JavaScript. Skripsi ini dibuat untuk mahasiswa dan dosen dapat melakukan perekaman kehadiran dengan satu "klik" dan ingin menyamai waktu perekaman kehadiran secara normal(sebelum terjadi pandemi Covid-19). Pengertian dari satu "klik" ini adalah untuk mengurangi waktu yang dibutuhkan mahasiswa berinteraksi dengan aplikasi atau situs web UNPAR, bukan untuk mempercepat waktu agar kehadiran terekam. 
 
 \section{Rumusan Masalah}
 Rumusan masalah yang akan dibahas di skripsi ini adalah sebagai berikut :
@@ -71,7 +75,7 @@ Tujuan yang ingin dicapai dari penulisan skripsi ini sebagai berikut :
 \section{Deskripsi Perangkat Lunak}
 Perangkat lunak akhir yang akan dibuat memiliki fitur minimal sebagai berikut:
 \begin{itemize}
-	\item Membuka web secara otomatis.
+	\item Membuka web browser secara otomatis.
 	\item Membuka Student Portal UNPAR secara otomatis.
 	\item Memasukan \textit{username} dan \textit{password}.
 	\item Melakukan rekam kehadiran.
