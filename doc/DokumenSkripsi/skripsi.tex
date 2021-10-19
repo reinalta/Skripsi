@@ -1,4 +1,4 @@
-%% .tex
+%% skripsi.tex
 %% Copyright 2011-2020 Lionov W.
 %%
 %% This file is part of the 'Template Skripsi/Tugas Akhir FTIS UNPAR'
@@ -79,10 +79,10 @@
 \newcommand{\vtextup}[3]{\IfStrEq{\vmode}{template}{\newcommand{#1}{\uppercase{\rtext{#2}}#3}}{\newcommand{#1}{\uppercase{#2}}}}
 
 %default data prodi
-\newcommand{\vprodiINA}{TEKNIK INFORMATIKA}
-\newcommand{\vprodiENG}{INFORMATICS}
-\newcommand{\vstaINA}{SKRIPSI} 
-\newcommand{\vstaENG}{UNDERGRADUATE THESIS}
+\newcommand{\vprodiINA}{{\small <<MATEMATIKA/FISIKA/TEKNIK INFORMATIKA>>}}
+\newcommand{\vprodiENG}{\rtext{<<MATHEMATICS/PHYSICS/INFORMATICS>>}}
+\newcommand{\vstaINA}{\rtext{<<SKRIPSI/TUGAS AKHIR>>}} 
+\newcommand{\vstaENG}{\rtext{<<FINAL PROJECT/UNDERGRADUATE THESIS>>}}
 \newcommand{\vkaprodi}{<<Ketua Program Studi>>}
   
 %data kaprodi 
@@ -281,15 +281,15 @@
 	\begin{center}
 		{\Large \textbf{%
 		\vstaINA\\\vspace{1.5cm}
-		\ Perekaman Kehadiran Daring Otomatis\\\vspace{2.5cm}
+		\vjudulINA\\\vspace{2.5cm}
 		\includegraphics{Logo-UNPAR}\\\vspace{1cm}
-		\uppercase{Reinalta Sugianto}\\\vspace{0.5cm}
-		NPM: 2017730035\\
+		\uppercase{\vnama}\\\vspace{0.5cm}
+		NPM: \vnpm\\
 		\vfill
 		PROGRAM STUDI \vprodiINA\\
 		FAKULTAS TEKNOLOGI INFORMASI DAN SAINS\\
 		UNIVERSITAS KATOLIK PARAHYANGAN\\
-		\ 2022 
+		\vtahun 
 		}}
 	\end{center}
 	\cleardoublepage
@@ -300,10 +300,10 @@
 	\begin{center}
 		{\Large \textbf{%
 		\vstaENG\\\vspace{1.5cm}
-		\ Automatic Online Attendance Recording \\\vspace{2.5cm}
+		\vjudulENG\\\vspace{2.5cm}
 		\includegraphics{Logo-UNPAR}\\\vspace{1cm}
-		\uppercase{Reinalta Sugianto}\\\vspace{0.5cm}
-		NPM: 2017730035 \\
+		\uppercase{\vnama}\\\vspace{0.5cm}
+		NPM: \vnpm \\
 		\vfill
 		DEPARTMENT OF \vprodiENG \\
 		%mencegah overfull dan memaksa nama fakultas dalam satu baris
@@ -312,7 +312,7 @@
 		FACULTY OF INFORMATION TECHNOLOGY AND SCIENCES\\
 		\fontdimen2\font=\oridim
 		PARAHYANGAN CATHOLIC UNIVERSITY\\
-		\ 2022 
+		\vtahun 
 		}}
 	\end{center}
 	\cleardoublepage
