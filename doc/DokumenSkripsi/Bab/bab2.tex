@@ -184,6 +184,32 @@ Selenium 4 menghadirkan \textit{Relative Locator} yang sebelumnya disebut \texti
 	\end{lstlisting}
 \end{enumerate}	
 
+\subsection{Waits}
+WebDriver secara umum dapat dikatakan memiliki API pemblokiran. Karena ini adalah \textit{library} di luar proses yang menginstruksikan browser apa yang harus dilakukan, dan karena platform web secara intrinsik memiliki sifat asinkron, WebDriver tidak melacak status document object model (DOM) yang aktif dan real-time. Selenium WebDriver memiliki tiga tipe waits:
+\begin{enumerate}
+	\item Implicit wait: memberi tahu WebDriver untuk melakukan polling DOM selama jangka waktu tertentu ketika mencoba menemukan elemen atau elemen jika tidak segera tersedia. Pengaturan default adalah 0, artinya dinonaktifkan. Setelah disetel, penantian implisit disetel untuk masa pakai sesi.
+	\begin{lstlisting}[language=python, caption=Contoh kode Implicit wait, label=kode:2:implicit]
+		driver = Firefox()
+		driver.implicitly_wait(10)
+		driver.get("http://somedomain/url_that_delays_loading")
+		my_dynamic_element = driver.find_element(By.ID, "myDynamicElement")
+	\end{lstlisting}
+	\item Explicit wait: mengizinkan kode untuk menghentikan eksekusi program, atau membekukan \textit{thread}, hingga suatu kondisi dapat teratasi. Kondisi ini dipanggil dengan frekuensi tertentu sampai batas waktu tunggu terlewati.
+	\begin{lstlisting}[language=python, caption=Contoh kode Explicit wait, label=kode:2:explicit]
+		from selenium.webdriver.support.ui import WebDriverWait
+		
+		driver.navigate("file:///race_condition.html")
+		el = WebDriverWait(driver).until(lambda d: d.find_element_by_tag_name("p"))
+		assert el.text == "Hello from JavaScript!"
+	\end{lstlisting}
+	\item Fluent wait: menentukan jumlah waktu maksimum untuk menunggu suatu kondisi, serta frekuensi untuk memeriksa kondisi tersebut.
+	\begin{lstlisting}[language=python, caption=Contoh kode FluentWait, label=kode:2:FluentWait]
+		driver = Firefox()
+		driver.get("http://somedomain/url_that_delays_loading")
+		wait = WebDriverWait(driver, 10, poll_frequency=1, ignored_exceptions=[ElementNotVisibleException, ElementNotSelectableException])
+		element = wait.until(EC.element_to_be_clickable((By.XPATH, "//div")))
+	\end{lstlisting}
+\end{enumerate}
 
 
 
