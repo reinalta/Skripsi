@@ -112,13 +112,36 @@ Pada Gambar \ref{fig:studpor_home_2018} adalah tampilan awal ketika masuk ke hal
 
 \section{Selenium}
 \label{sec:selenium}
-Selenium adalah \textit{open-source} \textit{framework} pengujian otomatisasi untuk aplikasi web\cite{selenium}. Selenium ini adalah WebDriver yang merupakan sebuah \textit{interface} untuk menulis suatu instruksi yang dapat dijalankan secara otomatis dan bergantian pada \textit{browser}. Otomatisasi pengujian situs web dapat menggunakan API WebDriver. WebDriver menggunakan API otomatisasi \textit{browser} yang disediakan oleh vendor \textit{browser} untuk mengontrol \textit{browser} dan melakukan pengujian. API WebDriver ini seolah-olah membuat pengguna secara langsung mengoperasi \textit{browser}, padahal dijalankan secara otomatis langsung oleh \textit{API} WebDriver tersebut. Selenium WebDriver adalah sebuah \textit{tools} yang berguna untuk melakukan otomatisasi terhadap web pada \textit{browser}. Selenium WebDriver ini tersedia untuk bahasa pemrograman Ruby, Java, Python, C\#, dan JavaScript. 
+Selenium adalah \textit{open-source} \textit{framework} pengujian otomatisasi untuk aplikasi web\cite{selenium}. Selenium ini adalah WebDriver yang merupakan sebuah \textit{interface} untuk menulis suatu instruksi yang dapat dijalankan secara otomatis dan bergantian pada \textit{browser}.  Selenium WebDriver adalah sebuah \textit{tools} yang berguna untuk melakukan otomatisasi terhadap web pada \textit{browser}. Selenium WebDriver menggunakan API otomatisasi \textit{browser} yang disediakan oleh vendor \textit{browser} untuk mengontrol \textit{browser} dan melakukan pengujian. API WebDriver ini seolah-olah membuat pengguna secara langsung mengoperasi \textit{browser}, padahal dijalankan secara otomatis langsung oleh \textit{API} WebDriver tersebut. Selenium WebDriver ini tersedia untuk bahasa pemrograman Ruby, Java, Python, C\#, dan JavaScript. 
 
-\subsection{Navigasi}
-Hal pertama untuk menggunakan WebDriver adalah melakukan navigasi ke situs web. Cara normal untuk melakukan navigasi adalah dengan \textit{method} \textit{get}().
-\begin{lstlisting}[language=python, caption=Contoh kode untuk membuka situs web, label=kode:2:navigate]
-	driver.get("https://selenium.dev")
-\end{lstlisting}
+\subsection{Navigasi Browser}
+Terdapat beberapa navigasi browser:
+\begin{enumerate}
+	\item Navigate to: hal pertama untuk menggunakan WebDriver adalah melakukan navigasi ke situs web.
+	\begin{lstlisting}[language=python, caption=Contoh kode Navigate to, label=kode:2:navigate]
+		driver.get("https://selenium.dev")
+	\end{lstlisting}
+	\item Get current URL: untuk membaca URL saat ini dari alamat \textit{browser}.
+	\begin{lstlisting}[language=python, caption=Contoh kode Get current URL, label=kode:2:current]
+		driver.current_url
+	\end{lstlisting}
+	\item Back: menekan tombol kembali \textit{browser}.
+	\begin{lstlisting}[language=python, caption=Contoh kode Back, label=kode:2:back]
+		driver.back()
+	\end{lstlisting}
+	\item Forward: menekan tombol maju \textit{browser}.
+	\begin{lstlisting}[language=python, caption=Contoh kode Forward, label=kode:2:forward]
+		driver.forward()
+	\end{lstlisting}
+	\item Refresh: melakukan \textit{refresh} halaman.
+	\begin{lstlisting}[language=python, caption=Contoh kode Refresh, label=kode:2:refresh]
+		driver.refresh()
+	\end{lstlisting}
+	\item Get title: untuk dapat membaca judul halaman saat ini pada \textit{browser}
+	\begin{lstlisting}[language=python, caption=Contoh kode Get title, label=kode:2:title]
+		driver.title
+	\end{lstlisting}
+\end{enumerate}
 
 \subsection{Menemukan elemen}
 Salah satu teknik mendasar untuk dipelajari saat menggunakan WebDriver adalah cara menemukan elemen di halaman web. WebDriver menawarkan sejumlah tipe pemilih bawaan, di antaranya menemukan elemen dengan atribut ID.
