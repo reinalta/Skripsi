@@ -188,105 +188,130 @@ Salah satu teknik mendasar untuk dipelajari saat menggunakan WebDriver adalah ca
 \begin{enumerate}
 	\item Id : Menemukan elemen yang atribut ID-nya cocok dengan nilai pencarian.
 	\begin{lstlisting}[language=python, caption=Contoh kode untuk menemukan elemen dengan atribut ID, label=kode:2:elemenid]
+		from selenium import webdriver
 		from selenium.webdriver.common.by import By
 		driver = webdriver.Chrome(executable_path='D:\Selenium\chromedriver.exe')
 		url = "https://selenium.dev"
+		driver.get(url)
 		driver.find_element(By.ID, "cheese")	
 		driver.find_element_by_id("cheese")
 	\end{lstlisting}
-	Pada Kode \ref{kode:2:elemenid} baris 4 atau 5 merupakan contoh kode yang dapat digunakan untuk menemukan elemen berdasarkan atribut ID dengan nama id ``cheese'' dari situs web \url{https://selenium.dev}. 
+	Pada Kode \ref{kode:2:elemenid} baris 6 atau 7 merupakan contoh kode yang dapat digunakan untuk menemukan elemen berdasarkan atribut ID dengan nama id ``cheese'' dari situs web \url{https://selenium.dev}. 
 
 	\item \textit{Class name}: Menemukan elemen yang nama kelasnya berisi nilai pencarian.
 	\begin{lstlisting}[language=python, caption=Contoh kode untuk menemukan elemen dengan \textit{class name}, label=kode:2:elemenclass]
+		from selenium import webdriver
 		from selenium.webdriver.common.by import By
 		driver = webdriver.Chrome(executable_path='D:\Selenium\chromedriver.exe')
 		url = "https://selenium.dev"
+		driver.get(url)
 		kelas = driver.find_elements(By.CLASS_NAME, "text-center")
 	\end{lstlisting}
-	Pada Kode \ref{kode:2:elemenclass} baris 4 merupakan contoh kode untuk mencari elemen dengan \textit{class name} ``text-center'' dan disimpan dalam \textit{string} kelas.
+	Pada Kode \ref{kode:2:elemenclass} baris 6 merupakan contoh kode untuk mencari elemen dengan \textit{class name} ``text-center'' dan disimpan dalam \textit{string} kelas.
 	
 	\item \textit{CSS selector}: Menemukan elemen yang cocok dengan pemilihan \textit{Cascading Style Sheets} (CSS). Pemilihan pada CSS adalah pola yang digunakan untuk memilih elemen dengan \textit{style} yang diinginkan .
 	\begin{lstlisting}[language=python, caption=Contoh kode untuk menemukan elemen dengan \textit{CSS selector}, label=kode:2:elemencss]
+		from selenium import webdriver
 		from selenium.webdriver.common.by import By
 		driver = webdriver.Chrome(executable_path='D:\Selenium\chromedriver.exe')
 		url = "https://selenium.dev"
+		driver.get(url)
 		select = driver.find_element(By.CSS_SELECTOR,"#selenium_logo")
 	\end{lstlisting}
-	Pada Kode \ref{kode:2:elemencss} baris 4 merupakan contoh kode yang disimpan dalam \textit{string} \textit{select} untuk mencari elemen berdasarkan pemilihan CSS dengan mengambil elemen dengan id ``selenium\_logo''.
+	Pada Kode \ref{kode:2:elemencss} baris 6 merupakan contoh kode yang disimpan dalam \textit{string} \textit{select} untuk mencari elemen berdasarkan pemilihan CSS dengan mengambil elemen dengan id ``selenium\_logo''.
 	
 	\item Name: Menemukan elemen yang atribut \textit{name} yang cocok dengan nilai pencarian. 
 	\begin{lstlisting}[language=python, caption=Contoh kode untuk menemukan elemen dengan atribut nama, label=kode:2:elemenname]
+		from selenium import webdriver
 		from selenium.webdriver.common.by import By
 		driver = webdriver.Chrome(executable_path='D:\Selenium\chromedriver.exe')
 		url = "https://www.facebook.com/"
+		driver.get(url)
 		nama = driver.find_element(By.NAME,"email")
 	\end{lstlisting}
-	Pada Kode \ref{kode:2:elemenname} baris 4 mencari elemen dari atribut namanya dari situs web \url{https://www.facebook.com/} dengan atribut namanya adalah ``email'' dan disimpan dalam \textit{string} nama.
+	Pada Kode \ref{kode:2:elemenname} baris 6 mencari elemen dari atribut namanya dari situs web \url{https://www.facebook.com/} dengan atribut namanya adalah ``email'' dan disimpan dalam \textit{string} nama.
 	
-	\item link text: Menemukan elemen \textit{link} yang teksnya terlihat cocok dengan nilai pencarian.
+	\item Link text: Menemukan elemen \textit{link} yang teksnya terlihat cocok dengan nilai pencarian.
 	\begin{lstlisting}[language=python, caption=Contoh kode untuk menemukan elemen dengan \textit{link text}, label=kode:2:elemenlink]
+		from selenium import webdriver
 		from selenium.webdriver.common.by import By
 		driver = webdriver.Chrome(executable_path='D:\Selenium\chromedriver.exe')
 		url = "https://selenium.dev"
+		driver.get(url)
 		nama = driver.find_element(By.LINK_TEXT, "Documentation")
 	\end{lstlisting}
-	Pada Kode \ref{kode:2:elemenlink} baris 4 mencari elemen \textit{link} yang dengan nama teksnya adalah ``Documentation'' dari situs web \url{https://selenium.dev}
+	Pada Kode \ref{kode:2:elemenlink} baris 6 mencari elemen \textit{link} yang dengan nama teksnya adalah ``Documentation'' dari situs web \url{https://selenium.dev}
 	
-	\item partial link text: Menemukan elemen \textit{link} yang teksnya terlihat berisi nilai pencarian. Jika beberapa elemen cocok, hanya yang pertama yang akan dipilih.
+	\item Partial link text: Menemukan elemen \textit{link} yang teksnya terlihat berisi nilai pencarian. Jika beberapa elemen cocok, hanya yang pertama yang akan dipilih.
 	\begin{lstlisting}[language=python, caption=Contoh kode untuk menemukan elemen dengan \textit{partial link text}, label=kode:2:elemenpartial]
+		from selenium import webdriver
 		from selenium.webdriver.common.by import By
 		driver = webdriver.Chrome(executable_path='D:\Selenium\chromedriver.exe')
 		url = "https://selenium.dev"
+		driver.get(url)
 		nama = driver.find_element(By.PARTIAL_LINK_TEXT, "About Selenium")
 	\end{lstlisting}
-	Pada Kode \ref{kode:2:elemenpartial} baris 4 mencari elemen \textit{link} yang dengan nama teksnya adalah ``About Selenium'' dari situs web \url{https://selenium.dev}, namun ketika ada beberapa elemen yang cocok dengan nama teks yang dicari maka akan diambil yang pertamanya saja.
+	Pada Kode \ref{kode:2:elemenpartial} baris 6 mencari elemen \textit{link} yang dengan nama teksnya adalah ``About Selenium'' dari situs web \url{https://selenium.dev}, namun ketika ada beberapa elemen yang cocok dengan nama teks yang dicari maka akan diambil yang pertamanya saja.
 	
-	\item tag name: Menemukan elemen yang nama tagnya cocok dengan nilai pencarian.
+	\item Tag name: Menemukan elemen yang nama tagnya cocok dengan nilai pencarian.
 	\begin{lstlisting}[language=python, caption=Contoh kode untuk menemukan elemen dengan \textit{tag name}, label=kode:2:elementag]
+		from selenium import webdriver
 		from selenium.webdriver.common.by import By
 		driver = webdriver.Chrome(executable_path='D:\Selenium\chromedriver.exe')
 		url = "https://selenium.dev"
+		driver.get(url)
 		tag = driver.find_element(By.TAG_NAME, "h1")
 	\end{lstlisting}
-	Pada Kode \ref{kode:2:elementag} baris 4 mencari elemen yang nama tagnya adalah ``h1'' dari situs web \url{https://selenium.dev} yang disimpan dengan \textit{string} \textit{tag}.
+	Pada Kode \ref{kode:2:elementag} baris 6 mencari elemen yang nama tagnya adalah ``h1'' dari situs web \url{https://selenium.dev} yang disimpan dengan \textit{string} \textit{tag}.
 	
 	\item XPath: Menemukan elemen yang cocok dengan ekspresi \textit{XML Path Language} (XPath).
 	\begin{lstlisting}[language=python, caption=Contoh kode untuk menemukan elemen dengan ekspresi XPath, label=kode:2:elemenxpath]
+		from selenium import webdriver
 		from selenium.webdriver.common.by import By
 		driver = webdriver.Chrome(executable_path='D:\Selenium\chromedriver.exe')
 		url = "https://selenium.dev"
+		driver.get(url)
 		contoh1 = driver.find_element(By.XPATH, "//*[@id='td-cover-block-0']/div/div/div/div/h1")
 		contoh2 = driver.find_element(By.XPATH, "/html/body/div/main/section[1]/div/div/div/div/h1")
 	\end{lstlisting}
-	Pada Kode \ref{kode:2:elemenxpath} baris 4 mencari elemen dengan XPath mulai dari nama id dari element yang dicari adalah `td-cover-block-0', lalu diarahkan hingga tempat elemen yang dicari itu berada, dan disimpan di \textit{string} dengan nama ``scontoh1''. Pada baris 5 mencari elemen dengan XPath yang mulai dari struktur webnya dari atas hingga menuju tempat elemen itu berada dan disimpen di \textit{string} dengan nama ``contoh2''.
+	Pada Kode \ref{kode:2:elemenxpath} baris 6 mencari elemen dengan XPath mulai dari nama id dari element yang dicari adalah `td-cover-block-0', lalu diarahkan hingga tempat elemen yang dicari itu berada, dan disimpan di \textit{string} dengan nama ``scontoh1''. Pada baris 7 mencari elemen dengan XPath yang mulai dari struktur webnya dari atas hingga menuju tempat elemen itu berada dan disimpen di \textit{string} dengan nama ``contoh2''.
 
 \end{enumerate}
 
 \subsection{Waits}
-WebDriver secara umum dapat dikatakan memiliki API pemblokiran. Karena ini adalah \textit{library} di luar proses yang menginstruksikan browser apa yang harus dilakukan, dan karena platform web secara intrinsik memiliki sifat asinkron, WebDriver tidak melacak status document object model (DOM) yang aktif dan real-time. Selenium WebDriver memiliki tiga tipe waits:
+WebDriver secara umum dapat dikatakan memiliki API pemblokiran. Karena ini adalah \textit{library} di luar proses yang menginstruksikan browser apa yang harus dilakukan dan karena platform web secara intrinsik memiliki sifat asinkron atau tidak dilakukan secara \textit{real time}, maka WebDriver tidak melacak status \textit{Document Object Model} (DOM) yang aktif dan \textit{real time}.
 \begin{enumerate}
-	\item Implicit wait: memberi tahu WebDriver untuk melakukan polling DOM selama jangka waktu tertentu ketika mencoba menemukan elemen atau elemen jika tidak segera tersedia. Pengaturan default adalah 0, artinya dinonaktifkan. Setelah disetel, penantian implisit disetel untuk masa pakai sesi.
+	\item Implicit wait: memberi tahu WebDriver untuk melakukan polling DOM selama jangka waktu tertentu ketika mencoba menemukan elemen. Pengaturan awalnya adalah 0, artinya dinonaktifkan. Setelah disetel, maka \textit{wait implicit} disetel untuk masa pakai sesi yang sudah disetel.
 	\begin{lstlisting}[language=python, caption=Contoh kode Implicit wait, label=kode:2:implicit]
-		driver = Firefox()
+		from selenium import webdriver
+		from selenium.webdriver.common.by import By
+		from selenium.webdriver.support.ui import WebDriverWait
+		driver = webdriver.Chrome(executable_path='D:\Selenium\chromedriver.exe')
 		driver.implicitly_wait(10)
-		driver.get("http://somedomain/url_that_delays_loading")
-		my_dynamic_element = driver.find_element(By.ID, "myDynamicElement")
+		url = "https://selenium.dev"
+		driver.get(url)
+		cari = driver.find_element(By.ID, "navbarDropdown")
 	\end{lstlisting}
+	Pada Kode \ref{kode:2:implicit} merupakan contoh kode \textit{implicit wait} dimana pada baris 1 sampai 3 melakukan \textit{import} library yang diperlukan. Baris 4 untuk menjalankan webdriver Google Chrome. Baris 5 merupakan kode \textit{implicit wait} yang dimana kode tersebut memberikan waktu selama 10 detik untuk menemukan elemen yang ingin dicari. Baris 6 \textit{string} dengan nama ``url'' diisi dengan situs web yang akan dituju. Baris 7 menggunakan \textit{method get} yang memanggil \textit{string} dengan nama ``url'' yang sudah berisi situs web yang dituju. Baris 8 adalah untuk menemukan elemen yang dicari dengan id ``navbarDropdown''. Jika selama waktu yang diberikan tidak dapat menemukan elemen yang dicari maka program akan mengeluarkan \textit{output} bahwa elemen yang dicari tidak ditemukan.
+	
 	\item Explicit wait: mengizinkan kode untuk menghentikan eksekusi program, atau membekukan \textit{thread}, hingga suatu kondisi dapat teratasi. Kondisi ini dipanggil dengan frekuensi tertentu sampai batas waktu tunggu terlewati.
 	\begin{lstlisting}[language=python, caption=Contoh kode Explicit wait, label=kode:2:explicit]
+		from selenium import webdriver
+		from selenium.webdriver.common.by import By
 		from selenium.webdriver.support.ui import WebDriverWait
-		
-		driver.navigate("file:///race_condition.html")
-		el = WebDriverWait(driver).until(lambda d: d.find_element_by_tag_name("p"))
-		assert el.text == "Hello from JavaScript!"
+		from selenium.webdriver.support import expected_conditions as EC
+		driver = webdriver.Chrome(executable_path='D:\Selenium\chromedriver.exe')
+		url = "https://selenium.dev"
+		driver.get(url)	
+		try:
+			element = WebDriverWait(driver, 10).until(
+			EC.presence_of_element_located((By.ID, "navbarDropdown"))
+			)
+		finally:
+			driver.quit()
 	\end{lstlisting}
-	\item Fluent wait: menentukan jumlah waktu maksimum untuk menunggu suatu kondisi, serta frekuensi untuk memeriksa kondisi tersebut.
-	\begin{lstlisting}[language=python, caption=Contoh kode FluentWait, label=kode:2:FluentWait]
-		driver = Firefox()
-		driver.get("http://somedomain/url_that_delays_loading")
-		wait = WebDriverWait(driver, 10, poll_frequency=1, ignored_exceptions=[ElementNotVisibleException, ElementNotSelectableException])
-		element = wait.until(EC.element_to_be_clickable((By.XPATH, "//div")))
-	\end{lstlisting}
+	Pada Kode \ref{kode:2:explicit} merupakan contoh kode \textit{explicit wait} dimana pada baris 1 sampai 4 melakukan \textit{import} library yang diperlukan. Baris 5 untuk menjalankan webdriver Google Chrome. Baris 6 \textit{string} dengan nama ``url'' diisi dengan situs web yang akan dituju. Baris 7 menggunakan \textit{method get} yang memanggil \textit{string} dengan nama ``url'' yang sudah berisi situs web yang dituju. Baris berikutnya adalah selenium akan menunggu selama 10 detik untuk menemukan elemen yang sesuai dengan id ``navbarDropdown''. Jika berhasil menemukan elemen yang dicari maka akan langsung masuk kondisi kode finally pada baris 11 dan langsung keluar dari webdriver Google Chrome, Jika tidak ada elemen yang ditemukan selama waktu yang diberikan maka program memberikan \textit{output} \textit{TimeoutException} dan akan masuk ke kode baris 11 serta langsung keluar dari webdriver Google Chrome.
+	
 \end{enumerate}
 
 
