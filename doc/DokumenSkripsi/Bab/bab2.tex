@@ -258,10 +258,9 @@ Salah satu teknik mendasar untuk dipelajari saat menggunakan WebDriver adalah ca
 		contoh1 = driver.find_element(By.XPATH, "//*[@id='td-cover-block-0']/div/div/div/div/h1")
 		contoh2 = driver.find_element(By.XPATH, "/html/body/div/main/section[1]/div/div/div/div/h1")
 	\end{lstlisting}
-	Pada Kode \ref{kode:2:elemenxpath} baris 4 mencari elemen dengan XPath mulai dari nama id dari element yang dicari adalah `td-cover-block-0', lalu diarahkan hingga tempat elemen yang dicari itu berada, dan disimpan di \textit{string} contoh1. Pada baris 5 mencari elemen dengan XPath yang mulai dari struktur webnya dari atas hingga menuju tempat elemen itu berada dan disimpen di \textit{string} contoh2.
+	Pada Kode \ref{kode:2:elemenxpath} baris 4 mencari elemen dengan XPath mulai dari nama id dari element yang dicari adalah `td-cover-block-0', lalu diarahkan hingga tempat elemen yang dicari itu berada, dan disimpan di \textit{string} dengan nama ``scontoh1''. Pada baris 5 mencari elemen dengan XPath yang mulai dari struktur webnya dari atas hingga menuju tempat elemen itu berada dan disimpen di \textit{string} dengan nama ``contoh2''.
 
 \end{enumerate}
-
 
 \subsection{Waits}
 WebDriver secara umum dapat dikatakan memiliki API pemblokiran. Karena ini adalah \textit{library} di luar proses yang menginstruksikan browser apa yang harus dilakukan, dan karena platform web secara intrinsik memiliki sifat asinkron, WebDriver tidak melacak status document object model (DOM) yang aktif dan real-time. Selenium WebDriver memiliki tiga tipe waits:
