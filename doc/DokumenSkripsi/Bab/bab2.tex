@@ -19,7 +19,7 @@ Pada Gambar \ref{fig:studpor_home_2018} adalah tampilan awal ketika masuk ke hal
 	\item Fitur mengisi form rencana semester (FRS) atau melakukan perubahan rencana studi (PRS) secara online \\
 	Panduan untuk melakukan FRS/PRS online.
 	\begin{enumerate}
-		\item Masuk ke halaman \url{https://studentportal.unpar.ac.id/} lalu klik tombol ``\textit{Login}'' yang dapat dilihat pada Gambar \ref{fig:studpor_home_2018}
+		\item Masuk ke halaman \url{https://studentportal.unpar.ac.id/} lalu klik tombol ``\textit{Login}'' yang dapat dilihat pada Gambar \ref{fig:studpor_home_2018}.
 		\item Lakukan ``\textit{Login}'' dengan memasukan email dan password mahasiswa UNPAR pada halaman sso.
 		\begin{figure}[H]
 			\centering
@@ -208,7 +208,7 @@ Salah satu teknik mendasar untuk dipelajari saat menggunakan WebDriver adalah ca
 		kelas = driver.find_elements(By.CLASS_NAME, "text-center")
 	\end{lstlisting}
 	Pada Kode \ref{kode:2:elemenclass} baris 6 merupakan contoh kode untuk mencari elemen dengan \textit{class name} ``text-center'' dan disimpan dalam \textit{string} kelas.
-	
+
 	\item \textit{CSS selector}: Menemukan elemen yang cocok dengan pemilihan \textit{Cascading Style Sheets} (CSS). Pemilihan pada CSS adalah pola yang digunakan untuk memilih elemen dengan \textit{style} yang diinginkan .
 	\begin{lstlisting}[language=python, caption=Contoh kode untuk menemukan elemen dengan \textit{CSS selector}, label=kode:2:elemencss]
 		from selenium import webdriver
@@ -218,8 +218,8 @@ Salah satu teknik mendasar untuk dipelajari saat menggunakan WebDriver adalah ca
 		driver.get(url)
 		select = driver.find_element(By.CSS_SELECTOR,"#selenium_logo")
 	\end{lstlisting}
-	Pada Kode \ref{kode:2:elemencss} baris 6 merupakan contoh kode yang disimpan dalam \textit{string} \textit{select} untuk mencari elemen berdasarkan pemilihan CSS dengan mengambil elemen dengan id ``selenium\_logo''.
-	
+	Pada Kode \ref{kode:2:elemencss} baris 6 merupakan contoh kode yang disimpan dalam \textit{string} \textit{select} untuk mencari elemen berdasarkan pemilihan CSS dengan mengambil elemen dengan id ``selenium\_logo''.\\ \\
+
 	\item Name: Menemukan elemen yang atribut \textit{name} yang cocok dengan nilai pencarian. 
 	\begin{lstlisting}[language=python, caption=Contoh kode untuk menemukan elemen dengan atribut nama, label=kode:2:elemenname]
 		from selenium import webdriver
@@ -230,7 +230,7 @@ Salah satu teknik mendasar untuk dipelajari saat menggunakan WebDriver adalah ca
 		nama = driver.find_element(By.NAME,"email")
 	\end{lstlisting}
 	Pada Kode \ref{kode:2:elemenname} baris 6 mencari elemen dari atribut namanya dari situs web \url{https://www.facebook.com/} dengan atribut namanya adalah ``email'' dan disimpan dalam \textit{string} nama.
-	
+
 	\item Link text: Menemukan elemen \textit{link} yang teksnya terlihat cocok dengan nilai pencarian.
 	\begin{lstlisting}[language=python, caption=Contoh kode untuk menemukan elemen dengan \textit{link text}, label=kode:2:elemenlink]
 		from selenium import webdriver
@@ -241,7 +241,7 @@ Salah satu teknik mendasar untuk dipelajari saat menggunakan WebDriver adalah ca
 		nama = driver.find_element(By.LINK_TEXT, "Documentation")
 	\end{lstlisting}
 	Pada Kode \ref{kode:2:elemenlink} baris 6 mencari elemen \textit{link} yang dengan nama teksnya adalah ``Documentation'' dari situs web \url{https://selenium.dev}
-	
+
 	\item Partial link text: Menemukan elemen \textit{link} yang teksnya terlihat berisi nilai pencarian. Jika beberapa elemen cocok, hanya yang pertama yang akan dipilih.
 	\begin{lstlisting}[language=python, caption=Contoh kode untuk menemukan elemen dengan \textit{partial link text}, label=kode:2:elemenpartial]
 		from selenium import webdriver
