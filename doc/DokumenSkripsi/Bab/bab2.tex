@@ -194,7 +194,7 @@ Salah satu teknik mendasar untuk dipelajari saat menggunakan WebDriver adalah ca
 		driver.find_element(By.ID, "cheese")	
 		driver.find_element_by_id("cheese")
 	\end{lstlisting}
-	Pada Kode \ref{kode:2:elemenid} pada baris 4 atau 5 merupakan contoh kode yang dapat digunakan untuk menemukan elemen berdasarkan atribut ID dengan nama id ``cheese'' dari situs web \url{https://selenium.dev}. 
+	Pada Kode \ref{kode:2:elemenid} baris 4 atau 5 merupakan contoh kode yang dapat digunakan untuk menemukan elemen berdasarkan atribut ID dengan nama id ``cheese'' dari situs web \url{https://selenium.dev}. 
 
 	\item \textit{Class name}: Menemukan elemen yang nama kelasnya berisi nilai pencarian.
 	\begin{lstlisting}[language=python, caption=Contoh kode untuk menemukan elemen dengan \textit{class name}, label=kode:2:elemenclass]
@@ -203,7 +203,7 @@ Salah satu teknik mendasar untuk dipelajari saat menggunakan WebDriver adalah ca
 		url = "https://selenium.dev"
 		kelas = driver.find_elements(By.CLASS_NAME, "text-center")
 	\end{lstlisting}
-	Pada Kode \ref{kode:2:elemenclass} pada baris 4 merupakan contoh kode untuk mencari elemen dengan \textit{class name} ``text-center'' yang disimpan dalam \textit{string} kelas.
+	Pada Kode \ref{kode:2:elemenclass} baris 4 merupakan contoh kode untuk mencari elemen dengan \textit{class name} ``text-center'' dan disimpan dalam \textit{string} kelas.
 	
 	\item \textit{CSS selector}: Menemukan elemen yang cocok dengan pemilihan \textit{Cascading Style Sheets} (CSS). Pemilihan pada CSS adalah pola yang digunakan untuk memilih elemen dengan \textit{style} yang diinginkan .
 	\begin{lstlisting}[language=python, caption=Contoh kode untuk menemukan elemen dengan \textit{CSS selector}, label=kode:2:elemencss]
@@ -212,13 +212,54 @@ Salah satu teknik mendasar untuk dipelajari saat menggunakan WebDriver adalah ca
 		url = "https://selenium.dev"
 		select = driver.find_element(By.CSS_SELECTOR,"#selenium_logo")
 	\end{lstlisting}
-	Pada Kode \ref{kode:2:elemencss} pada baris 4 merupakan contoh kode yang disimpan dalam \textit{string} \textit{select} untuk mencari elemen berdasarkan pemilihan CSS dengan mengambil elemen dengan id ``selenium\_logo''.
+	Pada Kode \ref{kode:2:elemencss} baris 4 merupakan contoh kode yang disimpan dalam \textit{string} \textit{select} untuk mencari elemen berdasarkan pemilihan CSS dengan mengambil elemen dengan id ``selenium\_logo''.
 	
-	\item name: Menemukan elemen yang atribut NAME-nya cocok dengan nilai pencarian. 
-	\item link text: Menemukan elemen jangkar yang teksnya terlihat cocok dengan nilai pencarian. 
-	\item partial link text: Menemukan elemen jangkar yang teksnya terlihat berisi nilai pencarian. Jika beberapa elemen cocok, hanya yang pertama yang akan dipilih.
+	\item Name: Menemukan elemen yang atribut \textit{name} yang cocok dengan nilai pencarian. 
+	\begin{lstlisting}[language=python, caption=Contoh kode untuk menemukan elemen dengan atribut nama, label=kode:2:elemenname]
+		from selenium.webdriver.common.by import By
+		driver = webdriver.Chrome(executable_path='D:\Selenium\chromedriver.exe')
+		url = "https://www.facebook.com/"
+		nama = driver.find_element(By.NAME,"email")
+	\end{lstlisting}
+	Pada Kode \ref{kode:2:elemenname} baris 4 mencari elemen dari atribut namanya dari situs web \url{https://www.facebook.com/} dengan atribut namanya adalah ``email'' dan disimpan dalam \textit{string} nama.
+	
+	\item link text: Menemukan elemen \textit{link} yang teksnya terlihat cocok dengan nilai pencarian.
+	\begin{lstlisting}[language=python, caption=Contoh kode untuk menemukan elemen dengan \textit{link text}, label=kode:2:elemenlink]
+		from selenium.webdriver.common.by import By
+		driver = webdriver.Chrome(executable_path='D:\Selenium\chromedriver.exe')
+		url = "https://selenium.dev"
+		nama = driver.find_element(By.LINK_TEXT, "Documentation")
+	\end{lstlisting}
+	Pada Kode \ref{kode:2:elemenlink} baris 4 mencari elemen \textit{link} yang dengan nama teksnya adalah ``Documentation'' dari situs web \url{https://selenium.dev}
+	
+	\item partial link text: Menemukan elemen \textit{link} yang teksnya terlihat berisi nilai pencarian. Jika beberapa elemen cocok, hanya yang pertama yang akan dipilih.
+	\begin{lstlisting}[language=python, caption=Contoh kode untuk menemukan elemen dengan \textit{partial link text}, label=kode:2:elemenpartial]
+		from selenium.webdriver.common.by import By
+		driver = webdriver.Chrome(executable_path='D:\Selenium\chromedriver.exe')
+		url = "https://selenium.dev"
+		nama = driver.find_element(By.PARTIAL_LINK_TEXT, "About Selenium")
+	\end{lstlisting}
+	Pada Kode \ref{kode:2:elemenpartial} baris 4 mencari elemen \textit{link} yang dengan nama teksnya adalah ``About Selenium'' dari situs web \url{https://selenium.dev}, namun ketika ada beberapa elemen yang cocok dengan nama teks yang dicari maka akan diambil yang pertamanya saja.
+	
 	\item tag name: Menemukan elemen yang nama tagnya cocok dengan nilai pencarian.
-	\item xpath: Menemukan elemen yang cocok dengan ekspresi XPath.
+	\begin{lstlisting}[language=python, caption=Contoh kode untuk menemukan elemen dengan \textit{tag name}, label=kode:2:elementag]
+		from selenium.webdriver.common.by import By
+		driver = webdriver.Chrome(executable_path='D:\Selenium\chromedriver.exe')
+		url = "https://selenium.dev"
+		tag = driver.find_element(By.TAG_NAME, "h1")
+	\end{lstlisting}
+	Pada Kode \ref{kode:2:elementag} baris 4 mencari elemen yang nama tagnya adalah ``h1'' dari situs web \url{https://selenium.dev} yang disimpan dengan \textit{string} \textit{tag}.
+	
+	\item XPath: Menemukan elemen yang cocok dengan ekspresi \textit{XML Path Language} (XPath).
+	\begin{lstlisting}[language=python, caption=Contoh kode untuk menemukan elemen dengan ekspresi XPath, label=kode:2:elemenxpath]
+		from selenium.webdriver.common.by import By
+		driver = webdriver.Chrome(executable_path='D:\Selenium\chromedriver.exe')
+		url = "https://selenium.dev"
+		contoh1 = driver.find_element(By.XPATH, "//*[@id='td-cover-block-0']/div/div/div/div/h1")
+		contoh2 = driver.find_element(By.XPATH, "/html/body/div/main/section[1]/div/div/div/div/h1")
+	\end{lstlisting}
+	Pada Kode \ref{kode:2:elemenxpath} baris 4 mencari elemen dengan XPath mulai dari nama id dari element yang dicari adalah `td-cover-block-0', lalu diarahkan hingga tempat elemen yang dicari itu berada, dan disimpan di \textit{string} contoh1. Pada baris 5 mencari elemen dengan XPath yang mulai dari struktur webnya dari atas hingga menuju tempat elemen itu berada dan disimpen di \textit{string} contoh2.
+
 \end{enumerate}
 
 
