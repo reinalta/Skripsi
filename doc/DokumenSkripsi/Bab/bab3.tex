@@ -120,8 +120,42 @@ Portal Akademik Mahasiswa Universitas Katolik Parahyangan yang terbaru sejak 202
 	\item Menekan tombol presensi. (belum beres)
 \end{enumerate}
 
-\section{Terjemahan Selenium untuk Alur Perekaman Kehadiran Online }
+\section{Menerjemahkan Perekaman Kehadiran Online ke dalam Selenium}
 \label{sec:terjemah} 
 
 \section{Analisis Program Sejenis}
 \label{sec:pam}  
+Selenium IDE merupakan program \textit{open source} untuk otomatisasi di web. Selenium IDE dapat di \textit{install} di browser, contohnya di Google Chrome yang setelah di \textit{install} akan menjadi \textit{extensions}. \textit{Extensions} di Google Chrome adalah sebuah aplikasi kecil yang dapat dijalankan pada Google Chrome itu sendiri. Berikut ini langkah-langkah untuk melakukan otomatisasi menggunakan Selenium IDE:
+	\begin{enumerate}
+		\item Membuka Selenium Ide yang tersimpan di \textit{Extensions} pada Google Chrome.
+		\item Memilih menu \textit{Record a new test in a new project} (merekam tes baru untuk proyek baru).
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=0.5]{Gambar/menuSeleniumIDE.jpg}
+			\caption{Tampilan Menu Awal Selenium IDE} 
+			\label{fig:menuSeleniumIDE}
+		\end{figure}
+		\item Memasukan nama proyek, lalu tekan tombol ``OK''. 
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=0.5]{Gambar/namaProyek.jpg}
+			\caption{Tampilan Memasukan Nama Proyek} 
+			\label{fig:namaProyek}
+		\end{figure}
+		\item Memasukan situs web, lalu menekan tombol ``START RECORDING''
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=0.5]{Gambar/baseURL.jpg}
+			\caption{Tampilan Memasukan Situs Web} 
+			\label{fig:baseURL}
+		\end{figure}
+		Setelah menekan tombol ``\textit{START RECORDING}'' seperti pada Gambar \ref{fig:baseURL}, maka akan langsung muncul \textit{windows} Google Chrome baru yang langsung menuju situs web yang sudah dimasukan tadi.
+		\item Melakukan apa yang ingin diotomatisasikan di \textit{windows} Google Chrome baru yang sudah menuju situs web hingga selesai dan menutup \textit{windows} Google Chrome.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[scale=0.5]{Gambar/testing.jpg}
+			\caption{Tampilan Otomatisasi pada Selenium IDE} 
+			\label{fig:testing}
+		\end{figure}
+		Pada Gambar \ref{fig:testing} menunjukan hasil yang sudah terekam dari apa yang sudah dilakukan pada situs web yang ingin diotomatisasikan.
+	\end{enumerate}
