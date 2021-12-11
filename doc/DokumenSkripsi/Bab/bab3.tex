@@ -136,7 +136,15 @@ Portal Akademik Mahasiswa Universitas Katolik Parahyangan yang terbaru sejak 202
 
 \section{Cara Menerjemahkan Perekaman Kehadiran Online ke dalam Selenium}
 \label{sec:terjemah} 
-Otomatisasi perekaman kehadiran online ini akan menggunakan selenium, sehingga perlu diterjemahkan dari cara perekaman kehadiran online secara normal ke dalam selenium. Membuka situs web \url{https://studentportal.unpar.ac.id/} menggunakan selenium adalah dengan menggunakan \textit{method get()}. Setiap tombol yang ingin ditekan akan diambil elemennya agar dapat diotomatisasikan dengan selenium. Pada \textit{browser} Google Chrome, cara mendapatkan setiap elemen yang dibutuhkan adalah dengan melakukan \textit{inspect} elemen pada bagian yang ingin diambil elemennya. Elemen yang ingin diambil dapat dilakukan dengan berbagai macam cara seperti yang sudah dijelaskan pada Bab \ref{sec:selenium}, namun yang utama akan dipilih adalah dengan mengambil elemen berdasarkan \textit{CSS selector}, tetapi tidak menutup kemungkinan menggunakan cara yang lain untuk menemukan suatu elemen. Jika mengambil elemen berdasarkan \textit{CSS selector} tidak perlu takut jika struktur HTML atau nama elemen diubah, karena \textit{CSS selector} sangat jarang diubah saat melakukan pembaharuan pada suatu situs web. Dalam melakukan otomatisasi perekaman kehadiran online pasti perlu memasukan \textit{email} dan \textit{password}, untuk memasukan hal tersebut perlu menggunakan \textit{method sendKeys()}. Memasukan \textit{email} dan \textit{password} ini tidak langsung dimasukan ke dalam programnya, akan tetapi melalui file konfigurasi yang diisi \textit{email} dan \textit{password}, lalu dipanggil ke kode programnya. 
+Otomatisasi perekaman kehadiran online ini akan menggunakan selenium, sehingga perlu diterjemahkan dari cara perekaman kehadiran online secara normal ke dalam selenium. Membuka situs web \url{https://studentportal.unpar.ac.id/} menggunakan selenium adalah dengan menggunakan \textit{method get()}. Setiap tombol yang ingin ditekan akan diambil elemennya agar dapat diotomatisasikan dengan selenium. Pada \textit{browser} Google Chrome, cara mendapatkan setiap elemen yang dibutuhkan adalah dengan melakukan \textit{inspect} elemen pada bagian yang ingin diambil elemennya. Elemen yang ingin diambil dapat dilakukan dengan berbagai macam cara seperti yang sudah dijelaskan pada Bab \ref{sec:selenium}. Beberapa faktor yang dapat dijadikan acuan untuk memilih cara untuk mengambil elemen dapat dilihat dari sebagai berikut:
+\begin{enumerate}
+	\item Sederhana \\
+	Semakin pendek penulisan \textit{query selector} semakin baik dan stabil, misalnya mengambil elemen dengan \textit{CSS selector} yang namanya ``#username''.
+ 	\item Mudah dimengerti dan dibaca \\
+ 	Menulis \textit{query selector} yang mudah dibaca dan dimengerti sehingga lebih mudah untuk dipahami, contohnya ``#login-button'' yang artinya memilih elemen tombol untuk \textit{login}. Jangan menulis \textit{query selector} yang panjang atau sulit dibaca, contohnya mengambil elemen dengan cara XPath seperti yang sudah ditulish pada Bab \ref{sec:selenium} dengan kode program \ref{kode:2:elemenxpath}.
+\end{enumerate}
+Pemilihan cara pengambilan elemen yang diutamakan adalah dengan mengambil elemen berdasarkan \textit{CSS selector}, tetapi tidak menutup kemungkinan menggunakan cara yang lain untuk menemukan suatu elemen. Jika mengambil elemen berdasarkan \textit{CSS selector} tidak perlu khawatir jika struktur HTML diubah, karena \textit{CSS selector} sangat jarang diubah saat melakukan pembaharuan pada suatu situs web. 
+Dalam melakukan otomatisasi perekaman kehadiran online pasti perlu memasukan \textit{email} dan \textit{password}, sehingga untuk memasukan hal tersebut perlu menggunakan \textit{method sendKeys()}. Memasukan \textit{email} dan \textit{password} ini tidak langsung dimasukan ke dalam programnya, tetapi melalui file konfigurasi yang diisi \textit{email} dan \textit{password}, lalu dipanggil ke kode programnya. 
 
 \section{Analisis Program Sejenis}
 \label{sec:seleniumIDE}  
@@ -150,6 +158,7 @@ Selenium IDE merupakan program \textit{open source} untuk otomatisasi di web. Se
 			\caption{Tampilan Menu Awal Selenium IDE} 
 			\label{fig:menuSeleniumIDE}
 		\end{figure}
+		\newpage
 		\item Memasukan nama proyek, lalu tekan tombol ``OK''. 
 		\begin{figure}[H]
 			\centering
