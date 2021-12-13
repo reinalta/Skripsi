@@ -4,6 +4,9 @@ Bab ini berisi analisis yang digunakan pada skripsi ini, analisis hasil survei p
 
 \section{Analisis Hasil Survei Perekaman Kehadiran Daring dan Luring}
 \label{sec:survei} 
+Survei perekaman kehadiran daring dan luring dilakukan untuk mengetahui berapa lama waktu yang dibutuhkan untuk melakukan perekaman kehadiran secara daring maupun luring. Survei ini diberikan kepada mahasiswa dan dosen Teknik Informatika Universitas Katolik Parahyangan. Hasil survei menunjukan bahwa waktu yang dibutuhkan untuk perekaman kehadiran secara luring lebih cepat bagi para mahasiswa maupun dosen dibandingkan waktu yang dibutuhkan untuk perekaman kehadiran secara daring. 
+
+\subsection{Hasil Survei Mahasiswa}
 Berdasarkan hasil survei yang telah diterima dari 21 orang responden yang merupakan mahasiswa Teknik Informatika Universitas Katolik
 Parahyangan yang terdiri dari mahasiswa angkatan 2017 sampai 2019, dengan pertanyaan yang diajukan kepada responen dan rangkuman jawaban hasil survei sebagai berikut:
 \begin{enumerate}
@@ -41,7 +44,10 @@ Parahyangan yang terdiri dari mahasiswa angkatan 2017 sampai 2019, dengan pertan
 	\end{tabular}\\ \\
 	Jika dihitung rata-rata waktu yang dibutuhkan untuk melakukan perekaman kehadiran luring bagi para mahasiswa adalah 7,95 detik.
 \end{enumerate}
-Sedangkan hasil survei yang telah diterima dari 6 orang responden yang merupakan dosen Teknik Informatika Universitas Katolik Parahyangan, dengan pertanyaan yang diajukan kepada responen dan rangkumana jawaban hasil survei sebagai berikut:
+Kesimpulan dari hasil survei mahasiswa menunjukan bahwa rata-rata waktu yang dibutuhkan secara luring adalah 7,95 detik lebih cepat dibandingkan dengan rata-rata waktu yang dibutuhkan secara daring adalah waktu 63 detik.
+
+\subsection{Hasil Survei Dosen}
+Berdasarkan hasil survei yang telah diterima dari 6 orang responden yang merupakan dosen Teknik Informatika Universitas Katolik Parahyangan, dengan pertanyaan yang diajukan kepada responen dan rangkuman jawaban hasil survei sebagai berikut:
 \begin{enumerate}
 	\item \textbf{Berapa detik perkiraan waktu interaksi yang Anda butuhkan untuk melakukan perekaman kehadiran daring di \url{https://akuhadir.unpar.ac.id} ?}\\
 	Jawaban dari 6 orang responden adalah mulai dari waktu paling cepat 1 detik hingga waktu paling lama 120 detik.\\ \\
@@ -55,7 +61,7 @@ Sedangkan hasil survei yang telah diterima dari 6 orang responden yang merupakan
 		1 orang &  120 detik\\ \hline 
 	\end{tabular}\\ \\
 	Jika dihitung rata-rata waktu yang dibutuhkan untuk melakukan perekaman kehadiran daring bagi para dosen adalah 31,83 detik.
-	
+
 	\item \textbf{Berapa detik perkiraan waktu interaksi yang Anda butuhkan untuk melakukan perekaman kehadiran luring menggunakan metode fingerprint?}\\
 	Jawaban dari 6 orang responden adalah mulai dari waktu paling cepat 1 detik hingga waktu paling lama 90 detik.\\ \\
 	\begin{tabular}{|p{4cm} |p{7cm}|}
@@ -68,7 +74,7 @@ Sedangkan hasil survei yang telah diterima dari 6 orang responden yang merupakan
 	\end{tabular}\\ \\
 	Jika dihitung rata-rata waktu yang dibutuhkan untuk melakukan perekaman kehadiran luring bagi para dosen adalah 24,33 detik.
 \end{enumerate}
-	Hasil survei tersebut menunjukan bahwa waktu yang dibutuhkan untuk perekaman kehadiran secara luring lebih cepat bagi para mahasiswa maupun dosen dibandingkan waktu yang dibutuhkan untuk perekaman kehadiran secara daring. 
+Kesimpulan dari hasil survei dosen menunjukan bahwa rata-rata waktu yang dibutuhkan secara luring adalah 24,33 detik lebih cepat dibandingkan dengan rata-rata waktu yang dibutuhkan secara daring adalah waktu 31,83 detik.
 
 \section{Analisis Alur Perekaman Kehadiran Online}
 \label{sec:alur} 
@@ -139,9 +145,9 @@ Portal Akademik Mahasiswa Universitas Katolik Parahyangan yang terbaru sejak 202
 Otomatisasi perekaman kehadiran online ini akan menggunakan selenium, sehingga perlu diterjemahkan dari cara perekaman kehadiran online secara normal ke dalam selenium. Membuka situs web \url{https://studentportal.unpar.ac.id/} menggunakan selenium adalah dengan menggunakan \textit{method get()}. Setiap tombol yang ingin ditekan akan diambil elemennya agar dapat diotomatisasikan dengan selenium. Pada \textit{browser} Google Chrome, cara mendapatkan setiap elemen yang dibutuhkan adalah dengan melakukan \textit{inspect} elemen pada bagian yang ingin diambil elemennya. Elemen yang ingin diambil dapat dilakukan dengan berbagai macam cara seperti yang sudah dijelaskan pada Bab \ref{sec:selenium}. Beberapa faktor yang dapat dijadikan acuan untuk memilih cara untuk mengambil elemen dapat dilihat dari sebagai berikut:
 \begin{enumerate}
 	\item Sederhana \\
-	Semakin pendek penulisan \textit{query selector} semakin baik dan stabil, misalnya mengambil elemen dengan \textit{CSS selector} yang namanya ``#username''.
+	Semakin pendek penulisan \textit{query selector} semakin baik dan stabil, misalnya mengambil elemen dengan \textit{CSS selector} yang namanya ``\#username''.
  	\item Mudah dimengerti dan dibaca \\
- 	Menulis \textit{query selector} yang mudah dibaca dan dimengerti sehingga lebih mudah untuk dipahami, contohnya ``#login-button'' yang artinya memilih elemen tombol untuk \textit{login}. Tidak disarankan menulis \textit{query selector} yang panjang atau sulit dibaca, contohnya mengambil elemen dengan cara XPath seperti yang sudah ditulis pada Bab \ref{sec:selenium} dengan kode program \ref{kode:2:elemenxpath}.
+ 	Menulis \textit{query selector} yang mudah dibaca dan dimengerti sehingga lebih mudah untuk dipahami, contohnya ``\#login-button'' yang artinya memilih elemen tombol untuk \textit{login}. Tidak disarankan menulis \textit{query selector} yang panjang atau sulit dibaca, contohnya mengambil elemen dengan cara XPath seperti yang sudah ditulis pada Bab \ref{sec:selenium} dengan kode program \ref{kode:2:elemenxpath}.
 \end{enumerate}
 Pemilihan cara pengambilan elemen yang diutamakan adalah dengan mengambil elemen berdasarkan \textit{CSS selector}, tetapi tidak menutup kemungkinan menggunakan cara yang lain untuk menemukan suatu elemen. Jika mengambil elemen berdasarkan \textit{CSS selector} tidak perlu khawatir jika struktur HTML diubah, karena \textit{CSS selector} sangat jarang diubah saat melakukan pembaharuan pada suatu situs web. 
 Dalam melakukan otomatisasi perekaman kehadiran online pasti perlu memasukan \textit{email} dan \textit{password}, sehingga untuk memasukan hal tersebut perlu menggunakan \textit{method sendKeys()}. Memasukan \textit{email} dan \textit{password} ini tidak langsung dimasukan ke dalam programnya, tetapi melalui file konfigurasi yang diisi \textit{email} dan \textit{password}, lalu dipanggil ke kode programnya. 
