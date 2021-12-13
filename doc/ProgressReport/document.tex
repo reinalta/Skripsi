@@ -9,9 +9,34 @@
 \usepackage{etoolbox}
 \usepackage{setspace} 
 \usepackage{lipsum} 
+\usepackage{listings}
 \setlength{\headsep}{30pt}
 \usepackage[inner=2cm,outer=2.5cm,top=2.5cm,bottom=2cm]{geometry} %margin
 % \pagestyle{empty}
+\lstdefinestyle{mystyle}{
+	basicstyle=\ttfamily\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+
+\lstset{style=mystyle}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=magenta,      
+	urlcolor=cyan,
+	pdftitle={Overleaf Example},
+	pdfpagemode=FullScreen,
+}
+
 
 \makeatletter
 \renewcommand{\@maketitle} {\begin{center} {\LARGE \textbf{ \textsc{\@title}} \par} \bigskip {\large \textbf{\textsc{\@author}} }\end{center} }
@@ -71,7 +96,7 @@ Pada tahun 2020 terjadi pandemi Covid-19 di seluruh negara. Pandemi Covid-19 mas
 
 Pembelajaran secara daring diberlakukan oleh UNPAR di akhir bulan Maret untuk seluruh kegiatan perkuliahan demi mencegah penularan virus Covid-19. Akibat diberlakukannya pembelajaran secara daring, maka perekaman kehadiran di UNPAR dilakukan dengan menggunakan aplikasi atau situs web milik UNPAR. Cara perekaman kehadiran secara daring di UNPAR ini mumbutuhkan waktu lebih agar dapat tercatat perekaman kehadirannya, karena butuh waktu untuk membuka situs web serta perlu memasukan \textit{email} dan \textit{password} hingga akhirnya melakukan perekaman kehadiran. 
 
-Selenium adalah \textit{open-source} \textit{framework} pengujian otomatisasi untuk aplikasi web\cite{selenium}. WebDriver menggunakan API otomatisasi \textit{browser} yang disediakan oleh vendor \textit{browser} untuk mengontrol \textit{browser} dan melakukan pengujian. API WebDriver ini seolah-olah membuat pengguna secara langsung mengoperasi \textit{browser}, padahal dijalankan secara otomatis langsung oleh \textit{API} WebDriver tersebut. Selenium WebDriver adalah sebuah \textit{tools} yang berguna untuk melakukan otomatisasi terhadap web pada \textit{browser}. Selenium WebDriver ini tersedia untuk bahasa pemrograman Ruby, Java, Python, C\#, dan JavaScript. Pembuatan Perekaman kehadiran daring otomatis ini akan menggunakan Selenium WebDriver dengan bahasa pemrograman Python.  
+Selenium adalah \textit{open-source} \textit{framework} pengujian otomatisasi untuk aplikasi web. WebDriver menggunakan API otomatisasi \textit{browser} yang disediakan oleh vendor \textit{browser} untuk mengontrol \textit{browser} dan melakukan pengujian. API WebDriver ini seolah-olah membuat pengguna secara langsung mengoperasi \textit{browser}, padahal dijalankan secara otomatis langsung oleh \textit{API} WebDriver tersebut. Selenium WebDriver adalah sebuah \textit{tools} yang berguna untuk melakukan otomatisasi terhadap web pada \textit{browser}. Selenium WebDriver ini tersedia untuk bahasa pemrograman Ruby, Java, Python, C\#, dan JavaScript. Pembuatan Perekaman kehadiran daring otomatis ini akan menggunakan Selenium WebDriver dengan bahasa pemrograman Python.  
 
 Pada skripsi ini, akan dibuat sebuah perangkat lunak yang dapat melakukan perekaman kehadiran otomatis dengan sistem menerima rangsangan satu ``klik'' sehingga dapat melakukan hal-hal berikut :
 \begin{enumerate}
@@ -99,25 +124,143 @@ Tujuan yang ingin dicapai dari penulisan skripsi ini sebagai berikut :
 \section{Detail Perkembangan Pengerjaan Skripsi}
 Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan terkahir :
 	\begin{enumerate}
-		\item \textbf{Melakukan studi mengenai Selenium WebDriver.}\\
+		\item \textbf{Melakukan studi literatur mengenai Selenium WebDriver.}\\
 		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :} Selenium WebDriver sudah dipelajari untuk digunakan dalam implementasi otomatisasi. Selenium WebDriver sudah didokumentasikan di Bab 2 Dasar Teori.
+		{\bf Hasil :} Studi literatur mengenai Selenium WebDriver dilakukan dengan cara membaca situs web resmi Selenium Webdriver, situs-situs pembelajaran terkait, dan menonton video
+		pembelajaran dari youtube. Selenium adalah \textit{open-source} \textit{framework} pengujian otomatisasi untuk aplikasi web. Selenium ini adalah WebDriver yang merupakan sebuah \textit{interface} untuk menulis suatu instruksi yang dapat dijalankan secara otomatis dan bergantian pada \textit{browser}.  Selenium WebDriver adalah sebuah \textit{tools} yang berguna untuk melakukan otomatisasi terhadap web pada \textit{browser}. Selenium WebDriver menggunakan API otomatisasi \textit{browser} yang disediakan oleh vendor \textit{browser} untuk mengontrol \textit{browser} dan melakukan pengujian. API WebDriver ini seolah-olah membuat pengguna secara langsung mengoperasi \textit{browser}, padahal dijalankan secara otomatis langsung oleh \textit{API} WebDriver tersebut. Selenium WebDriver ini tersedia untuk bahasa pemrograman Ruby, Java, Python, C\#, dan JavaScript. Selenium WebDriver memiliki berbagai fungsi, yaitu Navigasi \textit{Browser} serta Menemukan elemen.
+		Salah satu teknik mendasar untuk dipelajari saat menggunakan WebDriver adalah cara menemukan elemen di halaman web. WebDriver menyediakan berbagai cara untuk menemukan elemen, terdapat delapan strategi menemukan lokasi elemen yang berbeda di WebDriver:
+		\begin{enumerate}
+			\item Id : Menemukan elemen yang atribut ID-nya cocok dengan nilai pencarian.
+			\item \textit{Class name}: Menemukan elemen yang nama kelasnya berisi nilai pencarian.	
+			\item \textit{CSS selector}: Menemukan elemen yang cocok dengan pemilihan \textit{Cascading Style Sheets} (CSS). Pemilihan pada CSS adalah pola yang digunakan untuk memilih elemen dengan \textit{style} yang diinginkan.
+			\item \textit{Name}: Menemukan elemen yang atribut \textit{name} yang cocok dengan nilai pencarian.
+			\item Link text: Menemukan elemen \textit{link} yang teksnya terlihat cocok dengan nilai pencarian.
+			\item Partial link text: Menemukan elemen \textit{link} yang teksnya terlihat berisi nilai pencarian. Jika beberapa elemen cocok, hanya yang pertama yang akan dipilih.
+			\item Tag name: Menemukan elemen yang nama tagnya cocok dengan nilai pencarian.
+			\item XPath: Menemukan elemen yang cocok dengan ekspresi \textit{XML Path Language} (XPath).
+		\end{enumerate}
+		WebDriver secara umum dapat dikatakan memiliki API pemblokiran, karena ini adalah \textit{library} di luar proses yang menginstruksikan browser apa yang harus dilakukan dan karena platform web secara intrinsik memiliki sifat asinkron atau tidak dilakukan secara \textit{real time}, maka WebDriver tidak melacak status \textit{Document Object Model} (DOM) yang aktif dan \textit{real time}, sehingga selenium memiliki fungsi \textit{waits} untuk mengatasi hal tersebut. Berikut ini adalah beberapa fungsi \textit{Waits} pada selenium.
+		\begin{enumerate}
+			\item Implicit wait: memberi tahu WebDriver untuk melakukan polling DOM selama jangka waktu tertentu ketika mencoba menemukan elemen. Pengaturan awalnya adalah 0 detik, artinya dinonaktifkan. Setelah disetel, maka \textit{wait implicit} disetel untuk masa pakai sesi yang sudah disetel.
+			\item Explicit wait: mengizinkan kode untuk menghentikan eksekusi program, atau membekukan \textit{thread}, hingga suatu kondisi dapat teratasi. Kondisi ini dipanggil dengan frekuensi tertentu sampai batas waktu tunggu terlewati.
+		\end{enumerate}
+		Selenium Webdriver sudah didokumentasikan pada Bab 2 Dasar Teori.
 		
 		\item \textbf{Mempelajari bahasa pemrograman python.}\\
 		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :} Bahasa pemrograman dengan python dipelajari secara mandiri dan bersamaan dengan mengambil mata kuliah Pengantar Penambangan Data dengan Python.
+		{\bf Hasil :} Bahasa pemrograman dengan python dipelajari secara mandiri dengan cara membaca situs-situs pembelajaran terkait, menonton video pembelajaran dari youtube, dan mengambil mata kuliah Pengantar Penambangan Data dengan Python yang melakukan praktek dan eksplorasi menggunakan bahasa pemrograman python.
 
 		\item \textbf{Mempelajari cara menggunakan Selenium.}\\
 		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :} Menemukan elemen pada selenium dapat dilakukan dengan beberapa cara yang sudah dijelaskan pada Bab 2. Telah melakukan percobaan menggunakan selenium untuk otomatisasi pada Portal Akademik Mahasiswa. 
+		{\bf Hasil :} Mempelajari cara menggunakan selenium dengan studi literatur tentang selenium webdriver terlebih dahulu, lalu melakukan eksplorasi menggunakan selenium tersebut secara langsung menggunakan bahasa pemrograman python terhadap situs web Portal Mahasiswa UNPAR. Berikut ini merupakan kode program hasil dari ekplorasi percobaan menggunakan selenium.
+		\begin{lstlisting}[language=python, caption=Eksplorasi kode Program menggunakan Selenium]
+	import config_file as cfg
+	from selenium import webdriver
+	from selenium.webdriver.common.by import By
+	from selenium.webdriver.support import expected_conditions as EC
+	from selenium.webdriver.support.ui import WebDriverWait
+	driver = webdriver.Chrome(executable_path='D:\Skripsi\python\chromedriver.exe')
+	driver.maximize_window()
+	portal = driver.get("https://studentportal.unpar.ac.id/")
+	btnIn = driver.find_element(By.CSS_SELECTOR,"#login-button").click()
+	inputEmail= driver.find_element(By.CSS_SELECTOR,"#username").send_keys(cfg.drivers_config["email"])
+	btnNext = driver.find_element(By.CSS_SELECTOR, "#next_login").click()
+	inputPassword = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR,"#password")))
+	inputPassword.click()
+	inputPassword.send_keys(cfg.drivers_config["pass"])
+	btnLogin = driver.find_element(By.CSS_SELECTOR,"#appPass > div.login__form > button").click()\end{lstlisting}
+	Pada contoh eksplorasi kode program di atas akan dijelaskan perbaris sebagai berikut:
+	\begin{enumerate}
+		\item Baris 1: melakukan import file konfigurasi yang telah dibuat.
+		\item Baris 2: melakukan import webdriver dari selenium yang berguna untuk membuka \textit{browser}.
+		\item Baris 3: melakukan import By untuk menemukan elemen yang ingin dicari.
+		\item Baris 4: melakukan import expected\_conditions yang berguna mengharapkan suatu kondisi dapat terjadi.
+		\item Baris 5: melakukan import WebDriverWait berguna untuk fungsi \textit{Waits} pada selenium untuk memberi waktu melakukan suatu perintah.
+		\item Baris 6: memanggil webdriver yang ingin digunakan, yaitu Google Chrome dan diisi letak file chromedriver.exe disimpan.
+		\item Baris 7: untuk memberi perintah \textit{fullscreen} pada \textit{browser} Google Chrome.
+		\item Baris 8: \textit{String} portal menggunakan \textit{method get} yang berguna untuk menuju situs web Portal Mahasiswa UNPAR.
+		\item Baris 9: \textit{String} btnIn untuk menemukan elemen dari sebuah tombol menggunakan \textit{CSS selector} dengan nama \#login-button, lalu menggunakan \textit{method click} untuk menekan tombol tersebut secara otomatis.  
+		\item Baris 10: \textit{String} inputEmail untuk menemukan elemen dari sebuah \textit{input teks} menggunakan \textit{CSS selector} dengan nama \#username, lalu menggunakan \textit{method send\_keys} untuk memasukan email mahasiswa yang sudah dibuat di file konfigurasi untuk dipanggil.
+		\item Baris 11: \textit{String} btnNext untuk menemukan elemen dari sebuah tombol menggunakan \textit{CSS selector} dengan nama \#next\_login, lalu menggunakan \textit{method click} untuk menekan tombol tersebut secara otomatis.
+		\item Baris 12: \textit{String} inputPassword memanggil fungsi \textit{waits} selama 10 detik untuk menunggu elemen yang dicari berdasarkan \textit{CSS selector} dengan nama \#password ini dapat ditekan.
+		\item Baris 13: Memerintahkan untuk menekan elemen yang sudah dicari pada baris 12.
+		\item Baris 14: Memerintahkan untuk memasukan \textit{password} yang sudah dibuat di file konfigurasi untuk dipanggil.
+		\item Baris 15: \textit{String} btnLogin untuk menemukan elemen dari sebuah tombol \textit{login} menggunakan \textit{CSS selector}, lalu menekannya.
+	\end{enumerate}
 	
-		\item \textbf{Melakukan survei ke beberapa mahasiswa Teknik Informatika UNPAR dan beberapa dosen Teknik Informatika UNPAR untuk mengetahui berapa lama waktu yang dibutuhkan untuk melakukan absensi secara daring dan luring.}\\
+		\item \textbf{Melakukan survei ke mahasiswa dan dosen Teknik Informatika Universitas Katolik Parahyangan untuk mengetahui berapa lama waktu yang dibutuhkan untuk melakukan absensi secara daring dan luring.}\\
 		{\bf Status :} Baru ditambahkan pada semester ini.\\
-		{\bf Hasil :} Survei sudah dilakukan dengan menyebarkan \textit{Google Form}. Hasil survei telah dikumpulkan dan dianalisis pada Bab 3. 
+		{\bf Hasil :} Hasil survei telah ditulis dan dianalisis pada Bab 3. Survei dilakukan dengan menyebarkan \textit{Google Form} kepada mahasiswa dan dosen Teknik Informatika Universitas Katolik Parahyangan. Survei ini bertujuan untuk mengetahui waktu yang dibutuhkan untuk melakukan absensi secara daring dan luring. 
+		\subsection{Hasil Survei Mahasiswa}
+		Berdasarkan hasil survei yang telah diterima dari 21 orang responden yang merupakan mahasiswa Teknik Informatika Universitas Katolik
+		Parahyangan yang terdiri dari mahasiswa angkatan 2017 sampai 2019, dengan pertanyaan yang diajukan kepada responen dan rangkuman jawaban hasil survei sebagai berikut:
+		\begin{enumerate}
+			\item \textbf{Berapa detik perkiraan waktu interaksi yang Anda butuhkan untuk melakukan perekaman kehadiran daring di \url{https://studentportal.unpar.ac.id/}, mulai dari membuka \textit{browser}, lalu masuk ke \url{https://studentportal.unpar.ac.id/}, lalu mengklik tombol presensi?}\\
+				Jawaban dari 21 orang responden adalah mulai dari waktu paling cepat 10 detik hingga waktu paling lama 600 detik.\\ \\
+			\begin{tabular}{|p{4cm} |p{7cm}|}
+				\hline
+				Jumlah Responden &  Waktu Perekaman Kehadiran Daring \\ \hline     
+				1 orang &  10 detik\\ \hline 
+				1 orang &  13 detik\\ \hline 
+				5 orang &  15 detik\\ \hline 
+				2 orang &  17 detik\\ \hline 
+				2 orang &  18 detik\\ \hline 
+				3 orang &  20 detik\\ \hline
+				1 orang &  25 detik\\ \hline 
+				1 orang &  30 detik\\ \hline 
+				2 orang &  45 detik\\ \hline
+				1 orang &  50 detik\\ \hline 
+				1 orang &  300 detik\\ \hline 
+				1 orang &  600 detik\\ \hline
+			\end{tabular}\\ \\
+			Jika dihitung rata-rata waktu yang dibutuhkan untuk melakukan perekaman kehadiran daring bagi para mahasiswa adalah 63 detik.
+			
+			\item \textbf{Berapa detik perkiraan waktu interaksi yang Anda butuhkan untuk melakukan perekaman kehadiran luring menggunakan metode tanda tangan seperti pembelajaran di kelas, mulai dari mengambil kertas absen, lalu tanda tangan, lalu memberikannya ke rekan di sebelah anda?}\\
+			\begin{tabular}{|p{4cm} |p{7cm}|}
+				\hline
+				Jumlah Responden &  Waktu Perekaman Kehadiran Luring \\ \hline     
+				5 orang &  5 detik\\ \hline 
+				1 orang &  6 detik\\ \hline 
+				5 orang &  7 detik\\ \hline 
+				2 orang &  8 detik\\ \hline 
+				7 orang &  10 detik\\ \hline 
+				1 orang &  15 detik\\ \hline
+			\end{tabular}\\ \\
+			Jika dihitung rata-rata waktu yang dibutuhkan untuk melakukan perekaman kehadiran luring bagi para mahasiswa adalah 7,95 detik.
+		\end{enumerate}
+		Kesimpulan dari hasil survei mahasiswa menunjukan bahwa rata-rata waktu yang dibutuhkan secara luring adalah 7,95 detik lebih cepat dibandingkan dengan rata-rata waktu yang dibutuhkan secara daring adalah waktu 63 detik
+		
+		\subsection{Hasil Survei Dosen}
+		Berdasarkan hasil survei yang telah diterima dari 6 orang responden yang merupakan dosen Teknik Informatika Universitas Katolik Parahyangan, dengan pertanyaan yang diajukan kepada responen dan rangkuman jawaban hasil survei sebagai berikut:
+		\begin{enumerate}
+			\item \textbf{Berapa detik perkiraan waktu interaksi yang Anda butuhkan untuk melakukan perekaman kehadiran daring di \url{https://akuhadir.unpar.ac.id ?}}\\
+			\begin{tabular}{|p{4cm} |p{7cm}|}
+				\hline
+				Jumlah Responden &  Waktu Perekaman Kehadiran Daring \\ \hline     
+				1 orang &  1 detik\\ \hline 
+				1 orang &  10 detik\\ \hline 
+				2 orang &  15 detik\\ \hline 
+				1 orang &  30 detik\\ \hline 
+				1 orang &  120 detik\\ \hline 
+			\end{tabular}\\ \\
+			Jika dihitung rata-rata waktu yang dibutuhkan untuk melakukan perekaman kehadiran daring bagi para dosen adalah 31,83 detik.
+		
+			\item \textbf{Berapa detik perkiraan waktu interaksi yang Anda butuhkan untuk melakukan perekaman kehadiran luring menggunakan metode fingerprint?}\\
+			\begin{tabular}{|p{4cm} |p{7cm}|}
+				\hline
+				Jumlah Responden &  Waktu Perekaman Kehadiran Luring \\ \hline     
+				1 orang &  1 detik\\ \hline 
+				3 orang &  5 detik\\ \hline 
+				1 orang &  40 detik\\ \hline 
+				1 orang &  90 detik\\ \hline 
+			\end{tabular}\\ \\
+			Jika dihitung rata-rata waktu yang dibutuhkan untuk melakukan perekaman kehadiran luring bagi para dosen adalah 24,33 detik.
+		\end{enumerate}
+		Kesimpulan dari hasil survei dosen menunjukan bahwa rata-rata waktu yang dibutuhkan secara luring adalah 24,33 detik lebih cepat dibandingkan dengan rata-rata waktu yang dibutuhkan secara daring adalah waktu 31,83 detik. 
 		
 		\item \textbf{Menganalisis web \textit{Student} Portal UNPAR.}\\
 		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :} \textit{Student} Portal UNPAR sudah didokumentasikan di Bab 2 dan dianalisis \textit{Student} Portal UNPAR yang sudah memiliki perekaman kehadiran online di Bab 3.
+		{\bf Hasil :} Portal Akademik Mahasiswa adalah sebuah web yang di peruntukan bagi mahasiswa dalam rangka mendapatkan informasi kegiatan akademik mulai dari registrasi, melihat jadwal kuliah dan ujian, info nilai sampai pendaftaran sidang. Portal Akademik Mahasiswa dapat diakses melalui \url{https://studentportal.unpar.ac.id/}. Portal Akademik Mahasiswa Universitas Katolik Parahyangan yang terbaru sejak 2020 sudah dapat melakukan perekaman kehadiran secara online untuk setiap mata kuliah yang diambil. Analisis pada Portal Akademik Mahasiswa yang diutamakannya adalah bagaimana alur cara melakukan absensi pada mata kuliah.
 
 		\item \textbf{Membangun program perekaman kehadiran daring otomatis.}\\
 		{\bf Status :} Ada sejak rencana kerja skripsi.\\
