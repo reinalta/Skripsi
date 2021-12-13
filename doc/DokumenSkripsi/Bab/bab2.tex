@@ -1,7 +1,6 @@
 %versi 3 (22-07-2020)
 \chapter{Landasan Teori}
 \label{chap:teori}
-Pada bab ini akan menjelaskan dasar teori mengenai Portal Akademik Mahasiswa dan Selenium. 
 
 \section{Portal Akademik Mahasiswa 2018}
 \label{sec:pam} 
@@ -71,7 +70,7 @@ Pada Gambar \ref{fig:studpor_home_2018} adalah tampilan awal ketika masuk ke hal
 		\includegraphics[scale=0.7]{Gambar/bayar2018.jpg}
 		\caption{Tampilan halaman pembayaran bagian Tagihan Pembayaran} 
 		\label{fig:bayar_2018}
-	\end{figure}\\
+	\end{figure}
 	
 	Pada Gambar \ref{fig:riw_2018} adalah tabel ``Riwayat Pembayaran'' yang menampilkan histori pembayaran yang telah dilakukan.
 	\begin{figure}[H]
@@ -79,7 +78,7 @@ Pada Gambar \ref{fig:studpor_home_2018} adalah tampilan awal ketika masuk ke hal
 		\includegraphics[scale=0.7]{Gambar/riwayat2018.jpg}
 		\caption{Tampilan halaman pembayaran bagian Riwayat Pembayaran} 
 		\label{fig:riw_2018}
-	\end{figure}\\
+	\end{figure}
 	
 	Pada Gambar \ref{fig:ketbayar_2018} adalah tabel ``Keterangan'' yang menampilkan tata cara pembayaran yang dapat dilakukan untuk melakukan pembayaran.
 	\begin{figure}[H]
@@ -112,7 +111,7 @@ Pada Gambar \ref{fig:studpor_home_2018} adalah tampilan awal ketika masuk ke hal
 
 \section{Selenium}
 \label{sec:selenium}
-Selenium adalah \textit{open-source} \textit{framework} pengujian otomatisasi untuk aplikasi web\cite{selenium}. Selenium ini adalah WebDriver yang merupakan sebuah \textit{interface} untuk menulis suatu instruksi yang dapat dijalankan secara otomatis dan bergantian pada \textit{browser}.  Selenium WebDriver adalah sebuah \textit{tools} yang berguna untuk melakukan otomatisasi terhadap web pada \textit{browser}. Selenium WebDriver menggunakan API otomatisasi \textit{browser} yang disediakan oleh vendor \textit{browser} untuk mengontrol \textit{browser} dan melakukan pengujian. API WebDriver ini seolah-olah membuat pengguna secara langsung mengoperasi \textit{browser}, padahal dijalankan secara otomatis langsung oleh \textit{API} WebDriver tersebut. Selenium WebDriver ini tersedia untuk bahasa pemrograman Ruby, Java, Python, C\#, dan JavaScript. Selenium WebDriver memiliki berbagai fungsi, yaitu Navigasi \textit{Browser} serta Menemukan elemen.
+Selenium adalah \textit{open-source} \textit{framework} pengujian otomatisasi untuk aplikasi web\cite{selenium}. Selenium ini adalah WebDriver yang merupakan sebuah \textit{interface} untuk menulis suatu instruksi yang dapat dijalankan secara otomatis dan bergantian pada \textit{browser}. Selenium WebDriver adalah sebuah \textit{tools} yang berguna untuk melakukan otomatisasi terhadap web pada \textit{browser}. Selenium WebDriver menggunakan API otomatisasi \textit{browser} yang disediakan oleh vendor \textit{browser} untuk mengontrol \textit{browser} dan melakukan pengujian. API WebDriver ini seolah-olah membuat pengguna secara langsung mengoperasi \textit{browser}, padahal dijalankan secara otomatis langsung oleh \textit{API} WebDriver tersebut. Selenium WebDriver ini tersedia untuk bahasa pemrograman Ruby, Java, Python, C\#, dan JavaScript. Selenium WebDriver memiliki berbagai fungsi, yaitu Navigasi \textit{Browser} serta Menemukan elemen.
 
 \subsection{Navigasi \textit{Browser}}
 Navigasi \textit{browser} ini berfungsi untuk menjalankan otomatisasi pada browser. Terdapat beberapa metode navigasi \textit{browser}:
@@ -209,7 +208,7 @@ Salah satu teknik mendasar untuk dipelajari saat menggunakan WebDriver adalah ca
 	\end{lstlisting}
 	Pada Kode \ref{kode:2:elemenclass} baris 6 merupakan contoh kode untuk mencari elemen dengan \textit{class name} ``text-center'' dan disimpan dalam \textit{string} kelas.
 
-	\item \textit{CSS selector}: Menemukan elemen yang cocok dengan pemilihan \textit{Cascading Style Sheets} (CSS). Pemilihan pada CSS adalah pola yang digunakan untuk memilih elemen dengan \textit{style} yang diinginkan .
+	\item \textit{CSS selector}: Menemukan elemen yang cocok dengan pemilihan \textit{Cascading Style Sheets} (CSS). Pemilihan pada CSS adalah pola yang digunakan untuk memilih elemen dengan \textit{style} yang diinginkan.
 	\begin{lstlisting}[language=python, caption=Contoh kode untuk menemukan elemen dengan \textit{CSS selector}, label=kode:2:elemencss]
 		from selenium import webdriver
 		from selenium.webdriver.common.by import By
@@ -220,7 +219,7 @@ Salah satu teknik mendasar untuk dipelajari saat menggunakan WebDriver adalah ca
 	\end{lstlisting}
 	Pada Kode \ref{kode:2:elemencss} baris 6 merupakan contoh kode yang disimpan dalam \textit{string} \textit{select} untuk mencari elemen berdasarkan pemilihan CSS dengan mengambil elemen dengan id ``selenium\_logo''.\\ \\
 
-	\item Name: Menemukan elemen yang atribut \textit{name} yang cocok dengan nilai pencarian. 
+	\item \textit{Name}: Menemukan elemen yang atribut \textit{name} yang cocok dengan nilai pencarian. 
 	\begin{lstlisting}[language=python, caption=Contoh kode untuk menemukan elemen dengan atribut nama, label=kode:2:elemenname]
 		from selenium import webdriver
 		from selenium.webdriver.common.by import By
@@ -279,7 +278,7 @@ Salah satu teknik mendasar untuk dipelajari saat menggunakan WebDriver adalah ca
 \end{enumerate}
 
 \subsection{Waits}
-WebDriver secara umum dapat dikatakan memiliki API pemblokiran. Karena ini adalah \textit{library} di luar proses yang menginstruksikan browser apa yang harus dilakukan dan karena platform web secara intrinsik memiliki sifat asinkron atau tidak dilakukan secara \textit{real time}, maka WebDriver tidak melacak status \textit{Document Object Model} (DOM) yang aktif dan \textit{real time}.
+WebDriver secara umum dapat dikatakan memiliki API pemblokiran, karena ini adalah \textit{library} di luar proses yang menginstruksikan browser apa yang harus dilakukan dan karena platform web secara intrinsik memiliki sifat asinkron atau tidak dilakukan secara \textit{real time}, maka WebDriver tidak melacak status \textit{Document Object Model} (DOM) yang aktif dan \textit{real time}.
 \begin{enumerate}
 	\item Implicit wait: memberi tahu WebDriver untuk melakukan polling DOM selama jangka waktu tertentu ketika mencoba menemukan elemen. Pengaturan awalnya adalah 0, artinya dinonaktifkan. Setelah disetel, maka \textit{wait implicit} disetel untuk masa pakai sesi yang sudah disetel.
 	\begin{lstlisting}[language=python, caption=Contoh kode Implicit wait, label=kode:2:implicit]
