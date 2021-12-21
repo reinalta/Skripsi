@@ -37,12 +37,12 @@
 	pdftitle={Overleaf Example},
 	pdfpagemode=FullScreen,
 }
-
+\hyphenation{pe-re-ka-man}
 
 \makeatletter
 \renewcommand{\@maketitle} {\begin{center} {\LARGE \textbf{ \textsc{\@title}} \par} \bigskip {\large \textbf{\textsc{\@author}} }\end{center} }
 \renewcommand{\thispagestyle}[1]{}
-\markright{\textbf{\textsc{Laporan Perkembangan Pengerjaan Skripsi\textemdash Sem. Genap 2015/2016}}}
+\markright{\textbf{\textsc{Laporan Perkembangan Pengerjaan Skripsi\textemdash Sem. Ganjil 2021/2022}}}
 
 \onehalfspacing
  
@@ -106,7 +106,7 @@ Pada skripsi ini, akan dibuat sebuah perangkat lunak yang dapat melakukan pereka
 	\item Mengisi dan \textit{login} dengan \textit{username} serta \textit{password} yang diambil dari file konfigurasi.
 	\item Melakukan rekam kehadiran.
 \end{enumerate} 
-perangkat lunak ini bertujuan agar mahasiswa dan dosen dapat melakukan perekaman kehadiran secara online dengan lebih mudah serta mengurangi waktu yang dibutuhkan untuk berinteraksi dengan aplikasi atau situs web dan bukan untuk mempercepat waktu agar kehadiran terekam, sehingga membuat waktu perekaman kehadiran secara daring dapat menyamai waktu perekaman kehadiran secara luring. 
+perangkat lunak ini bertujuan agar mahasiswa dapat melakukan perekaman kehadiran secara online di situs web Portal Akademik Mahasiswa UNPAR dengan lebih mudah serta mengurangi waktu yang dibutuhkan untuk berinteraksi dengan aplikasi atau situs web dan bukan untuk mempercepat waktu agar kehadiran terekam, sehingga membuat waktu perekaman kehadiran secara daring dapat menyamai waktu perekaman kehadiran secara luring. Dikarenaka terbimbing tidak memiliki akses ke \url{https://akuhadir.unpar.ac.id} situs perekaman kehadiran milik dosen, maka terbimbing mensimulasikan dengan Portal Akademik Mahasiswa dan kemudian Pembibing mengubah aksesnya ke situs perekeman kehadiran milik dosen.
 
 \section{Rumusan Masalah}
 Rumusan masalah yang akan dibahas di skripsi ini adalah sebagai berikut :
@@ -127,8 +127,8 @@ Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan 
 	\begin{enumerate}
 		\item \textbf{Melakukan studi literatur mengenai Selenium WebDriver.}\\
 		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :} Studi literatur mengenai Selenium WebDriver dilakukan dengan cara membaca situs web resmi Selenium Webdriver, situs-situs pembelajaran terkait, dan menonton video
-		pembelajaran dari youtube. Selenium adalah \textit{open-source} \textit{framework} pengujian otomatisasi untuk aplikasi web. Selenium ini adalah WebDriver yang merupakan sebuah \textit{interface} untuk menulis suatu instruksi yang dapat dijalankan secara otomatis dan bergantian pada \textit{browser}.  Selenium WebDriver adalah sebuah \textit{tools} yang berguna untuk melakukan otomatisasi terhadap web pada \textit{browser}. Selenium WebDriver menggunakan API otomatisasi \textit{browser} yang disediakan oleh vendor \textit{browser} untuk mengontrol \textit{browser} dan melakukan pengujian. API WebDriver ini seolah-olah membuat pengguna secara langsung mengoperasi \textit{browser}, padahal dijalankan secara otomatis langsung oleh \textit{API} WebDriver tersebut. Selenium WebDriver ini tersedia untuk bahasa pemrograman Ruby, Java, Python, C\#, dan JavaScript. Selenium WebDriver memiliki berbagai fungsi, yaitu Navigasi \textit{Browser} serta Menemukan elemen.
+		{\bf Hasil :} Studi literatur mengenai Selenium WebDriver dilakukan dengan cara membaca situs web resmi Selenium Webdriver dan situs-situs pembelajaran terkait. Berikut adalah paparan mengenai studi literatur tentang Selenium WebDriver.\\
+		Selenium adalah \textit{open-source} \textit{framework} pengujian otomatisasi untuk aplikasi web. Selenium ini adalah WebDriver yang merupakan sebuah \textit{interface} untuk menulis suatu instruksi yang dapat dijalankan secara otomatis dan bergantian pada \textit{browser}.  Selenium WebDriver adalah sebuah \textit{tools} yang berguna untuk melakukan otomatisasi terhadap web pada \textit{browser}. Selenium WebDriver menggunakan API otomatisasi \textit{browser} yang disediakan oleh vendor \textit{browser} untuk mengontrol \textit{browser} dan melakukan pengujian. API WebDriver ini seolah-olah membuat pengguna secara langsung mengoperasi \textit{browser}, padahal dijalankan secara otomatis langsung oleh \textit{API} WebDriver tersebut. Selenium WebDriver ini tersedia untuk bahasa pemrograman Ruby, Java, Python, C\#, dan JavaScript. Selenium WebDriver memiliki berbagai fungsi, yaitu Navigasi \textit{Browser} serta Menemukan elemen.
 		Salah satu teknik mendasar untuk dipelajari saat menggunakan WebDriver adalah cara menemukan elemen di halaman web. WebDriver menyediakan berbagai cara untuk menemukan elemen, terdapat delapan strategi menemukan lokasi elemen yang berbeda di WebDriver:
 		\begin{enumerate}
 			\item Id : Menemukan elemen yang atribut ID-nya cocok dengan nilai pencarian.
@@ -140,7 +140,7 @@ Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan 
 			\item Tag name: Menemukan elemen yang nama tagnya cocok dengan nilai pencarian.
 			\item XPath: Menemukan elemen yang cocok dengan ekspresi \textit{XML Path Language} (XPath).
 		\end{enumerate}
-		WebDriver secara umum dapat dikatakan memiliki API pemblokiran, karena ini adalah \textit{library} di luar proses yang menginstruksikan browser apa yang harus dilakukan dan karena platform web secara intrinsik memiliki sifat asinkron atau tidak dilakukan secara \textit{real time}, maka WebDriver tidak melacak status \textit{Document Object Model} (DOM) yang aktif dan \textit{real time}, sehingga selenium memiliki fungsi \textit{waits} untuk mengatasi hal tersebut. Berikut ini adalah beberapa fungsi \textit{Waits} pada selenium.
+		WebDriver secara umum dapat dikatakan memiliki API pemblokiran, karena ini adalah \textit{library} di luar proses yang menginstruksikan browser apa yang harus dilakukan dan karena platform web secara intrinsik memiliki sifat asinkron atau tidak dilakukan secara \textit{real time}, maka WebDriver tidak melacak status \textit{Document Object Model} (DOM) yang aktif dan \textit{real time}. DOM adalah keseluruhan objek yang ada di laman suatu web. sehingga selenium memiliki fungsi \textit{waits} untuk mengatasi hal tersebut. Berikut ini adalah beberapa fungsi \textit{Waits} pada selenium.
 		\begin{enumerate}
 			\item Implicit wait: memberi tahu WebDriver untuk melakukan polling DOM selama jangka waktu tertentu ketika mencoba menemukan elemen. Pengaturan awalnya adalah 0 detik, artinya dinonaktifkan. Setelah disetel, maka \textit{wait implicit} disetel untuk masa pakai sesi yang sudah disetel.
 			\item Explicit wait: mengizinkan kode untuk menghentikan eksekusi program, atau membekukan \textit{thread}, hingga suatu kondisi dapat teratasi. Kondisi ini dipanggil dengan frekuensi tertentu sampai batas waktu tunggu terlewati.
@@ -199,84 +199,113 @@ Detail bagian pekerjaan skripsi sesuai dengan rencan kerja/laporan perkembangan 
 			\item \textbf{Berapa detik perkiraan waktu interaksi yang Anda butuhkan untuk melakukan perekaman kehadiran daring di \url{https://studentportal.unpar.ac.id/}, mulai dari membuka \textit{browser}, lalu masuk ke \url{https://studentportal.unpar.ac.id/}, lalu mengklik tombol presensi?}
 			\begin{figure}[H]
 				\centering
-				\includegraphics[scale=0.8]{Gambar/DaringMahasiswa.jpg}
+				\includegraphics[scale=0.6]{Gambar/DaringMahasiswa.jpg}
 				\caption{Histogram Waktu Perekaman Kehadiran Daring Mahasiswa} 
 				\label{fig:DaringMahasiswa}
 			\end{figure}
-			Pada Gambar \ref{fig:DaringMahasiswa} merupakan visualisasi dari hasil survei mengenai lama waktu yang dibutuhkan dari 21 mahasiswa untuk melakukan perekaman kehadiran secara daring.
+			Pada Gambar \ref{fig:DaringMahasiswa} merupakan visualisasi dari hasil survei mengenai lama waktu yang dibutuhkan dari 21 mahasiswa untuk melakukan perekaman kehadiran secara daring. Histogram ini dikelompok berdasarkan rentang waktu per 20 detik. Histogram tersebut menunjukan bahwa mayoritas mahasiswa sebanyak 14 orang memiliki rentang waktu mulai dari 0 sampai 20 detik melakukan perekaman kehadiran secara daring, sebanyak 2 orang memilik rentang waktu 21 sampai 40 detik, 3 orang memiliki rentang waktu 41 sampai 60 detik, dan 2 orang memiliki rentang waktu di atas 100 detik. Hasil survei perekeman kehadiran secara daring untuk setiap mahasiswa secara jelas dapat dilihat pada tabel \ref{tab:daringMahasiswa}. 
 			Jawaban dari 21 orang responden adalah mulai dari waktu paling cepat 10 detik hingga waktu paling lama 600 detik.\\ \\
-			\begin{tabular}{|p{4cm} |p{7cm}|}
-				\hline
-				Jumlah Responden &  Waktu Perekaman Kehadiran Daring \\ \hline     
-				1 orang &  10 detik\\ \hline 
-				1 orang &  13 detik\\ \hline 
-				5 orang &  15 detik\\ \hline 
-				2 orang &  17 detik\\ \hline 
-				2 orang &  18 detik\\ \hline 
-				3 orang &  20 detik\\ \hline
-				1 orang &  25 detik\\ \hline 
-				1 orang &  30 detik\\ \hline 
-				2 orang &  45 detik\\ \hline
-				1 orang &  50 detik\\ \hline 
-				1 orang &  300 detik\\ \hline 
-				1 orang &  600 detik\\ \hline
-			\end{tabular}\\ \\
+			\begin{table}[ht]			
+				\caption{Tabel Perekaman Daring Mahasiswa}
+				\centering
+				\begin{tabular}{|p{4cm} |p{7cm}|}\hline
+					Jumlah Responden &  Waktu Perekaman Kehadiran Daring \\ \hline     
+					1 orang &  10 detik\\ \hline 
+					1 orang &  13 detik\\ \hline 
+					5 orang &  15 detik\\ \hline 
+					2 orang &  17 detik\\ \hline 
+					2 orang &  18 detik\\ \hline 
+					3 orang &  20 detik\\ \hline
+					1 orang &  25 detik\\ \hline 
+					1 orang &  30 detik\\ \hline 
+					2 orang &  45 detik\\ \hline
+					1 orang &  50 detik\\ \hline 
+					1 orang &  300 detik\\ \hline 
+					1 orang &  600 detik\\ \hline		
+				\end{tabular}
+				\label{tab:daringMahasiswa}
+			\end{table}
+			\newpage
 			Jika dihitung rata-rata waktu yang dibutuhkan untuk melakukan perekaman kehadiran daring bagi para mahasiswa adalah 63 detik.
 			
 			\item \textbf{Berapa detik perkiraan waktu interaksi yang Anda butuhkan untuk melakukan perekaman kehadiran luring menggunakan metode tanda tangan seperti pembelajaran di kelas, mulai dari mengambil kertas absen, lalu tanda tangan, lalu memberikannya ke rekan di sebelah anda?}
 			\begin{figure}[H]
 				\centering
-				\includegraphics[scale=0.8]{Gambar/LuringMahasiswa.jpg}
+				\includegraphics[scale=0.7]{Gambar/LuringMahasiswa.jpg}
 				\caption{Histogram Waktu Perekaman Kehadiran Daring Mahasiswa} 
 				\label{fig:LuringMahasiswa}
 			\end{figure}
-			Pada Gambar \ref{fig:LuringMahasiswa} merupakan visualisasi dari hasil survei mengenai lama waktu yang dibutuhkan dari 21 mahasiswa untuk melakukan perekaman kehadiran secara luring.
+			Pada Gambar \ref{fig:LuringMahasiswa} merupakan visualisasi dari hasil survei mengenai lama waktu yang dibutuhkan dari 21 mahasiswa untuk melakukan perekaman kehadiran secara luring. Histogram ini dikelompok berdasarkan rentang waktu per 20 detik. Histogram tersebut menunjukan bahwa seluruh mahasiswa sebanyak 21 orang memiliki rentang waktu mulai dari 0 sampai 20 detik melakukan perekaman kehadiran secara daring. Hasil survei perekeman kehadiran secara luring untuk setiap mahasiswa secara jelas dapat dilihat pada tabel \ref{tab:luringMahasiswa}.
 			Jawaban dari 21 orang responden adalah mulai dari waktu paling cepat 5 detik hingga waktu paling lama 15 detik.\\ \\
-			\begin{tabular}{|p{4cm} |p{7cm}|}
-				\hline
-				Jumlah Responden &  Waktu Perekaman Kehadiran Luring \\ \hline     
-				5 orang &  5 detik\\ \hline 
-				1 orang &  6 detik\\ \hline 
-				5 orang &  7 detik\\ \hline 
-				2 orang &  8 detik\\ \hline 
-				7 orang &  10 detik\\ \hline 
-				1 orang &  15 detik\\ \hline
-			\end{tabular}\\ \\
+			\begin{table}[ht]			
+				\caption{Tabel Perekaman Daring Mahasiswa}
+				\centering
+				\begin{tabular}{|p{4cm} |p{7cm}|}\hline
+					Jumlah Responden &  Waktu Perekaman Kehadiran Luring \\ \hline     
+					5 orang &  5 detik\\ \hline 
+					1 orang &  6 detik\\ \hline 
+					5 orang &  7 detik\\ \hline 
+					2 orang &  8 detik\\ \hline 
+					7 orang &  10 detik\\ \hline 
+					1 orang &  15 detik\\ \hline
+				\end{tabular}
+				\label{tab:luringMahasiswa}
+			\end{table}
+			\newpage
 			Jika dihitung rata-rata waktu yang dibutuhkan untuk melakukan perekaman kehadiran luring bagi para mahasiswa adalah 7,95 detik.
 		\end{enumerate}
 		Kesimpulan dari hasil survei mahasiswa menunjukan bahwa rata-rata waktu yang dibutuhkan secara luring adalah 7,95 detik lebih cepat dibandingkan dengan rata-rata waktu yang dibutuhkan secara daring adalah waktu 63 detik
 		
 		\subsection{Hasil Survei Dosen}
 		Berdasarkan hasil survei yang telah diterima dari 6 orang responden yang merupakan dosen Teknik Informatika Universitas Katolik Parahyangan, dengan pertanyaan yang diajukan kepada responen dan rangkuman jawaban hasil survei sebagai berikut:
-		\begin{figure}[H]
-			\centering
-			\includegraphics[scale=0.8]{Gambar/GrafikDosen.jpg}
-			\caption{Histogram Perbandingan Waktu Perekaman Kehadiran Dosen} 
-			\label{fig:GrafikDosen}
-		\end{figure}
-		Pada Gambar \ref{fig:GrafikDosen} merupakan visualisasi dari perbandingan waktu yang dibutuhkan dari 6 dosen Teknik Informatika Universitas Katolik Parahyangan. Grafik warna biru menjelaskan perekaman kehadiran secara daring dan warna merah menjelaskan perekaman kehadiran secara luring. Mayoritas menyatakan bahwa perekaman kehadiran luring lebih cepat dibandingkan daring, hanya dosen ke-4 yang menyatakan waktunya sama dan dosen ke-5 yang menyatakan waktu perekaman kehadiran daring lebih cepat dibandingkan luring.
+
 		\begin{enumerate}
-			\item \textbf{Berapa detik perkiraan waktu interaksi yang Anda butuhkan untuk melakukan perekaman kehadiran daring di \url{https://akuhadir.unpar.ac.id ?}}\\
-			\begin{tabular}{|p{4cm} |p{7cm}|}
-				\hline
-				Jumlah Responden &  Waktu Perekaman Kehadiran Daring \\ \hline     
-				1 orang &  1 detik\\ \hline 
-				1 orang &  10 detik\\ \hline 
-				2 orang &  15 detik\\ \hline 
-				1 orang &  30 detik\\ \hline 
-				1 orang &  120 detik\\ \hline 
-			\end{tabular}\\ \\
+			\item \textbf{Berapa detik perkiraan waktu interaksi yang Anda butuhkan untuk melakukan perekaman kehadiran daring di \url{https://akuhadir.unpar.ac.id ?}}
+			\begin{figure}[H]
+				\centering
+				\includegraphics[scale=0.8]{Gambar/daringDosen.jpg}
+				\caption{Histogram Perbandingan Waktu Perekaman Kehadiran Dosen} 
+				\label{fig:daringDosen}
+			\end{figure}
+			Pada Gambar \ref{fig:daringDosen} merupakan visualisasi dari hasil survei mengenai lama waktu yang dibutuhkan dari 6 dosen untuk melakukan perekaman kehadiran secara daring. Histogram ini dikelompokan berdasarkan rentang waktu per 20 detik. Histogram menunjukan bahwa sebanyak 4 dosen memiliki rentang waktu 0 sampai 20 detik, 1 dosen memiliki rentang waktu 21 sampai 40 detik, dan 1 dosen memiliki rentang waktu 101 sampai 120 detik. Hasil survei perekeman kehadiran secara daring untuk setiap dosen secara jelas dapat dilihat pada tabel \ref{tab:daringDosen}.
+			\begin{table}[ht]			
+				\caption{Tabel Perekaman Daring Dosen}
+				\centering
+				\begin{tabular}{|p{4cm} |p{7cm}|}\hline
+					Jumlah Responden &  Waktu Perekaman Kehadiran Daring \\ \hline     
+					1 orang &  1 detik\\ \hline 
+					1 orang &  10 detik\\ \hline 
+					2 orang &  15 detik\\ \hline 
+					1 orang &  30 detik\\ \hline 
+					1 orang &  120 detik\\ \hline 
+				\end{tabular}
+				\label{tab:daringDosen}
+			\end{table}
+			\newpage
 			Jika dihitung rata-rata waktu yang dibutuhkan untuk melakukan perekaman kehadiran daring bagi para dosen adalah 31,83 detik.
 		
-			\item \textbf{Berapa detik perkiraan waktu interaksi yang Anda butuhkan untuk melakukan perekaman kehadiran luring menggunakan metode fingerprint?}\\
-			\begin{tabular}{|p{4cm} |p{7cm}|}
-				\hline
-				Jumlah Responden &  Waktu Perekaman Kehadiran Luring \\ \hline     
-				1 orang &  1 detik\\ \hline 
-				3 orang &  5 detik\\ \hline 
-				1 orang &  40 detik\\ \hline 
-				1 orang &  90 detik\\ \hline 
-			\end{tabular}\\ \\
+			\item \textbf{Berapa detik perkiraan waktu interaksi yang Anda butuhkan untuk melakukan perekaman kehadiran luring menggunakan metode fingerprint?}
+			\begin{figure}[H]
+				\centering
+				\includegraphics[scale=0.8]{Gambar/luringDosen.jpg}
+				\caption{Histogram Perbandingan Waktu Perekaman Kehadiran Dosen} 
+				\label{fig:luringDosen}
+			\end{figure}
+			Pada Gambar \ref{fig:luringDosen} merupakan visualisasi dari hasil survei mengenai lama waktu yang dibutuhkan dari 6 dosen untuk melakukan perekaman kehadiran secara luring. Histogram ini dikelompokan berdasarkan rentang waktu per 20 detik. Histogram menunjukan bahwa sebanyak 4 dosen memiliki rentang waktu 0 sampai 20 detik, 1 dosen memiliki rentang waktu 21 sampai 40 detik, dan 1 dosen memiliki rentang waktu 81 sampai 100 detik. Hasil survei perekeman kehadiran secara daring untuk setiap dosen secara jelas dapat dilihat pada tabel \ref{tab:luringDosen}.
+			\begin{table}[ht]			
+				\caption{Tabel Perekaman Luring Dosen}
+				\centering
+				\begin{tabular}{|p{4cm} |p{7cm}|}
+					\hline
+					Jumlah Responden &  Waktu Perekaman Kehadiran Luring \\ \hline     
+					1 orang &  1 detik\\ \hline 
+					3 orang &  5 detik\\ \hline 
+					1 orang &  40 detik\\ \hline 
+					1 orang &  90 detik\\ \hline 
+				\end{tabular}
+				\label{tab:luringDosen}
+			\end{table}
+		
 			Jika dihitung rata-rata waktu yang dibutuhkan untuk melakukan perekaman kehadiran luring bagi para dosen adalah 24,33 detik.
 		\end{enumerate}
 		Kesimpulan dari hasil survei dosen menunjukan bahwa rata-rata waktu yang dibutuhkan secara luring adalah 24,33 detik lebih cepat dibandingkan dengan rata-rata waktu yang dibutuhkan secara daring adalah waktu 31,83 detik. 
