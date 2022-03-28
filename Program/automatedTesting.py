@@ -9,8 +9,6 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
-from selenium.common.exceptions import NoSuchElementException
-from selenium.common.exceptions import TimeoutException
 
 driver = webdriver.Chrome(executable_path='D:\Kuliah\Skripsi\Prasyarat\python\chromedriver.exe')
 parser = ConfigParser()
@@ -19,8 +17,6 @@ parser.read('database.config')
 i = 1
 while (i <= i):
     x = parser.get('database_config',str(i)).split()
-    print (x)
-    #i +=1
     if  x[0] == "open" :
         driver.get(x[1]) 
     elif x[0] == "click":
