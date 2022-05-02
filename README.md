@@ -9,7 +9,7 @@ Selenium yang merupakan sebuah open-source framework untuk pengujian otomatisasi
 
 1. Download ZIP proyek skripsi ini dan ekstrak filenya.
 2. Buka Folder Folder Program.
-3. Install Selenium. 
+3. Install Selenium.  
 3.1 Buka Command Prompt
 	```sh
 	$ java
