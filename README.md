@@ -1,90 +1,76 @@
-Template Project Skripsi
-========================
 
-Silahkan menggunakan (fork) template skripsi ini sebagai dasar dari skripsi
-Anda. Semua dokumen disimpan dalam direktori `doc/`. Jangan lupa mengubah
-file `.gitignore` sesuai dengan bahasa yang Anda gunakan.
+# Perekaman Kehadiran Daring Otomatis
 
-Catatan:
+Perekaman Kehadiran Daring Otomatis adalah sebuah program untuk melakukan perekaman kehadiran bagi
+Mahasiswa Universitas Katolik Parahyangan. Program ini menggunakan bahasa pemrograman Python dan 
+Selenium yang merupakan sebuah open-source framework untuk pengujian otomatisasi untuk browser web.
 
-* **Jangan menaruh PDF e-book di sini**, karena berukuran besar dan beresiko terkena tuntuan HAKI
-* **Jangan menaruh file poster di sini**, karena berukuran besar. Taruh saja di GDrive atau OneDrive
-* Ubahlah nama di berkas `LICENSE` dengan nama Anda (boleh juga ubah seluruh lisensinya sekaligus)
+## Persyaratan
 
-Peraturan Koordinator
----------------------
+1. Download ZIP proyek skripsi ini dan ekstrak filenya.
+2. Buka Folder Folder Program.
+3. Install Selenium. 
+	3.1 Buka Command Prompt
+	```sh
+	$ java
+	```
 
-Bagian ini berisi peraturan yang diberikan oleh koordinator skripsi secara tidak berkala, saya kumpulkan secara bertahap dan dikategorikan. Acuan utama tetap dari pengumuman koordinator.
+If you see an error that says unrecognized command, something like this...
 
-### Skripsi 1
+```
+'java' is not recognized as an internal or external command,
+operable program or batch file.
+```
 
-#### Pendaftaran
+... then you have to follow these steps:
 
-##### Usulan Topik Sendiri
+1. You need to [download the Java Runtime Environment](https://www.java.com/en/download/)
+to run this program.
+2. You **may** need to set the path. If so, follow [this instruction](https://docs.oracle.com/javase/tutorial/essential/environment/paths.html)
 
-Langkah-langkah:
+## Usage
 
-1. Mahasiswa menghubungi dosen pembimbing yang dianggap cocok untuk membimbing topik tersebut, atau berkonsultasi dengan Koordinator Skripsi untuk menentukan pembimbing.
-2. Setelah ada dosen yang bersedia, mahasiswa dan calon dosen pembimbing bersama-sama menyusun presentasi mengenai topik tersebut.
-3. Calon dosen pembimbing melakukan presentasi usulan topik pada saat rapat program studi.
-4. Jika usulan topik disetujui oleh rapat program studi, maka topik skripsi tersebut akan diberi Kode Topik Skripsi yang dapat digunakan untuk mengisi Formulir Pendaftaran Skripsi.
-5. Tata cara pendaftaran skripsi dapat dilihat di dokumen Form "Pendaftaran Skripsi" (diberikan koordinator skripsi).
-6. Pastikan untuk mengumpulkan form skripsi ke koordinator sebelum batas akhir pendaftaran.
+Once you have Java ready, take the jar from release page, then general usage is
+as follow:
 
-##### Topik Dari Program Studi
+```
+usage: java -jar BooksCrawler.jar
+ -c,--crawler <arg>   crawler class to use (e.g. GramediaCrawler)
+ -f,--from <arg>      page number to start from, defaults to 1
+ -p,--perpage <arg>   number of items per page, defaults to 100
+ -t,--to <arg>        page number to end to, defaults to 2
+```
 
-Langkah-langkah:
+BooksCrawler will save to `output.csv`, appending to bottom if the file already
+exists. The thumbnail will be saved to the same name as recorded in the server.
+Refer to the CSV for each book thumbnail file name.
 
-1. Mahasiswa memilih topik skripsi yang diumumkan oleh Koordinator Skripsi. 
-2. Mahasiswa menghubungi calon dosen pembimbing untuk mendiskusikan topik yang dipilih.
-3. Jika calon dosen pembimbing sudah menyetujui, mahasiswa mengisi formulir pendaftaran skripsi.
-4. Tata cara pendaftaran skripsi dapat dilihat di dokumen Form "Pendaftaran Skripsi" (diberikan koordinator skripsi).
-5. Pastikan untuk mengumpulkan form skripsi ke koordinator sebelum batas akhir pendaftaran.
+### Usage: GramediaCrawler
 
-Catatan:
+The [Gramedia's Buku Category](https://www.gramedia.com/categories/buku) has
+collection of 68,904 products. Recommended usage to crawl this collection is
+to take chunk of 100 books each, repeated 690 times.
 
-* Topik yang diberi tanda bintang (*) adalah topik mudah, dan hanya dapat diambil oleh mahasiswa yang telah menempuh minimal 10 semester atau IPK <= 2.30. Nilai maksimal adalah B untuk Skripsi 1 dan 2.
+Here is example of taking the first chunk:
 
-#### Rencana Kerja
+```sh
+$ java -jar BooksCrawler.jar -c GramediaCrawler -f 1 -t 1 -p 100
+```
 
-* Mahasiswa wajib menyusun rencana kerja (sesuai [template](https://github.com/pascalalfadian/Skripsi/tree/master/doc/RencanaKerja)) bersama saya, dan menandatanganinya sebelum ditandatangan saya.
+You may take several chunks at once. For example, here's how to take the 2nd
+and 3rd chunk at once:
 
-#### Penilaian
+```sh
+$ java -jar BooksCrawler.jar -c GramediaCrawler -f 2 -t 3 -p 100
+```
 
-* UTS
-    - Dinilai dari progres per minggu. Mahasiswa tidak perlu mengumpulkan apapun.
-* UAS
-    - Progress Report (sesuai [template](https://github.com/pascalalfadian/Skripsi/tree/master/doc/ProgressReport)) di github (syarat koordinator)
-    - Dokumen Skripsi (bab 1, 2, 3) di github (syarat Pascal)
-    - _Note_: Progress Report tetap harus dikumpulkan walaupun tidak maju presentasi
+Continue until the last chunk:
 
-#### Review (Presentasi)
+```sh
+$ java -jar BooksCrawler.jar -c GramediaCrawler -f 690 -t 690 -p 100
+```
 
-* Dilakukan pada masa UAS
-* Waktu Review maksimal 40 menit, terdiri dari
-    - Maksimum 25 menit untuk presentasi
-    - Sisanya untuk reviewer memberikan reviewnya
-* Capaian pengerjaan (%) diisi oleh reviewer
+When retrieval fails for one chunk, retry with smaller chunks.
 
-### Skripsi 2
-
-#### Sidang
-
-* Dalam satu semester, sidang skipsi 2 hanya diperbolehkan sebanyak 1x per mahasiswa.
-* Sebelum presentasi, mahasiswa wajib mengumpulkan dokumen berikut:
-    - Dokumen Skripsi
-    - Progress Report (sesuai template)
-* Progress Report tetap harus dikumpulkan walaupun tidak presentasi
-* Waktu Sidang maksimal 120 menit, terdiri dari:
-    - Maksimum 40 menit untuk presentasi + demo
-    - Sisanya untuk tanya jawab dan penilaian tertutup
-* Mahasiswa harus mempresentasikan bagian kode programnya
-* Seusai sidang, mahasiswa berhak mengetahui:
-    - Jumlah nilai sementara (di luar nilai kedisiplinan)
-    - Nilai kedisiplinan diberikan kemudian oleh koordinator
-
-### Perpanjangan Skripsi (1 & 2)
-
-* Perpanjangan Skripsi (dengan topik sama) diperbolehkan dengan kondisi:
-    - Mahasiswa mengumpulkan progress report di semester sebelumnya
-    - Diluluskan melalui rapat jurusan
+For each chunk, it is recommended to start in a fresh directory, since it will
+append `output.csv`.
