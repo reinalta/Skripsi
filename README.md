@@ -8,7 +8,7 @@ Selenium yang merupakan sebuah open-source framework untuk pengujian otomatisasi
 ## Persyaratan
 
 1. Download ZIP proyek skripsi ini dan ekstrak filenya.
-2. Buka Folder Folder Program.
+2. Buka Folder Program.
 3. Install Python 3 (https://www.python.org/downloads/)
 4. Install Selenium (jika belum ter-install).  
 4.1 Buka Command Prompt  
