@@ -108,18 +108,102 @@ Pada Gambar \ref{fig:studpor_home_2018} adalah tampilan awal ketika masuk ke hal
 		\end{figure}
 	\end{enumerate}	
 \end{enumerate}
-
+\newpage
 \section{\textit{Cascading Style Sheets} (CSS) \textit{Selector}}
 \label{sec:css}
 \textit{Cascading Style Sheets} (CSS) adalah bahasa untuk menerapkan tampilan pada sebuah halaman web, hal tersebut termasuk tata letak, warna, dan \textit{font}\cite{css}. CSS sudah menjadi bagian penting untuk sebuah Web. CSS \textit{Selector} digunakan untuk menemukan atau memilih elemen HTML yang diinginkan berdasarkan \textit{style} CSS\footnote{\textit{CSS Selector} \url{https://www.w3schools.com/css/css_selectors.asp}}. Terdapat lima kategori pada CSS \textit{Selector}:
 \begin{enumerate}
-	\item \textit{Simple selectors} merupakan pemilihan elemen dari CSS berdasarkan \textit{name}, id, dan \textit{class}.
-	\item \textit{Combinator selectors} merupakan pemilihan elemen dari CSS berdasarkan gabungan atau kombinasi antar elemen pada CSS.
-	\item \textit{Pseudo-class selectors }
-	\item \textit{Pseudo-elements selectors }
-	\item \textit{Attribute selectors} merupakan pemilihan elemen dengan atribut tertentu.
+	\item \textit{Simple selectors} merupakan pemilihan elemen dari CSS berdasarkan \textit{name}, id, dan \textit{class}. Pada Tabel \ref{table:simpel} merupakan contoh cara mengambil elemen menggunakan cara \textit{simple selector}.
+		\begin{table}[h!]
+			\centering
+			\caption{Tabel Contoh \textit{Simple Selector}.}
+			\label{table:simpel}
+			\begin{tabular}{ | m{8em} | m{3cm}| m{8cm} | } 
+				\hline
+				\textit{\textbf{Selector}}& Contoh & Penjelasan \\ 
+				\hline
+				\#id & 	\#firstname & Memilih elemen dengan id = ``firstname''. \\ 
+				\hline
+				.class & .intro & Memilih elemen dengan \textit{class} = ``intro''. \\ 
+				\hline
+				element & p & Memilih semua elemen <p>. \\ 
+				\hline
+				* & * & Memilih semua elemen.  \\ 
+				\hline
+				element.class & p.intro & Memilih hanya elemen <p> pada class = ``intro''.  \\ 
+				\hline
+			\end{tabular}
+		\end{table}
+	\item \textit{Combinator selectors} merupakan pemilihan elemen dari CSS berdasarkan gabungan atau kombinasi antar elemen pada CSS. Pada Tabel \ref{table:combinator} merupakan contoh cara mengambil elemen menggunakan cara \textit{combinator selector}.
+		\begin{table}[h!]
+			\centering
+			\caption{Tabel Contoh \textit{Combinator Selector}.}
+			\label{table:combinator}
+			\begin{tabular}{ | m{8em} | m{3cm}| m{8cm} | } 
+				\hline
+				\textit{\textbf{Selector}}& Contoh & Penjelasan \\ 
+				\hline
+				element element & div p & Memilih semua elemen <p> yang berada di dalam elemen <div>. \\ 
+				\hline
+				element > element & div > p & Memilih semua elemen <p> yang menjadi anak bagian elemen <div>. \\ 
+				\hline
+				element + element & div + p & Memilih elemen <p> pertama setelah elemen <div>. \\ 
+				\hline
+				element1 \sim element2 & p \sim ul & Memilih setiap elemen <ul> yang diawali dulu oleh elemen <p>.  \\ 
+				\hline
+			\end{tabular}
+		\end{table}
+	\item \textit{Pseudo-class selectors} merupakan pemilihan elemen yang berada dalam kondisi khusus elemen tersebut. Penjelasan lebih detail dapat dilihat pada Tabel \ref{table:pclass} merupakan contoh cara mengambil elemen menggunakan cara \textit{pseudo-class selector}. 
+		\begin{table}[h!]
+			\centering
+			\caption{Tabel Contoh \textit{Pseudo-class Selector}.}
+			\label{table:pclass}
+			\begin{tabular}{ | m{8em} | m{3cm}| m{8cm} | } 
+				\hline
+				\textit{\textbf{Selector}}& Contoh & Penjelasan \\ 
+				\hline
+				:active & a:active & Memilih elemen yang memiliki link aktif. \\ 
+				\hline
+				:checked & input:checked & Memilih setiap elemen <input> yang sudah ditandai. \\ 
+				\hline
+				:disabled & input:disabled & Memilih setiap elemen <input> yang dinonaktifkan. \\ 
+				\hline
+			\end{tabular}
+		\end{table}
+	\item \textit{Pseudo-elements selectors } merupakan pemilih elemen berdasarkan pada letak spesifik elemen tersebut berada. Pada Tabel \ref{table:pelemen} merupakan contoh cara mengambil elemen menggunakan cara \textit{pseudo-elements selector}.
+		\begin{table}[h!]
+			\centering
+			\caption{Tabel Contoh \textit{Pseudo-elements Selector}.}
+			\label{table:pelemen}
+			\begin{tabular}{ | m{8em} | m{3cm}| m{8cm} | } 
+				\hline
+				\textit{\textbf{Selector}}& Contoh & Penjelasan \\ 
+				\hline
+				::first-letter & p::first-letter & Memilih huruf pertama dari setiap elemen <p>. \\ 
+				\hline
+				::first-line & p::first-line & Memilih baris pertama dari setiap elemen <p>. \\ 
+				\hline
+			\end{tabular}
+		\end{table}
+	\item \textit{Attribute selectors} merupakan pemilihan elemen berdasarkan atribut tertentu atau nilai dari atributnya. Pada Tabel \ref{table:attribut} merupakan contoh cara mengambil elemen menggunakan cara \textit{attribute selector}.
+		\begin{table}[h!]
+			\centering
+			\caption{Tabel Contoh \textit{Attribute Selector}.}
+			\label{table:attribut}
+			\begin{tabular}{ | m{8em} | m{3cm}| m{8cm} | } 
+				\hline
+				\textit{\textbf{Selector}}& Contoh & Penjelasan \\ 
+				\hline
+				[attribute] & [target] & Memilih semua elemen yang mengandung atribut ``target''.  \\ 
+				\hline
+				[attribute=value] & [target=blank] & Memilih semua elemen yang mengandung atribut ``target'' yang nilainya ``blank''. \\ 
+				\hline
+				[attribute~=value] & [title~=flower] & Memilih semua elemen yang ``title'' atributnya mengandung kata ``flower''.\\ 
+				\hline
+			\end{tabular}
+		\end{table}
 \end{enumerate}
-	
+\vspace{-0.5cm}
 \section{Selenium}
 \label{sec:selenium}
 Selenium merupakan \textit{open-source} \textit{framework} untuk pengujian otomatisasi untuk browser web\cite{selenium}. Cara kerja Selenium untuk melakukan otomatisasi pada browser web adalah seperti menirukan interaksi pengguna dengan browser, yang nantinya akan dijalankan otomatis oleh Selenium. Otomatisasi dengan Selenium ini dapat dilakukan pada berbagai browser yang umum banyak digunakan (Google Chrome, Safari, Opera, Firefox). Selenium ini tersedia untuk bahasa pemrograman Ruby, Java, Python, C\#, dan JavaScript. Bagian inti dari Selenium adalah WebDriver, WebDriver merupakan sebuah \textit{interface} untuk menulis suatu instruksi yang dapat dijalankan secara otomatis dan bergantian pada \textit{browser}. Setiap browser pasti didukung oleh implementasi WebDriver tertentu, yang disebut driver. Driver adalah komponen yang bertanggung jawab untuk menghubungkan komukasi antara Selenium dengan browser. 
