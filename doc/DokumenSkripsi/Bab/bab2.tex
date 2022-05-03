@@ -109,183 +109,196 @@ Pada Gambar \ref{fig:studpor_home_2018} adalah tampilan awal ketika masuk ke hal
 	\end{enumerate}	
 \end{enumerate}
 
+\section{\textit{Cascading Style Sheets} (CSS) \textit{Selector}}
+\label{sec:css}
+\textit{Cascading Style Sheets} (CSS) adalah bahasa untuk menerapkan tampilan pada sebuah halaman web, hal tersebut termasuk tata letak, warna, dan \textit{font}\cite{css}. CSS sudah menjadi bagian penting untuk sebuah Web. CSS \textit{Selector} digunakan untuk menemukan atau memilih elemen HTML yang diinginkan berdasarkan \textit{style} CSS\footnote{\textit{CSS Selector} \url{https://www.w3schools.com/css/css_selectors.asp}}. Terdapat lima kategori pada CSS \textit{Selector}:
+\begin{enumerate}
+	\item \textit{Simple selectors} merupakan pemilihan elemen dari CSS berdasarkan \textit{name}, id, dan \textit{class}.
+	\item \textit{Combinator selectors} merupakan pemilihan elemen dari CSS berdasarkan gabungan atau kombinasi antar elemen pada CSS.
+	\item \textit{Pseudo-class selectors }
+	\item \textit{Pseudo-elements selectors }
+	\item \textit{Attribute selectors} merupakan pemilihan elemen dengan atribut tertentu.
+\end{enumerate}
+	
 \section{Selenium}
 \label{sec:selenium}
-Selenium adalah \textit{open-source} \textit{framework} pengujian otomatisasi untuk aplikasi web\cite{selenium}. Selenium ini adalah WebDriver yang merupakan sebuah \textit{interface} untuk menulis suatu instruksi yang dapat dijalankan secara otomatis dan bergantian pada \textit{browser}. Selenium WebDriver adalah sebuah \textit{tools} yang berguna untuk melakukan otomatisasi terhadap web pada \textit{browser}. Selenium WebDriver menggunakan API otomatisasi \textit{browser} yang disediakan oleh vendor \textit{browser} untuk mengontrol \textit{browser} dan melakukan pengujian. API WebDriver ini seolah-olah membuat pengguna secara langsung mengoperasi \textit{browser}, padahal dijalankan secara otomatis langsung oleh \textit{API} WebDriver tersebut. Selenium WebDriver ini tersedia untuk bahasa pemrograman Ruby, Java, Python, C\#, dan JavaScript. Selenium WebDriver memiliki berbagai fungsi, yaitu Navigasi \textit{Browser} serta Menemukan elemen.
+Selenium merupakan \textit{open-source} \textit{framework} untuk pengujian otomatisasi untuk browser web\cite{selenium}. Cara kerja Selenium untuk melakukan otomatisasi pada browser web adalah seperti menirukan interaksi pengguna dengan browser, yang nantinya akan dijalankan otomatis oleh Selenium. Otomatisasi dengan Selenium ini dapat dilakukan pada berbagai browser yang umum banyak digunakan (Google Chrome, Safari, Opera, Firefox). Selenium ini tersedia untuk bahasa pemrograman Ruby, Java, Python, C\#, dan JavaScript. Bagian inti dari Selenium adalah WebDriver, WebDriver merupakan sebuah \textit{interface} untuk menulis suatu instruksi yang dapat dijalankan secara otomatis dan bergantian pada \textit{browser}. Setiap browser pasti didukung oleh implementasi WebDriver tertentu, yang disebut driver. Driver adalah komponen yang bertanggung jawab untuk menghubungkan komukasi antara Selenium dengan browser. 
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.7]{Gambar/flowSelenium.png}
+	\caption{Alur Komunikasi WebDriver dengan Browser} 
+	\label{fig:flowSelenium}
+\end{figure}
+Pada Gambar \ref{fig:flowSelenium}. Pada Gambar \ref{fig:flowSelenium} ini komunikasi WebDriver yang merupakan bagian dari Selenium memberikan perintah kepada browser melalui \textit{driver} browser tersebut dan menerima hasil informasinya kembali melalui alur yang sama.
 
-\subsection{Navigasi \textit{Browser}}
-Navigasi \textit{browser} ini berfungsi untuk menjalankan otomatisasi pada browser. Terdapat beberapa metode navigasi \textit{browser}:
-\begin{enumerate}
-	\item \textit{Navigate to}: hal pertama untuk menggunakan WebDriver adalah melakukan navigasi ke situs web.
+\section{WebDriver}
+\label{sec:webdriver}
+WebDriver adalah \textit{Application Programming Interface} (API) yang berfungsi menghubungkan Selenium dengan browser web, sehingga Selenium dapat mengontrol atau melakukan otomatisasi pada browser web\cite{selenium}. API WebDriver ini seolah-olah membuat pengguna secara langsung mengoperasi \textit{browser}, padahal dijalankan secara otomatis langsung oleh API WebDriver tersebut. 
+\textit{Driver} browser adalah komponen yang bertanggung jawab untuk menghubungkan antara Selenium dengan browser agar dapat dikendalikan. Driver browser yang tersedia untuk selenium adalah Google Chrome, Firefox, Edge, Internet Explorer, dan Safari. Agar browser dapat dibuka untuk melakukan otomatisasi, maka perlu melakukan \textit{install} driver dari browser yang ingin digunakan. (Tanya)
+
+\subsection{Browser}
+Selenium Webdriver dapat mengambil informasi mengenai browser yang sedang dibuka. Informasi yang dapat diambil adalah judul dari situs web yang sedang dibuka pada browser (Kode \ref{kode:2:getinfo} baris 1) dan mendapatkan alamat situs web yang sedang dibuka (Kode \ref{kode:2:getinfo} baris 2). 
+\begin{lstlisting}[language=python, caption=Contoh Potongan Kode \textit{Get Title} dan \textit{Get Current URL}, label=kode:2:getinfo]
+	driver.title
+	driver.current_url
+\end{lstlisting}
+Hal pertama yang perlu dilakukan setelah berhasil membuka browser adalah membuka situs web yang akan diotomatisasikan. Pada Kode \ref{kode:2:navigate} merupakan contoh untuk memunculkan situs web yang ingin dijalankan dengan selenium. Baris 1 melakukan \textit{import} webdriver terlebih dahulu, lalu baris 2 \textit{string} dengan nama driver memanggil webdriver yang ingin digunakan, yaitu Google Chrome dan diisi letak file chromedriver.exe disimpan. Baris 3 \textit{string} dengan nama url diisi dengan situs web yang dituju dalam contoh adalah \url{https://selenium.dev}. Baris 4 adalah \textit{string} dengan nama link menggunakan \textit{method get} yang memanggil \textit{string} dengan nama driver yang sudah memanggil webdriver, lalu ditambahkan \textit{method get} yang memanggil \textit{string} dengan nama url yang sudah berisi situs web yang dituju.\\
 	\begin{lstlisting}[language=python, caption=Contoh kode Navigate to, label=kode:2:navigate]
 		from selenium import webdriver
-		driver = webdriver.Chrome(executable_path='D:\Selenium\chromedriver.exe')
+		driver = webdriver.Chrome()
 		url = "https://selenium.dev"
 		link = driver.get(url)
 	\end{lstlisting}
-	Pada Kode \ref{kode:2:navigate} merupakan contoh untuk memunculkan situs web yang ingin dijalankan dengan selenium. Baris 1 melakukan \textit{import} webdriver terlebih dahulu, lalu baris 2 \textit{string} dengan nama driver memanggil webdriver yang ingin digunakan, yaitu Google Chrome dan diisi letak file chromedriver.exe disimpan. Baris 3 \textit{string} dengan nama url diisi dengan situs web yang dituju dalam contoh adalah \url{https://selenium.dev}. Baris 4 adalah \textit{string} dengan nama link menggunakan \textit{method get} yang memanggil \textit{string} dengan nama driver yang sudah memanggil webdriver, lalu ditambahkan \textit{method get} yang memanggil \textit{string} dengan nama url yang sudah berisi situs web yang dituju.\\ 
-	\item \textit{Get current URL}: untuk membaca URL saat ini dari alamat \textit{browser}.
-	\begin{lstlisting}[language=python, caption=Contoh kode Get current URL, label=kode:2:current]
-		from selenium import webdriver
-		driver = webdriver.Chrome(executable_path='D:\Selenium\chromedriver.exe')
-		url = "https://selenium.dev"
-		link = driver.get(url)
-		current = driver.current_url
-		print(current)
-	\end{lstlisting}
-	Pada Kode \ref{kode:2:current} merupakan contoh untuk membaca situs web yang dijalankan dari \textit{browser}. Pada baris 1 sampai 4 merupakan contoh untuk memunculkan situs web yang ingin dijalankan dengan selenium dan sudah dijelaskan pada Kode \ref{kode:2:navigate}. Baris 5 adalah \textit{string} dengan nama \textit{current} yang memanggil \textit{method current\_url} yang berfungsi untuk mendapatkan situs web dari \textit{browser}. Baris 6 adalah untuk menampilkan situs webnya dengan \textit{method print} dan diisi dengan \textit{string} dengan nama \textit{current} sehingga nantinya akan muncul situs webnya.\\ 
-	\item \textit{Back}: menekan tombol kembali pada \textit{browser}.
-	\begin{lstlisting}[language=python, caption=Contoh kode Back, label=kode:2:back]
-		from selenium import webdriver
-		driver = webdriver.Chrome(executable_path='D:\Selenium\chromedriver.exe')
-		url = "https://selenium.dev"
-		link = driver.get(url)
-		kembali = driver.back()
-	\end{lstlisting}
-	Pada Kode \ref{kode:2:back} merupakan contoh untuk menekan tombol kembali pada \textit{browser}. Pada baris 1 sampai 4 merupakan contoh untuk memunculkan situs web yang ingin dijalankan dengan selenium dan sudah dijelaskan pada Kode \ref{kode:2:navigate}. Baris 5 adalah \textit{string} dengan nama kembali diisi dengan \textit{method back()} yang berfungsi untuk menekan tombol kembali pada \textit{browser}.\\
-	\item \textit{Forward}: menekan tombol maju \textit{browser}.
-	\begin{lstlisting}[language=python, caption=Contoh kode Forward, label=kode:2:forward]
-		from selenium import webdriver
-		driver = webdriver.Chrome(executable_path='D:\Selenium\chromedriver.exe')
-		url = "https://selenium.dev"
-		link = driver.get(url)
-		maju = driver.forward()
-	\end{lstlisting}
-	Pada Kode \ref{kode:2:forward} merupakan contoh untuk menekan tombol maju pada \textit{browser}. Pada baris 1 sampai 4 merupakan contoh untuk memunculkan situs web yang ingin dijalankan dengan selenium dan sudah dijelaskan pada Kode \ref{kode:2:navigate}. Baris 5 adalah \textit{string} dengan nama maju diisi dengan \textit{method forward()} yang berfungsi untuk menekan tombol maju pada \textit{browser}.\\
-	\item \textit{Refresh}: melakukan \textit{refresh} halaman.
-	\begin{lstlisting}[language=python, caption=Contoh kode Refresh, label=kode:2:refresh]
-		from selenium import webdriver
-		driver = webdriver.Chrome(executable_path='D:\Selenium\chromedriver.exe')
-		url = "https://selenium.dev"
-		link = driver.get(url)
-		refresh = driver.refresh()
-	\end{lstlisting}
-	Pada Kode \ref{kode:2:refresh} merupakan contoh untuk menekan tombol \textit{refresh} halaman web pada \textit{browser}. Pada baris 1 sampai 4 merupakan contoh untuk memunculkan situs web yang ingin dijalankan dengan selenium dan sudah dijelaskan pada Kode \ref{kode:2:navigate}. Baris 5 adalah \textit{string} dengan nama \textit{refresh} diisi dengan \textit{method refresh()} yang berfungsi untuk menekan tombol \textit{refresh} halaman web pada \textit{browser}.\\
-	\item \textit{Get title}: untuk dapat membaca judul halaman situs web pada \textit{browser}
-	\begin{lstlisting}[language=python, caption=Contoh kode Get title, label=kode:2:title]
-		from selenium import webdriver
-		driver = webdriver.Chrome(executable_path='D:\Selenium\chromedriver.exe')
-		url = "https://selenium.dev"
-		link = driver.get(url)
-		title = driver.title
-		print(judul)
-	\end{lstlisting}
-	Pada Kode \ref{kode:2:title} merupakan contoh untuk membaca judul halaman situs web yang dijalankan dari \textit{browser}. Pada baris 1 sampai 4 merupakan contoh untuk memunculkan situs web yang ingin dijalankan dengan selenium dan sudah dijelaskan pada Kode \ref{kode:2:navigate}. Baris 5 adalah \textit{string} dengan nama \textit{title} yang memanggil \textit{method title} yang berfungsi untuk mendapatkan judul halaman situs web dari \textit{browser}. Baris 6 adalah untuk menampilkan judul situs webnya dengan \textit{method print} dan diisi dengan \textit{string} dengan nama \textit{title} sehingga nantinya akan muncul judul situs webnya.\\ 
-	\item \textit{Quit the browser}: untuk dapat keluar dari \textit{browser} setelah selesai menggunakan.
+WebDriver juga dapat melakukan otomatisasi untuk keluar dari browser setelah selesai digunakan. Pada Kode \ref{kode:2:quit} merupakan contoh untuk dapat keluar dari \textit{browser} setelah selesai menggunakan. Pada baris 1 sampai 4 merupakan contoh untuk memunculkan situs web yang ingin dijalankan dengan selenium dan sudah dijelaskan pada Kode \ref{kode:2:navigate}. Baris 5 adalah \textit{string} dengan nama \textit{quit} yang memanggil \textit{method quit()} yang berfungsi untuk dapat keluar dari \textit{browser} setelah selesai digunakan.
 	\begin{lstlisting}[language=python, caption=Contoh kode Get title, label=kode:2:quit]
 		from selenium import webdriver
-		driver = webdriver.Chrome(executable_path='D:\Selenium\chromedriver.exe')
+		driver = webdriver.Chrome()
 		url = "https://selenium.dev"
 		link = driver.get(url)
 		quit = driver.quit()
 	\end{lstlisting}
-	Pada Kode \ref{kode:2:quit} merupakan contoh untuk dapat keluar dari \textit{browser} setelah selesai menggunakan. Pada baris 1 sampai 4 merupakan contoh untuk memunculkan situs web yang ingin dijalankan dengan selenium dan sudah dijelaskan pada Kode \ref{kode:2:navigate}. Baris 5 adalah \textit{string} dengan nama \textit{quit} yang memanggil \textit{method quit()} yang berfungsi untuk dapat keluar dari \textit{browser} setelah selesai digunakan.
-\end{enumerate}
 
 \subsection{Menemukan elemen}
-Salah satu teknik mendasar untuk dipelajari saat menggunakan WebDriver adalah cara menemukan elemen di halaman web. WebDriver menyediakan berbagai cara untuk menemukan elemen, terdapat delapan strategi menemukan lokasi elemen yang berbeda di WebDriver:
-\begin{enumerate}
-	\item Id : Menemukan elemen yang atribut ID-nya cocok dengan nilai pencarian.
+Salah satu teknik mendasar untuk dipelajari saat menggunakan WebDriver adalah cara menemukan elemen di halaman web. WebDriver menyediakan berbagai cara untuk menemukan elemen, terdapat delapan cara menemukan elemen:
+\begin{itemize}
+	\item Id \\
+	Menemukan elemen yang atribut ID-nya cocok dengan nilai pencarian. Pada Kode \ref{kode:2:elemenid} merupakan contoh untuk menemukan elemen dengan atribut ID. Baris 1 melakukan \textit{import} webdriver terlebih dahulu. Baris 2 melakukan \textit{import} By yang merupakan \textit{library} yang sudah ada milik selenium untuk digunakan dalam menemukan elemen. lalu baris 3 \textit{string} dengan nama driver memanggil webdriver yang ingin digunakan, yaitu Google Chrome untuk membuka browsernya. Baris 4 \textit{string} dengan nama url diisi dengan situs web yang dituju dalam contoh adalah \url{https://selenium.dev}. Baris 5 adalah \textit{string} dengan nama link menggunakan \textit{method get} yang memanggil \textit{string} dengan nama driver yang sudah memanggil webdriver, lalu ditambahkan \textit{method get} yang memanggil \textit{string} dengan nama url yang sudah berisi situs web yang dituju. Baris 6 atau 7 merupakan contoh kode yang dapat digunakan untuk menemukan elemen berdasarkan atribut ID dengan nama id ``selenium'' dari situs web \url{https://selenium.dev}. Kode pada baris 6 dan 7 hanya berbeda cara penulisannya saja. 
 	\begin{lstlisting}[language=python, caption=Contoh kode untuk menemukan elemen dengan atribut ID, label=kode:2:elemenid]
 		from selenium import webdriver
 		from selenium.webdriver.common.by import By
-		driver = webdriver.Chrome(executable_path='D:\Selenium\chromedriver.exe')
+		driver = webdriver.Chrome()
 		url = "https://selenium.dev"
 		driver.get(url)
-		driver.find_element(By.ID, "cheese")	
-		driver.find_element_by_id("cheese")
+		driver.find_element(By.ID, "selenium")	
+		driver.find_element_by_id("selenium")
 	\end{lstlisting}
-	Pada Kode \ref{kode:2:elemenid} baris 6 atau 7 merupakan contoh kode yang dapat digunakan untuk menemukan elemen berdasarkan atribut ID dengan nama id ``cheese'' dari situs web \url{https://selenium.dev}. 
-
-	\item \textit{Class name}: Menemukan elemen yang nama kelasnya berisi nilai pencarian.
+	
+	\item \textit{Class name}\\
+	Menemukan elemen yang nama kelasnya berisi nilai pencarian. Pada Kode \ref{kode:2:elemenclass} merupakan contoh untuk menemukan elemen dengan nama kelas. Pada baris 1 sampai 5 merupakan contoh melakukan \textit{import library} selenium yang dibutuhkan dan untuk memunculkan situs web yang ingin dijalankan dengan selenium dan sudah dijelaskan pada Kode \ref{kode:2:elemenid}. Baris 6 merupakan contoh kode untuk mencari elemen dengan \textit{class name} ``text-center'' dan disimpan dalam \textit{string} kelas.
 	\begin{lstlisting}[language=python, caption=Contoh kode untuk menemukan elemen dengan \textit{class name}, label=kode:2:elemenclass]
 		from selenium import webdriver
 		from selenium.webdriver.common.by import By
-		driver = webdriver.Chrome(executable_path='D:\Selenium\chromedriver.exe')
+		driver = webdriver.Chrome()
 		url = "https://selenium.dev"
 		driver.get(url)
 		kelas = driver.find_elements(By.CLASS_NAME, "text-center")
 	\end{lstlisting}
-	Pada Kode \ref{kode:2:elemenclass} baris 6 merupakan contoh kode untuk mencari elemen dengan \textit{class name} ``text-center'' dan disimpan dalam \textit{string} kelas.
 
-	\item \textit{CSS selector}: Menemukan elemen yang cocok dengan pemilihan \textit{Cascading Style Sheets} (CSS). Pemilihan pada CSS adalah pola yang digunakan untuk memilih elemen dengan \textit{style} yang diinginkan.
+	\item \textit{CSS selector}\\
+	Menemukan elemen yang cocok dengan pemilihan \textit{Cascading Style Sheets} (CSS). Pemilihan pada CSS adalah pola yang digunakan untuk memilih elemen dengan \textit{style} yang diinginkan. Pada Kode \ref{kode:2:elemencss} merupakan contoh untuk menemukan elemen yang cocok dengan pemilihan CSS. Baris 6 merupakan contoh kode yang disimpan dalam \textit{string} \textit{select} untuk mencari elemen berdasarkan pemilihan CSS dengan mengambil elemen dengan id ``selenium\_logo''.
 	\begin{lstlisting}[language=python, caption=Contoh kode untuk menemukan elemen dengan \textit{CSS selector}, label=kode:2:elemencss]
 		from selenium import webdriver
 		from selenium.webdriver.common.by import By
-		driver = webdriver.Chrome(executable_path='D:\Selenium\chromedriver.exe')
+		driver = webdriver.Chrome()
 		url = "https://selenium.dev"
 		driver.get(url)
 		select = driver.find_element(By.CSS_SELECTOR,"#selenium_logo")
 	\end{lstlisting}
-	Pada Kode \ref{kode:2:elemencss} baris 6 merupakan contoh kode yang disimpan dalam \textit{string} \textit{select} untuk mencari elemen berdasarkan pemilihan CSS dengan mengambil elemen dengan id ``selenium\_logo''.\\ \\
 
-	\item \textit{Name}: Menemukan elemen yang atribut \textit{name} yang cocok dengan nilai pencarian. 
+	\item \textit{Name}\\
+	Menemukan elemen yang atribut \textit{name} yang cocok dengan nilai pencarian. Pada Kode \ref{kode:2:elemenname} baris 6 mencari elemen dari atribut namanya dari situs web \url{https://www.facebook.com/} dengan atribut namanya adalah ``email'' dan disimpan dalam \textit{string} nama.
 	\begin{lstlisting}[language=python, caption=Contoh kode untuk menemukan elemen dengan atribut nama, label=kode:2:elemenname]
 		from selenium import webdriver
 		from selenium.webdriver.common.by import By
-		driver = webdriver.Chrome(executable_path='D:\Selenium\chromedriver.exe')
+		driver = webdriver.Chrome()
 		url = "https://www.facebook.com/"
 		driver.get(url)
 		nama = driver.find_element(By.NAME,"email")
 	\end{lstlisting}
-	Pada Kode \ref{kode:2:elemenname} baris 6 mencari elemen dari atribut namanya dari situs web \url{https://www.facebook.com/} dengan atribut namanya adalah ``email'' dan disimpan dalam \textit{string} nama.
 
-	\item Link text: Menemukan elemen \textit{link} yang teksnya terlihat cocok dengan nilai pencarian.
+	\item Link text\\
+	Menemukan elemen \textit{link} yang teksnya terlihat cocok dengan nilai pencarian. Pada Kode \ref{kode:2:elemenlink} baris 6 mencari elemen \textit{link} yang dengan nama teksnya adalah ``Documentation'' dari situs web \url{https://selenium.dev}.
 	\begin{lstlisting}[language=python, caption=Contoh kode untuk menemukan elemen dengan \textit{link text}, label=kode:2:elemenlink]
 		from selenium import webdriver
 		from selenium.webdriver.common.by import By
-		driver = webdriver.Chrome(executable_path='D:\Selenium\chromedriver.exe')
+		driver = webdriver.Chrome()
 		url = "https://selenium.dev"
 		driver.get(url)
 		nama = driver.find_element(By.LINK_TEXT, "Documentation")
 	\end{lstlisting}
-	Pada Kode \ref{kode:2:elemenlink} baris 6 mencari elemen \textit{link} yang dengan nama teksnya adalah ``Documentation'' dari situs web \url{https://selenium.dev}
 
-	\item Partial link text: Menemukan elemen \textit{link} yang teksnya terlihat berisi nilai pencarian. Jika beberapa elemen cocok, hanya yang pertama yang akan dipilih.
+	\item Partial link text\\
+	Menemukan elemen \textit{link} yang teksnya terlihat berisi nilai pencarian. Jika beberapa elemen cocok, hanya yang pertama yang akan dipilih. Pada Kode \ref{kode:2:elemenpartial} baris 6 mencari elemen \textit{link} yang dengan nama teksnya adalah ``About Selenium'' dari situs web \url{https://selenium.dev}, namun ketika ada beberapa elemen yang cocok dengan nama teks yang dicari maka akan diambil yang pertamanya saja.
 	\begin{lstlisting}[language=python, caption=Contoh kode untuk menemukan elemen dengan \textit{partial link text}, label=kode:2:elemenpartial]
 		from selenium import webdriver
 		from selenium.webdriver.common.by import By
-		driver = webdriver.Chrome(executable_path='D:\Selenium\chromedriver.exe')
+		driver = webdriver.Chrome()
 		url = "https://selenium.dev"
 		driver.get(url)
 		nama = driver.find_element(By.PARTIAL_LINK_TEXT, "About Selenium")
 	\end{lstlisting}
-	Pada Kode \ref{kode:2:elemenpartial} baris 6 mencari elemen \textit{link} yang dengan nama teksnya adalah ``About Selenium'' dari situs web \url{https://selenium.dev}, namun ketika ada beberapa elemen yang cocok dengan nama teks yang dicari maka akan diambil yang pertamanya saja.
 	
-	\item Tag name: Menemukan elemen yang nama tagnya cocok dengan nilai pencarian.
+	\item Tag name\\
+	Menemukan elemen yang nama tagnya cocok dengan nilai pencarian. Pada Kode \ref{kode:2:elementag} baris 6 mencari elemen yang nama tagnya adalah ``h1'' dari situs web \url{https://selenium.dev} yang disimpan dengan \textit{string} \textit{tag}.
 	\begin{lstlisting}[language=python, caption=Contoh kode untuk menemukan elemen dengan \textit{tag name}, label=kode:2:elementag]
 		from selenium import webdriver
 		from selenium.webdriver.common.by import By
-		driver = webdriver.Chrome(executable_path='D:\Selenium\chromedriver.exe')
+		driver = webdriver.Chrome()
 		url = "https://selenium.dev"
 		driver.get(url)
 		tag = driver.find_element(By.TAG_NAME, "h1")
 	\end{lstlisting}
-	Pada Kode \ref{kode:2:elementag} baris 6 mencari elemen yang nama tagnya adalah ``h1'' dari situs web \url{https://selenium.dev} yang disimpan dengan \textit{string} \textit{tag}.
 	
-	\item XPath: Menemukan elemen yang cocok dengan ekspresi \textit{XML Path Language} (XPath).
+	\item XPath\\
+	Menemukan elemen yang cocok dengan ekspresi \textit{XML Path Language} (XPath). XPath adalah bahasa ekspresi yang dirancang untuk mendukung kueri atau transformasi dari dokumen XML\cite{xpath}. Pada Kode \ref{kode:2:elemenxpath} baris 6 mencari elemen dengan XPath mulai dari nama id dari element yang dicari adalah `td-cover-block-0', lalu diarahkan hingga tempat elemen yang dicari itu berada, dan disimpan di \textit{string} dengan nama ``contoh1''. Pada baris 7 mencari elemen dengan XPath yang mulai dari struktur webnya dari atas hingga menuju tempat elemen itu berada dan disimpen di \textit{string} dengan nama ``contoh2''.
 	\begin{lstlisting}[language=python, caption=Contoh kode untuk menemukan elemen dengan ekspresi XPath, label=kode:2:elemenxpath]
 		from selenium import webdriver
 		from selenium.webdriver.common.by import By
-		driver = webdriver.Chrome(executable_path='D:\Selenium\chromedriver.exe')
+		driver = webdriver.Chrome()
 		url = "https://selenium.dev"
 		driver.get(url)
 		contoh1 = driver.find_element(By.XPATH, "//*[@id='td-cover-block-0']/div/div/div/div/h1")
 		contoh2 = driver.find_element(By.XPATH, "/html/body/div/main/section[1]/div/div/div/div/h1")
 	\end{lstlisting}
-	Pada Kode \ref{kode:2:elemenxpath} baris 6 mencari elemen dengan XPath mulai dari nama id dari element yang dicari adalah `td-cover-block-0', lalu diarahkan hingga tempat elemen yang dicari itu berada, dan disimpan di \textit{string} dengan nama ``contoh1''. Pada baris 7 mencari elemen dengan XPath yang mulai dari struktur webnya dari atas hingga menuju tempat elemen itu berada dan disimpen di \textit{string} dengan nama ``contoh2''.
+\end{itemize}
 
-\end{enumerate}
+\subsection{Interaksi Elemen}
+Interaksi elemen merupakan metode selenium yang dirancang untuk dapat melakukan otomatisasi seperti meniru langsung pengguna dalam melakukan sesuatu pada browser, seperti mengklik tombol, memasukan email dan \textit{password}, atau menghapus teks sesuatu. Terdapat 5 perintah dasar yang dapat dijalankan pada sebuah elemen:
+\begin{itemize}
+	\item \textit{Click}\\
+	Perintah \textit{Click} merupakan perintah dasar milik selenium untuk menekan atau mengklik secara otomatis sesuai dengan elemen yang diambil. Pada Kode \ref{kode:2:elemenclick} adalah contoh potongan kode program yang menggunakan perintah \textit{Click}, hanya cukup menambahkan kode ``.click()'' saja pada bagian akhir saat mengambil suatu elemen.
+	\begin{lstlisting}[language=python, caption=Contoh Potongan Kode Perintah \textit{Click} pada Suatu Elemen, label=kode:2:elemenclick]
+		btnIn = driver.find_element(By.CSS_SELECTOR, "#login-button").click()
+	\end{lstlisting}
+	
+	\item \textit{Send Keys}\\
+	Perintah \textit{Send Keys} merupakan perintah untuk mengetik sesuatu atau memasukan sesuatu dalam bentuk teks maupun angka pada suatu elemen secara otomatis. Biasanya elemen yang digunakan untuk menjalankan perintah \textit{Send Keys} ini adalah elemen input dari formulir pada suatu situs web dengan tipe teks. Pada Kode \ref{kode:2:elemensendkeys} adalah contoh potongan kode program yang menggunakan perintah \textit{Send Keys}, kode tersebut mengartikan bahwa program melakukan pencarian secara otomatis pada situs ``http://www.google.com'', dimana elemen dengan \textit{NAME} ``q'' diisi dengan nilai ``webdriver'' dan menekan tombol ``ENTER'' secara otomatis seperti pengguna menekan tombol ``ENTER'' manual pada \textit{keyboard} komputer atau laptop. Hasilnya adalah program akan membuka situs ``http://www.google.com'' dan sudah melakukan pencarian tentang ``webdriver''.
+	\begin{lstlisting}[language=python, caption=Contoh Potongan Kode Perintah \textit{Send Keys} pada Suatu Elemen, label=kode:2:elemensendkeys]
+		from selenium import webdriver
+		from selenium.webdriver.common.by import By
+		from selenium.webdriver.common.keys import Keys
+		driver = webdriver.Chrome()
+		driver.get("http://www.google.com")
+		driver.find_element(By.NAME, "q").send_keys("webdriver" + Keys.ENTER)
+	\end{lstlisting}
+	
+	\item \textit{Clear}\\
+	Perintah \textit{Clear} merupakan perintah untuk menghapus secara otomatis terhadap isi konten pada suatu elemen. Elemen yang bisa diberi perintah \textit{Clear} adalah elemen input dari formulir pada suatu situs web dengan tipe teks. Pada Kode \ref{kode:2:elemenclear} adalah contoh potongan kode program yang menggunakan perintah \textit{Clear}, kode tersebut mengartikan bahwa program setelah menggunakan perintah \textit{Send Keys} untuk memasukan ``webdriver'' pada elemen dengan \textit{NAME} ``q'' untuk dicari pada situs ``http://www.google.com''. Lalu dihapus dengan menggunakan perintah \textit{Clear}.
+	\begin{lstlisting}[language=python, caption=Contoh Potongan Kode Perintah \textit{Clear} pada Suatu Elemen, label=kode:2:elemenclear]
+		from selenium import webdriver
+		from selenium.webdriver.common.by import By
+		driver = webdriver.Chrome()
+		driver.get("http://www.google.com")
+		SearchInput = driver.find_element(By.NAME, "q").send_keys("webdriver")
+		SearchInput.clear()
+	\end{lstlisting}
+	
+	\item \textit{Submit}\\
+	Perintah \textit{Submit} pada Selenium versi 4 saat ini sudah tidak lagi diimplementasikan lagi, sehingga disarankan tidak menggunakan perintah ini lagi dan disarankan menggunakan perintah \textit{Click} dengan memilih elemen yang tepat untuk tombol \textit{submit} pada situs web.
+	
+	\item \textit{Select List}\\
+	Perintah \textit{Select List} ini berfungsi untuk mengambil nilai dari elemen yang berada dalam bentuk \textit{list}.
+\end{itemize}
 
 \subsection{Waits}
-WebDriver secara umum dapat dikatakan memiliki API pemblokiran, karena ini adalah \textit{library} di luar proses yang menginstruksikan browser apa yang harus dilakukan dan karena platform web secara intrinsik memiliki sifat asinkron atau tidak dilakukan secara \textit{real time}, maka WebDriver tidak melacak status \textit{Document Object Model} (DOM) yang aktif dan \textit{real time}.
-\begin{enumerate}
-	\item Implicit wait: memberi tahu WebDriver untuk melakukan polling DOM selama jangka waktu tertentu ketika mencoba menemukan elemen. Pengaturan awalnya adalah 0, artinya dinonaktifkan. Setelah disetel, maka \textit{wait implicit} disetel untuk masa pakai sesi yang sudah disetel.
+\textit{Waits} merupakan API pemblokiran yang dimiliki WebDriver. \textit{Waits} ini memiliki fungsi untuk menunggu suatu perintah saat melakukan proses otomatisasi terhadapa suatu situs web beres dijalankan, lalu menjalankan perintah selanjutnya. 
+\begin{itemize}
+	\item Implicit wait: memberi tahu WebDriver untuk menunggu selama jangka waktu tertentu ketika mencoba menemukan elemen. Pengaturan awal lama menunggunya adalah 0 detik, artinya dinonaktifkan. Setelah disetel, maka \textit{wait implicit} disetel untuk menunggu selama waktu yang sudah ditentukan.
 	\begin{lstlisting}[language=python, caption=Contoh kode Implicit wait, label=kode:2:implicit]
 		from selenium import webdriver
 		from selenium.webdriver.common.by import By
 		from selenium.webdriver.support.ui import WebDriverWait
-		driver = webdriver.Chrome(executable_path='D:\Selenium\chromedriver.exe')
+		driver = webdriver.Chrome()
 		driver.implicitly_wait(10)
 		url = "https://selenium.dev"
 		driver.get(url)
@@ -299,7 +312,7 @@ WebDriver secara umum dapat dikatakan memiliki API pemblokiran, karena ini adala
 		from selenium.webdriver.common.by import By
 		from selenium.webdriver.support.ui import WebDriverWait
 		from selenium.webdriver.support import expected_conditions as EC
-		driver = webdriver.Chrome(executable_path='D:\Selenium\chromedriver.exe')
+		driver = webdriver.Chrome()
 		url = "https://selenium.dev"
 		driver.get(url)	
 		try:
@@ -309,16 +322,16 @@ WebDriver secara umum dapat dikatakan memiliki API pemblokiran, karena ini adala
 		finally:
 			driver.quit()
 	\end{lstlisting}
-	Pada Kode \ref{kode:2:explicit} merupakan contoh kode \textit{explicit wait} dimana pada baris 1 sampai 4 melakukan \textit{import} library yang diperlukan. Baris 5 untuk menjalankan webdriver Google Chrome. Baris 6 \textit{string} dengan nama ``url'' diisi dengan situs web yang akan dituju. Baris 7 menggunakan \textit{method get} yang memanggil \textit{string} dengan nama ``url'' yang sudah berisi situs web yang dituju. Baris berikutnya adalah selenium akan menunggu selama 10 detik untuk menemukan elemen yang sesuai dengan id ``navbarDropdown''. Jika berhasil menemukan elemen yang dicari maka akan langsung masuk kondisi kode finally pada baris 11 dan langsung keluar dari webdriver Google Chrome, Jika tidak ada elemen yang ditemukan selama waktu yang diberikan maka program memberikan \textit{output} \textit{TimeoutException} dan akan masuk ke kode baris 11 serta langsung keluar dari webdriver Google Chrome.
-	
-\end{enumerate}
+	Pada Kode \ref{kode:2:explicit} merupakan contoh kode \textit{explicit wait} dimana pada baris 1 sampai 4 melakukan \textit{import} library yang diperlukan. Baris 5 untuk menjalankan webdriver Google Chrome. Baris 6 \textit{string} dengan nama ``url'' diisi dengan situs web yang akan dituju. Baris 7 menggunakan \textit{method get} yang memanggil \textit{string} dengan nama ``url'' yang sudah berisi situs web yang dituju. Baris berikutnya adalah selenium akan menunggu selama 10 detik untuk menemukan elemen yang sesuai dengan id ``navbarDropdown''. Jika berhasil menemukan elemen yang dicari maka akan langsung masuk kondisi kode finally pada baris 11 dan langsung keluar dari webdriver Google Chrome, Jika tidak ada elemen yang ditemukan selama waktu yang diberikan maka program memberikan \textit{output} \textit{TimeoutException} dan akan masuk ke kode baris 11 serta langsung keluar dari webdriver Google Chrome.	
+\end{itemize}
 
-
-
-
-
-
-
-
-
-
+\section{Configuration File Parser (ConfigParser)}
+\label{sec:config}
+ConfigParser merupakan sebuah \textit{library} yang sudah tersedia pada bahasa pemrograman Python dan mengimplementasikan bahasa konfigurasi dasar\cite{parser}. Struktur dari file konfigurasi terdiri dari \textit{section} dari file tersebut dan masing-masing \textit{key} dan \textit{value}. ConfigParser ini dapat membaca dan menulis file tersebut. 
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.7]{Gambar/config.png}
+	\caption{Contoh File Konfigurasi Sederhana} 
+	\label{fig:config}
+\end{figure}
+Pada Gambar \ref{fig:config} merupakan contoh file konfigurasi sederhana. Tulisan ``[Database]'' pada gambar merupakan bagian section, untuk tulisan yang berwarna biru merupakan bagian \textit{key}, dan tulisan yang berwarna merah merupakan bagian \textit{value}
