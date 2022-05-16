@@ -5,23 +5,37 @@ Pada bab ini akan dijelaskan perancangan perangkat lunak yang dibuat pada peneli
 \section{Diagram Aktivitas}
 \label{sec:diagramAktivitas}
 Perangkat lunak perekaman absen daring otomatis adalah perangkat lunak yang digunakan untuk melakukan absensi secara otomatis bagi mahasiswa UNPAR. Perangkat lunak ini menggunakan Selenium WebDriver sebagai \textit{tools} yang berguna untuk melakukan otomatisasi pada browser web. Perangkat lunak ini juga membutuhkan masukan dari sebuah file konfigurasi untuk menjalankannya.
-Diagram Aktivitas untuk perangkat lunak perekaman kehadiran daring otomatis dapat dilihat pada Gambar \ref{fig:diagramActivity}. Berikut ini adalah penjelasan langkah-langkah pada diagram aktifitas:
+Diagram Aktivitas untuk \textit{setup} menjalankan program dan menyiapkan file konfigurasi dapat dilihat Gambar \ref{fig:ActivitySetup}. Berikut ini adalah penjelasan langkah-langkah pada diagram aktivitas:
 \begin{enumerate}
-	\item Pengguna membuka \textit{file} konfigurasi untuk mengubah \textit{email} UNPAR dan \textit{password} milik pribadi (langkah ini cukup dijalankan sekali saja).
-	\item Pengguna membuka aplikasi dan menjalankan aplikasi tersebut.
-	\item Perangkat lunak menerima masukan dari file konfigurasi yang sudah disetel.
-	\item Perangkat lunak akan membuka browser Google Chrome secara otomatis.
-	\item Perangkat lunak akan masuk ke situs \url{https://studentportal.unpar.ac.id/} yang merupakan situs bagi Mahasiswa UNPAR untuk dapat melakukan absensi.
-	\item Perangkat lunak akan melakukan \textit{login} secara otomatis dengan \textit{email} dan \textit{password} yang sesuai dari \textit{file} konfigurasi.
-	\item Perangkat lunak akan membuka halaman situs untuk melakukan absensi perkuliahan.
-	\item Perangkat lunak akan melakukan absensi secara otomatis,
-	\item Perangkat lunak akan menutup browser.
+	\item Pengguna melakukan \textit{install} python, karena program perekaman absen daring otomatis menggunakan bahasa pemrograman python.
+	\item Pengguna melakukan \textit{install} selenium, karena untuk melakukan perekaman absen daring secara otomatis menggunakan selenium.
+	\item Pengguna melakukan \textit{install} chrome driver, karena menggunakan browser Google Chrome untuk melakukan perekaman absen daring otomatis.
+	\item Pengguna membuka file konfigurasi dan mengubah email serta password sesuai milik pengguna agar dapat digunakan sebagai masukan pada perangkat lunak untuk melakukan perekaman absen daring otomatis.
+	\item Pengguna menyimpan hasil perubahan yang telah dilakukan pada file konfigurasi.
 \end{enumerate}
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.5]{Gambar/diagramActivity.png}
+	\includegraphics[scale=0.4]{Gambar/ActivitySetup.png}
+	\caption{Diagram Aktivitas untuk \textit{Setup} Menjalankan Program} 
+	\label{fig:ActivitySetup}
+\end{figure}
+Diagram Aktivitas untuk perangkat lunak perekaman kehadiran daring otomatis dapat dilihat pada Gambar \ref{fig:ActivityAplikasi}. Berikut ini adalah penjelasan langkah-langkah pada diagram aktivitas:
+\begin{enumerate}
+	\item Pengguna menjalankan langsung programnya.
+	\item WebDriver memberikan perintah untuk membuka browser Google Chrome kepada Driver (Chrome Driver).
+	\item Chrome driver disini bertugas menghubungkan setiap perintah dari WebDriver untuk dijalankan pada browser Google Chrome.
+	\item Setelah browser Google Chrome terbuka, Browser Google Chrome memberi tahu melalui Chrome driver bahwa perintah sudah dijalankan dan siap menjalankan perintah selanjutnya.
+	\item WebDriver memberi perintah membuka web Portal Mahasiswa UNPAR dan Chrome driver memberi tahu kepada browser Google Chrome membuka web Portal Mahasiswa UNPAR.
+	\item Browser selanjutnya melakukan login dengan memasukan \textit{email} dan \textit{password} mahasiswa, sesuai dengan perintah dari WebDriver.
+	\item Perintah menuju halaman web untuk absensi daring diberikan oleh WebDriver untuk dijalankan secara otomatis oleh Google Chrome.
+	\item WebDriver memberi perintah untuk melakukan absensi daring kepada Google Chrome, sehingga dapat terjadi absensi daring secara otomatis.  
+	\item Terakhir WebDriver memberi perintah untuk menutup browser Google Chrome setelah berhasil melakukan absensi dan browser Google Chrome ditutup secara otomatis.
+\end{enumerate}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.4]{Gambar/ActivityAplikasi.png}
 	\caption{Diagram Aktivitas Perangkat Lunak Absen Daring Otomatis} 
-	\label{fig:diagramActivity}
+	\label{fig:ActivityAplikasi}
 \end{figure}
 
 \section{Masukan Perangkat Lunak}
