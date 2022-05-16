@@ -118,7 +118,7 @@ AKUHADIR adalah sebuah portal web yang dibuat bagi pegawai UNPAR dalam melaporka
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.4]{Gambar/akuhadir-1-beranda.png}
+	\includegraphics[scale=0.3]{Gambar/akuhadir-1-beranda.png}
 	\caption{Tampilan awal halaman AKUHADIR} 
 	\label{fig:akuhadir-1-beranda}
 \end{figure}
@@ -127,7 +127,7 @@ Gambar \ref{fig:akuhadir-1-beranda} menunjukkan halaman awal portal AKUHADIR, se
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.4]{Gambar/akuhadir-2-wfh.png}
+	\includegraphics[scale=0.3]{Gambar/akuhadir-2-wfh.png}
 	\caption{Tampilan menu WFH} 
 	\label{fig:akuhadir-2-wfh}
 \end{figure}
@@ -136,7 +136,7 @@ Di pagi hari sebelum memulai bekerja, pegawai mengklik menu \textit{Check in}. S
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.4]{Gambar/akuhadir-3-wfh-checkin.png}
+	\includegraphics[scale=0.3]{Gambar/akuhadir-3-wfh-checkin.png}
 	\caption{Tampilan konfirmasi check in AKUHADIR} 
 	\label{fig:akuhadir-3-wfh-checkin}
 \end{figure}
@@ -145,7 +145,7 @@ Di sore hari setelah bekerja, pegawai kembali mengakses AKUHADIR, namun memilih 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.4]{Gambar/akuhadir-4-wfh-checkout.png}
+	\includegraphics[scale=0.3]{Gambar/akuhadir-4-wfh-checkout.png}
 	\caption{Tampilan halaman check out AKUHADIR} 
 	\label{fig:akuhadir-4-wfh-checkout}
 \end{figure}
@@ -189,7 +189,7 @@ Selain kedua fitur tersebut, ada beberapa fitur lain dari AKUHADIR yang tidak di
 			\centering
 			\caption{Tabel Contoh \textit{Combinator Selector}.}
 			\label{table:combinator}
-			\begin{tabular}{ | m{8em} | m{3cm}| m{8cm} | } 
+			\begin{tabular}{ | m{9em} | m{2cm}| m{8cm} | } 
 				\hline
 				\textit{\textbf{Selector}}& Contoh & Penjelasan \\ 
 				\hline
@@ -199,7 +199,7 @@ Selain kedua fitur tersebut, ada beberapa fitur lain dari AKUHADIR yang tidak di
 				\hline
 				element + element & div + p & Memilih elemen <p> pertama setelah elemen <div>. \\ 
 				\hline
-				element1 \sim element2 & p \sim ul & Memilih setiap elemen <ul> yang diawali dulu oleh elemen <p>.  \\ 
+				element1 $\sim$ element2 & p $\sim$ ul & Memilih setiap elemen <ul> yang diawali dulu oleh elemen <p>.  \\ 
 				\hline
 			\end{tabular}
 		\end{table}
@@ -461,11 +461,17 @@ Interaksi elemen merupakan metode selenium yang dirancang untuk dapat melakukan 
 
 \section{Configuration File Parser (ConfigParser)}
 \label{sec:config}
-ConfigParser merupakan sebuah \textit{library} yang sudah tersedia pada bahasa pemrograman Python dan mengimplementasikan bahasa konfigurasi dasar\cite{parser}. Struktur dari file konfigurasi terdiri dari \textit{section} dari file tersebut dan masing-masing \textit{key} dan \textit{value}. ConfigParser ini dapat membaca dan menulis file tersebut. 
+ConfigParser merupakan sebuah \textit{library} yang sudah tersedia pada bahasa pemrograman Python dan mengimplementasikan bahasa konfigurasi dasar\cite{parser}. Penggunaan ConfigParser pada bahasa pemrograman python perlu melakukan \textit{import library} terlebih dahulu, sehingga dapat digunakan. Struktur dari file konfigurasi terdiri dari \textit{section} dari file tersebut dan masing-masing \textit{key} dan \textit{value}. ConfigParser ini dapat membaca dan menulis file tersebut. 
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.7]{Gambar/config.png}
 	\caption{Contoh File Konfigurasi Sederhana} 
 	\label{fig:config}
 \end{figure}
-Pada Gambar \ref{fig:config} merupakan contoh file konfigurasi sederhana. Tulisan ``[Database]'' pada gambar merupakan bagian section, untuk tulisan yang berwarna biru merupakan bagian \textit{key}, dan tulisan yang berwarna merah merupakan bagian \textit{value}
+Pada Gambar \ref{fig:config} merupakan contoh file konfigurasi sederhana. Tulisan ``[Database]'' pada gambar \ref{fig:config} merupakan \textit{section}, untuk tulisan yang berwarna biru merupakan bagian \textit{key}, dan tulisan yang berwarna merah merupakan bagian \textit{value}. Berikut ini penjelasan \textit{key} dan \textit{value} dari Gambar \ref{fig:config}:
+\begin{itemize}
+	\item Pada file konfigurasi dengan \textit{section} ``[Database]'' memiliki 3 \textit{key} dan \textit{value}.
+	\item \textit{Key} pertama adalah ``Nama'' dengan \textit{value} ``Budi''.
+	\item \textit{Key} kedua adalah ``Email'' dengan \textit{value} ``Budi@gmail.com''.
+	\item \textit{Key} ketiga adalah ``Status'' dengan \textit{value} ``Admin''.
+\end{itemize}

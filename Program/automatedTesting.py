@@ -12,7 +12,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 
 driver = webdriver.Chrome()
 parser = ConfigParser()
-parser.read('database.config')
+parser.read('database.ini')
 
 i = 1
 while (i <= i):
