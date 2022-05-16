@@ -9,14 +9,14 @@ Selenium yang merupakan sebuah open-source framework untuk pengujian otomatisasi
 
 1. Download ZIP proyek skripsi ini dan ekstrak filenya.
 2. Buka Folder Program.
-3. Install Python 3 (https://www.python.org/downloads/)
-4. Install Selenium (jika belum ter-install).  
+3. Install Python 3 (https://www.python.org/downloads/).
+4. Install Selenium (jika belum ter-install, https://www.selenium.dev/documentation/webdriver/getting_started/install_library/).  
 4.1 Buka Command Prompt  
 4.2 Input command di bawah ini
 	```sh
 	pip install selenium
 	```
-5. Setup chromedriver.exe ke dalam PATH.  
+5. Setup chromedriver.exe ke dalam PATH (https://www.selenium.dev/documentation/webdriver/getting_started/install_drivers/).  
 5.1 Buka Command Prompt.  
 5.2 Input command di bawah ini (directory relatif dengan posisi chromedriver.exe di komputer anda)
 	```sh
