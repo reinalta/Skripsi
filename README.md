@@ -25,7 +25,7 @@ Selenium yang merupakan sebuah open-source framework untuk pengujian otomatisasi
 	
 ## Cara Pemakaian
 
-1. Buka File database.config.
+1. Ubah nama file database-reinalta.properties menjadi database.ini .
 2. Ubah email di bawah ini menjadi email studentportal anda.  
 	```sh
 	3 = sendkeys #username 2017730035@student.unpar.ac.id
@@ -34,10 +34,10 @@ Selenium yang merupakan sebuah open-source framework untuk pengujian otomatisasi
 	```sh
 	5 = sendkeys #password ******
 	```
-4. Save file database.config.
+4. Save file database.ini.
 5. Buka Command Prompt dengan directory file automatedTesting.py
 6. Input command di bawah ini  
 	```sh
-	automatedTesting.py
+	python automatedTesting.py
 	```
 7. Browser akan terbuka secara otomatis untuk melakukan Perekaman Kehadiran Daring Otomatis.
