@@ -40,25 +40,25 @@ Diagram Aktivitas untuk perangkat lunak perekaman kehadiran daring otomatis dapa
 
 \section{Masukan Perangkat Lunak}
 \label{sec:inputConfig} 
-Perangkat lunak perekaman kehadiran daring otomatis membutuhkan 1 file sebagai masukan, yaitu \textit{file} .config (\textit{file} konfigurasi). Pada \textit{file} .config, nomor baris sebagai \textit{keys} dan \textit{string} berupa kata yang merupakan fungsi dari Selenium WebDriver dan elemen yang diambil untuk melakukan perekaman kehadiran daring otomatis sebagai \textit{values}. Contoh \textit{file} .config dapat dilihat pada Listing \ref{kode:4:conf}.
-\begin{lstlisting}[caption=Contoh \textit{file} .config untuk Masukan Perangkat Lunak Perekaman Kehadiran Daring Otomatis, label=kode:4:conf]
+Perangkat lunak perekaman kehadiran daring otomatis membutuhkan 1 file sebagai masukan, yaitu \textit{file} .ini (\textit{file} konfigurasi). Pada \textit{file} .ini, nomor baris sebagai \textit{keys} dan \textit{string} berupa kata yang merupakan fungsi dari Selenium WebDriver dan elemen yang diambil untuk melakukan perekaman kehadiran daring otomatis sebagai \textit{values}. Contoh \textit{file} .ini dapat dilihat pada Listing \ref{kode:4:conf}.
+\begin{lstlisting}[caption=Contoh \textit{file} .ini untuk Masukan Perangkat Lunak Perekaman Kehadiran Daring Otomatis, label=kode:4:conf]
 	[database_config]
 	1 = open https://studentportal.unpar.ac.id
 	2 = click #login-button
 	3 = sendkeys #username 2017730035@student.unpar.ac.id 
 	4 = quit
 \end{lstlisting}
-Berikut ini penjelasan dari isi dari contoh \textit{file} .config:
+Berikut ini penjelasan dari isi dari contoh \textit{file} .ini:
 \begin{itemize}
-	\item Baris pertama berisi nama \textit{section} untuk isi \textit{file} .config.
-	\item \textit{keys} pada \textit{file} .config ini pasti berupa angka yang terurut agar perangkat lunak dapat menjalankannya secara terurut.
+	\item Baris pertama berisi nama \textit{section} untuk isi \textit{file} .ini.
+	\item \textit{keys} pada \textit{file} .ini ini pasti berupa angka yang terurut agar perangkat lunak dapat menjalankannya secara terurut.
 	\item Terdapat 4 fungsi kata dari Selenium WebDriver, yaitu \textit{open}, \textit{click}, \textit{sendkeys}, dan \textit{quit}.
 	\item \textit{Keys} 1 pasti diisi oleh fungsi \textit{open}, lalu diisi situs web yang ingin dibuka (\url{https://studentportal.unpar.ac.id}), karena langkah pertama setelah berhasil membuka browser adalah menuju pada situs web yang akan diotomatisasi.
 	\item \textit{Keys} 2 memiliki fungsi \textit{click} untuk menekan tombol secara otomatis dan diisi elemen ``\#login-button'' yang diambil berdasarkan CSS Selector.
 	\item \textit{Keys} 3 memiliki fungsi \textit{sendkeys} untuk memasukan suatu nilai ke dalam elemen yang dipilih, yaitu elemen ``\#username'' dan isinya adalah ``2017730035@student.unpar.ac.id''.
 	\item \textit{Keys} 4 memiliki fungsi \textit{quit} untuk menutup browsernya.
 \end{itemize}
-Elemen yang dipakai dalam \textit{file} .config ini diambil dengan cara melakukan \textit{inspect element} pada web yang ingin dilakukan otomatisasi. Pada Gambar \ref{fig:inspect} adalah cara yang dilakukan untuk mendapat elemen yang ingin digunakan untuk melakukan otomatisasi. Untuk mendapatkan elemen tersebut, perlu melakukan klik kanan pada bagian elemen yang ingin diambil, lalu pilih ``inspect''. Setelah melakukan ``inspect'' maka akan muncul dokumen HTML yang dapat dilihat pada bagian kanan Gambar \ref{fig:inspect}, sehingga dapat melakukan pengambilan elemen yang diperlukan.
+Elemen yang dipakai dalam \textit{file} .ini ini diambil dengan cara melakukan \textit{inspect element} pada web yang ingin dilakukan otomatisasi. Pada Gambar \ref{fig:inspect} adalah cara yang dilakukan untuk mendapat elemen yang ingin digunakan untuk melakukan otomatisasi. Untuk mendapatkan elemen tersebut, perlu melakukan klik kanan pada bagian elemen yang ingin diambil, lalu pilih ``inspect''. Setelah melakukan ``inspect'' maka akan muncul dokumen HTML yang dapat dilihat pada bagian kanan Gambar \ref{fig:inspect}, sehingga dapat melakukan pengambilan elemen yang diperlukan.
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.4]{Gambar/elemen.jpg}
