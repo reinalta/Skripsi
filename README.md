@@ -3,7 +3,8 @@
 
 Perekaman Kehadiran Daring Otomatis adalah sebuah program untuk melakukan perekaman kehadiran bagi
 Mahasiswa Universitas Katolik Parahyangan. Program ini menggunakan bahasa pemrograman Python dan 
-Selenium yang merupakan sebuah open-source framework untuk pengujian otomatisasi untuk browser web.
+Selenium yang merupakan sebuah open-source framework untuk pengujian otomatisasi untuk browser web. 
+Wajib memiliki Python dan browser Google Chrome.
 
 ## Persyaratan
 
