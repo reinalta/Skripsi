@@ -12,6 +12,10 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import TimeoutException
 from tkinter import *
 from tkinter import messagebox
+import os
+
+os.environ["PATH"] = os.getcwd()
+print(os.environ["PATH"])
 
 driver = webdriver.Chrome()
 parser = ConfigParser()
