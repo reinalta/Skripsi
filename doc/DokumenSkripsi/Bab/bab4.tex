@@ -33,7 +33,7 @@ Diagram Aktivitas untuk perangkat lunak perekaman kehadiran daring otomatis dapa
 \end{enumerate}
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.4]{Gambar/ActivityAplikasi.png}
+	\includegraphics[scale=0.3]{Gambar/ActivityAplikasi.png}
 	\caption{Diagram Aktivitas Perangkat Lunak Absen Daring Otomatis} 
 	\label{fig:ActivityAplikasi}
 \end{figure}
@@ -53,7 +53,7 @@ Berikut ini penjelasan dari isi dari contoh \textit{file} .ini:
 	\item Baris pertama berisi nama \textit{section} untuk isi \textit{file} .ini.
 	\item \textit{keys} pada \textit{file} .ini ini pasti berupa angka yang terurut agar perangkat lunak dapat menjalankannya secara terurut.
 	\item Terdapat 4 fungsi kata dari Selenium WebDriver, yaitu \textit{open}, \textit{click}, \textit{sendkeys}, dan \textit{quit}.
-	\item \textit{Keys} 1 pasti diisi oleh fungsi \textit{open}, lalu diisi situs web yang ingin dibuka (\url{https://studentportal.unpar.ac.id}), karena langkah pertama setelah berhasil membuka browser adalah menuju pada situs web yang akan diotomatisasi.
+	\item \textit{Keys} 1 pasti diisi oleh fungsi \textit{open}, lalu diisi situs web (\url{https://studentportal.unpar.ac.id}), karena langkah pertama setelah berhasil membuka browser adalah menuju pada situs web yang akan diotomatisasi.
 	\item \textit{Keys} 2 memiliki fungsi \textit{click} untuk menekan tombol secara otomatis dan diisi elemen ``\#login-button'' yang diambil berdasarkan CSS Selector.
 	\item \textit{Keys} 3 memiliki fungsi \textit{sendkeys} untuk memasukan suatu nilai ke dalam elemen yang dipilih, yaitu elemen ``\#username'' dan isinya adalah ``2017730035@student.unpar.ac.id''.
 	\item \textit{Keys} 4 memiliki fungsi \textit{quit} untuk menutup browsernya.
@@ -61,7 +61,7 @@ Berikut ini penjelasan dari isi dari contoh \textit{file} .ini:
 Elemen yang dipakai dalam \textit{file} .ini ini diambil dengan cara melakukan \textit{inspect element} pada web yang ingin dilakukan otomatisasi. Pada Gambar \ref{fig:inspect} adalah cara yang dilakukan untuk mendapat elemen yang ingin digunakan untuk melakukan otomatisasi. Untuk mendapatkan elemen tersebut, perlu melakukan klik kanan pada bagian elemen yang ingin diambil, lalu pilih ``inspect''. Setelah melakukan ``inspect'' maka akan muncul dokumen HTML yang dapat dilihat pada bagian kanan Gambar \ref{fig:inspect}, sehingga dapat melakukan pengambilan elemen yang diperlukan.
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.4]{Gambar/elemen.jpg}
+	\includegraphics[scale=0.3]{Gambar/elemen.jpg}
 	\caption{Tampilan Melakukan \textit{Inspect Element}} 
 	\label{fig:inspect}
 \end{figure}	

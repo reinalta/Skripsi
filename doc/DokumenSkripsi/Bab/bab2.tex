@@ -111,14 +111,14 @@ Pada Gambar \ref{fig:studpor_home_2018} adalah tampilan awal ketika masuk ke hal
 \newpage
 
 \section{AKUHADIR 2.1}
-
+\label{sec:akuhadir}
 \textit{Subbab ini ditulis oleh dosen pembimbing.}
 
 AKUHADIR adalah sebuah portal web yang dibuat bagi pegawai UNPAR dalam melaporkan kehadiran kerja nya secara daring. Pegawai UNPAR mencatatankan kehadirannya setiap hari pada portal tersebut (dapat diakses pada \url{https://akuhadir.unpar.ac.id}), sesuai surat edaran Rektor III/R/2020-07/1153 \cite{akuhadir}.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.3]{Gambar/akuhadir-1-beranda.png}
+	\includegraphics[scale=0.25]{Gambar/akuhadir-1-beranda.png}
 	\caption{Tampilan awal halaman AKUHADIR} 
 	\label{fig:akuhadir-1-beranda}
 \end{figure}
@@ -127,7 +127,7 @@ Gambar \ref{fig:akuhadir-1-beranda} menunjukkan halaman awal portal AKUHADIR, se
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.3]{Gambar/akuhadir-2-wfh.png}
+	\includegraphics[scale=0.25]{Gambar/akuhadir-2-wfh.png}
 	\caption{Tampilan menu WFH} 
 	\label{fig:akuhadir-2-wfh}
 \end{figure}
@@ -136,7 +136,7 @@ Di pagi hari sebelum memulai bekerja, pegawai mengklik menu \textit{Check in}. S
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.3]{Gambar/akuhadir-3-wfh-checkin.png}
+	\includegraphics[scale=0.25]{Gambar/akuhadir-3-wfh-checkin.png}
 	\caption{Tampilan konfirmasi check in AKUHADIR} 
 	\label{fig:akuhadir-3-wfh-checkin}
 \end{figure}
@@ -145,7 +145,7 @@ Di sore hari setelah bekerja, pegawai kembali mengakses AKUHADIR, namun memilih 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.3]{Gambar/akuhadir-4-wfh-checkout.png}
+	\includegraphics[scale=0.25]{Gambar/akuhadir-4-wfh-checkout.png}
 	\caption{Tampilan halaman check out AKUHADIR} 
 	\label{fig:akuhadir-4-wfh-checkout}
 \end{figure}
@@ -253,7 +253,8 @@ Selain kedua fitur tersebut, ada beberapa fitur lain dari AKUHADIR yang tidak di
 			\end{tabular}
 		\end{table}
 \end{enumerate}
-\vspace{-0.5cm}
+
+
 \section{Selenium}
 \label{sec:selenium}
 Selenium merupakan \textit{open-source} \textit{framework} untuk pengujian otomatisasi untuk browser web\cite{selenium}. Cara kerja Selenium untuk melakukan otomatisasi pada browser web adalah seperti menirukan interaksi pengguna dengan browser, yang nantinya akan dijalankan otomatis oleh Selenium. Otomatisasi dengan Selenium ini dapat dilakukan pada berbagai browser yang umum banyak digunakan (Google Chrome, Safari, Opera, Firefox). Selenium ini tersedia untuk bahasa pemrograman Ruby, Java, Python, C\#, dan JavaScript. Bagian inti dari Selenium adalah WebDriver, WebDriver merupakan sebuah \textit{interface} untuk menulis suatu instruksi yang dapat dijalankan secara otomatis dan bergantian pada \textit{browser}. Setiap browser pasti didukung oleh implementasi WebDriver tertentu, yang disebut driver. Driver adalah komponen yang bertanggung jawab untuk menghubungkan komukasi antara Selenium dengan browser. 
@@ -276,7 +277,7 @@ Selenium Webdriver dapat mengambil informasi mengenai browser yang sedang dibuka
 	driver.title
 	driver.current_url
 \end{lstlisting}
-Hal pertama yang perlu dilakukan setelah berhasil membuka browser adalah membuka situs web yang akan diotomatisasikan. Pada Kode \ref{kode:2:navigate} merupakan contoh untuk memunculkan situs web yang ingin dijalankan dengan selenium. Baris 1 melakukan \textit{import} webdriver terlebih dahulu, lalu baris 2 \textit{string} dengan nama driver memanggil webdriver yang ingin digunakan, yaitu Google Chrome dan diisi letak file chromedriver.exe disimpan. Baris 3 \textit{string} dengan nama url diisi dengan situs web yang dituju dalam contoh adalah \url{https://selenium.dev}. Baris 4 adalah \textit{string} dengan nama link menggunakan \textit{method get} yang memanggil \textit{string} dengan nama driver yang sudah memanggil webdriver, lalu ditambahkan \textit{method get} yang memanggil \textit{string} dengan nama url yang sudah berisi situs web yang dituju.\\
+Hal pertama yang perlu dilakukan setelah berhasil membuka browser adalah membuka situs web yang akan diotomatisasikan. Pada Kode \ref{kode:2:navigate} merupakan contoh untuk memunculkan situs web yang ingin dijalankan dengan selenium. Baris 1 melakukan \textit{import} webdriver terlebih dahulu, lalu baris 2 \textit{string} dengan nama driver memanggil webdriver yang ingin digunakan, yaitu Google Chrome dan diisi letak file chromedriver.exe disimpan. Baris 3 \textit{string} dengan nama url diisi dengan situs web yang dituju dalam contoh adalah \url{https://selenium.dev}. Baris 4 adalah \textit{string} dengan nama link menggunakan \textit{method get} yang memanggil \textit{string} dengan nama driver yang sudah memanggil webdriver, lalu ditambahkan \textit{method get} yang memanggil \textit{string} dengan nama url yang sudah berisi situs web yang dituju.
 	\begin{lstlisting}[language=python, caption=Contoh kode Navigate to, label=kode:2:navigate]
 		from selenium import webdriver
 		driver = webdriver.Chrome()
@@ -284,6 +285,7 @@ Hal pertama yang perlu dilakukan setelah berhasil membuka browser adalah membuka
 		link = driver.get(url)
 	\end{lstlisting}
 WebDriver juga dapat melakukan otomatisasi untuk keluar dari browser setelah selesai digunakan. Pada Kode \ref{kode:2:quit} merupakan contoh untuk dapat keluar dari \textit{browser} setelah selesai menggunakan. Pada baris 1 sampai 4 merupakan contoh untuk memunculkan situs web yang ingin dijalankan dengan selenium dan sudah dijelaskan pada Kode \ref{kode:2:navigate}. Baris 5 adalah \textit{string} dengan nama \textit{quit} yang memanggil \textit{method quit()} yang berfungsi untuk dapat keluar dari \textit{browser} setelah selesai digunakan.
+\newpage
 	\begin{lstlisting}[language=python, caption=Contoh kode Get title, label=kode:2:quit]
 		from selenium import webdriver
 		driver = webdriver.Chrome()
@@ -459,9 +461,12 @@ Interaksi elemen merupakan metode selenium yang dirancang untuk dapat melakukan 
 	Pada Kode \ref{kode:2:explicit} merupakan contoh kode \textit{explicit wait} dimana pada baris 1 sampai 4 melakukan \textit{import} library yang diperlukan. Baris 5 untuk menjalankan webdriver Google Chrome. Baris 6 \textit{string} dengan nama ``url'' diisi dengan situs web yang akan dituju. Baris 7 menggunakan \textit{method get} yang memanggil \textit{string} dengan nama ``url'' yang sudah berisi situs web yang dituju. Baris berikutnya adalah selenium akan menunggu selama 10 detik untuk menemukan elemen yang sesuai dengan id ``navbarDropdown''. Jika berhasil menemukan elemen yang dicari maka akan langsung masuk kondisi kode finally pada baris 11 dan langsung keluar dari webdriver Google Chrome, Jika tidak ada elemen yang ditemukan selama waktu yang diberikan maka program memberikan \textit{output} \textit{TimeoutException} dan akan masuk ke kode baris 11 serta langsung keluar dari webdriver Google Chrome.	
 \end{itemize}
 
-\section{Configuration File Parser (ConfigParser)}
-\label{sec:config}
-ConfigParser merupakan sebuah \textit{library} yang sudah tersedia pada bahasa pemrograman Python dan mengimplementasikan bahasa konfigurasi dasar\cite{parser}. Penggunaan ConfigParser pada bahasa pemrograman python perlu melakukan \textit{import library} terlebih dahulu, sehingga dapat digunakan. Struktur dari file konfigurasi terdiri dari \textit{section} dari file tersebut dan masing-masing \textit{key} dan \textit{value}. ConfigParser ini dapat membaca dan menulis file tersebut. 
+\section{\textit{Library} Python}
+\label{sec:library}
+Bahasa pemrograman Python memiliki banyak library yang dapat dipakai. \textit{Library} Pyton adalah kumpulan modul yang berisi kumpulan kode yang dapat digunakan secara berulang kali di berbagai program. \textit{Library} Python ini membuat programmer menjadi mudah dan sederhana, karena tidak perlu menuliskan kode yang sama secara berulang. Pada subbab ini dijelaskan \textit{library} python yang digunakan untuk pembuatan perangkan lunak perekaman kehadirang daring otomatis.
+
+\subsection{\textit{Configuration File Parser} (ConfigParser)}
+ConfigParser merupakan sebuah modul yang sudah tersedia pada bahasa pemrograman Python dan mengimplementasikan bahasa konfigurasi dasar\cite{parser}. Penggunaan ConfigParser pada bahasa pemrograman python perlu melakukan \textit{import library} terlebih dahulu, sehingga dapat digunakan. Struktur dari file konfigurasi terdiri dari \textit{section} dari file tersebut dan masing-masing \textit{key} dan \textit{value}. ConfigParser ini dapat membaca dan menulis file tersebut. 
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.7]{Gambar/config.png}
@@ -474,4 +479,30 @@ Pada Gambar \ref{fig:config} merupakan contoh file konfigurasi sederhana. Tulisa
 	\item \textit{Key} pertama adalah ``Nama'' dengan \textit{value} ``Budi''.
 	\item \textit{Key} kedua adalah ``Email'' dengan \textit{value} ``Budi@gmail.com''.
 	\item \textit{Key} ketiga adalah ``Status'' dengan \textit{value} ``Admin''.
+\end{itemize}
+
+\subsection{\textit{Library} Tkinter}
+\textit{Library} Tkinter (Tk interface) adalah \textit{library} stadar dari Python untuk membuat aplikasi Python dengan antarmuka yang mudah diprogram. Tk merupakan sebuah fasilitas untuk grafis dan \textit{scripting} yang dikembangkan oleh John Ousterhout {\cite{tkinter}}. Modul yang digunakan dari \textit{library} Tkinter untuk pembuatan perangkat lunak ini adalah tkinter.messagebox. Modul tkinter.messagebox ini berguna untuk memberi suatu informasi mengenai status dari proses dalam menjalankan sebuah perangkat lunak. Berikut ini adalah beberapa fungsi untuk menampilkan status untuk \textit{message box} yang digunakan dalam pembuatan perangkat lunak:
+\begin{itemize}
+	\item messagebox.showinfo(): Menampilkan informasi yang berguna untuk pengguna. Pada Gambar \ref{fig:infoBox} yang merupakan sebuah contoh tampilan \textit{message box} berupa informasi yang berisi informasi bahwa ``Absensi Berhasil''. 
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.9]{Gambar/infoBox.jpg}
+		\caption{Contoh Informasi dari \textit{Message Box}} 
+		\label{fig:infoBox}
+	\end{figure}
+	\item messagebox.showwarning(): Menampilkan sebuah peringatan kepada pengguna.  Pada Gambar \ref{fig:warningBox} yang merupakan sebuah contoh tampilan \textit{message box} berupa \textit{warning} yang berisi peringatan bahwa ``Absensi Gagal!''. 
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.9]{Gambar/warningBox.jpg}
+		\caption{Contoh Warning dari \textit{Message Box}} 
+		\label{fig:warningBox}
+	\end{figure}
+\end{itemize}
+
+\subsection{\textit{Library} OS}
+\textit{Library} OS adalah modul sistem operasi pada python yang menyediakan cara untuk dapat berinteraksi langsung dengan sistem operasi. Sistem operasi yang dapat melakukan interaksi dengan python adalah windows, linux, dan mac. Berikut ini beberapa fungsi yang dimiliki pada \textit{Library} OS:
+\begin{itemize}
+	\item os.environ: Melakukan pemetaan terhadap objek yang mewakili \textit{enviroment variable} milik pengguna.
+	\item os.getcwd() : Mengembalikan direktori kerja yang digunakan. 
 \end{itemize}
