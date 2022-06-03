@@ -107,7 +107,7 @@ Untuk melakukan perekaman kehadiran otomatis di AKUHADIR, perlu penyesuaian \tex
 
 Saat pertama kali dijalankan, program menghasilkan pesan kesalahan seperti ditunjukkan pada kode \ref{kode:5:tkintererror}.
 
-\begin{lstlisting}[caption=Pesan kesalahan skrip tanpa \textit{tkinter}), label=kode:5:tkintererror]
+\begin{lstlisting}[caption=Pesan kesalahan skrip tanpa \textit{tkinter}, label=kode:5:tkintererror]
 $ python3 automatedTesting.py 
 Traceback (most recent call last):
   File "/home/pascal/Downloads/Dosen/automatedTesting.py", line 11, in <module>
@@ -127,7 +127,13 @@ Dengan adanya kesalahan tersebut, dosen juga mengulangi pengujian di komputer la
 Saat dijalankan, program menghasilkan pesan kesalahan yang serupa, seperti ditunjukkan pada kode \ref{kode:5:tkintererrormac}
 
 \begin{lstlisting}[caption=Pesan kesalahan skrip tanpa \textit{tkinter}) pada komputer alternatif, label=kode:5:tkintererrormac]
-TODO
+ % python3 automatedTesting.py
+Traceback (most recent call last):
+  File "/Users/pascal/Downloads/Dosen/automatedTesting.py", line 13, in <module>
+    from tkinter import * 
+  File "/opt/homebrew/Cellar/python@3.9/3.9.10/Frameworks/Python.framework/Versions/3.9/lib/python3.9/tkinter/__init__.py", line 37, in <module>
+    import _tkinter # If this fails your Python may not be configured for Tk
+ModuleNotFoundError: No module named '_tkinter'
 \end{lstlisting}
 
 Dari pengamatan pesan kesalahan, didapatkan bahwa program ini membutuhkan pustaka lain, yaitu \texttt{tkinter}. Dalam kasus ini dosen pembimbing tidak melanjutkan \textit{troubleshooting} karena pada paket program yang dikirimkan tidak mengandung instruksi untuk melakukan instalasi pustaka tersebut. Oleh karena itu pengujian fungsional pada komputer dosen dinyatakan tidak berhasil, dan selengkapnya dapat dilihat pada tabel \ref{tab:fungsidosen}.
