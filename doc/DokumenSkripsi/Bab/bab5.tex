@@ -73,16 +73,84 @@ Pengujian fungsional dilakukan untuk mengetahui kesesuaian reaksi perangkat luna
 		1. 	& Mahasiswa menjalankan perangkat lunak & Browser Google Chrome terbuka & Sesuai\\ \hline 
 	 		& &  Browser menuju situs Portal Akademik Mahasiswa & Sesuai\\ \hline 
 			& &  Browser menuju halaman web untuk perekaman kehadiran daring & Sesuai\\ \hline 
-			& &  Melakukan perekaman kehadiran daring secara otomatis & Sesuai\\ \hline 
-		2. & Dosen menjalankan perangkat lunak & Browser Google Chrome terbuka & Sesuai\\ \hline 
-		 	& &  Browser menuju situs AKUHADIR & Sesuai\\ \hline
-		 	& &  Browser menuju halaman web untuk perekaman kehadiran & Sesuai\\ \hline
-		 	& &  Melakukan perekaman kehadiran daring secara otomatis & Sesuai\\ \hline
+			& &  Melakukan perekaman kehadiran daring secara otomatis & Sesuai\\ \hline
 	\end{tabular}
 	\label{tab:fungsi}
 \end{table}
 
 \subsection{Pengujian Fungsional Dosen}
+
+\textit{Subbab ini ditulis oleh dosen pembimbing.}
+
+Program yang sudah dibuat diujikan juga di komputer dosen pembimbing, untuk melakukan rekam kehadiran pada portal AKUHADIR (subbab \ref{sec:akuhadir}). Berikut adalah spesifikasi komputer yang digunakan untuk menguji:
+
+\begin{enumerate}
+	\item \textit{Processor}: Intel Core i3-2120 CPU @ 3.30GHz $\times$ 4
+	\item \textit{Random Access Memory} (RAM): 6,0 GiB
+	\item Sistem Operasi: Ubuntu 22.04 LTS
+	\item Versi Python : Python 3.10.4
+\end{enumerate}
+
+Untuk melakukan perekaman kehadiran otomatis di AKUHADIR, perlu penyesuaian \textit{file} \texttt{database.ini} seperti dilihat pada kode \ref{kode:5:databasedosen}.
+
+\begin{lstlisting}[caption=\textit{File} \texttt{database.ini} AKUHADIR (\textit{password} disembunyikan), label=kode:5:databasedosen]
+[database_config]
+1 = open https://akuhadir.unpar.ac.id
+2 = sendkeys #username pascal@unpar.ac.id
+3 = click #next_login
+4 = sendkeys #password xxx
+5 = click button[name=submit]
+6 = click a[href='https://akuhadir.unpar.ac.id/absensi?tab=tab2']
+7 = click a[onclick='checkin_home()']
+8 = quit
+\end{lstlisting}
+
+Saat pertama kali dijalankan, program menghasilkan pesan kesalahan seperti ditunjukkan pada kode \ref{kode:5:tkintererror}.
+
+\begin{lstlisting}[caption=Pesan kesalahan program tanpa \textit{tkinter}, label=kode:5:tkintererror]
+$ python3 automatedTesting.py 
+Traceback (most recent call last):
+  File "/home/pascal/Downloads/Dosen/automatedTesting.py", line 11, in <module>
+    from tkinter import * 
+ModuleNotFoundError: No module named 'tkinter'
+\end{lstlisting}
+
+Dengan adanya kesalahan tersebut, dosen juga mengulangi pengujian di komputer lain, yaitu:
+
+\begin{enumerate}
+	\item \textit{Processor}: Apple M1
+	\item \textit{Random Access Memory} (RAM): 8 GB
+	\item Sistem Operasi: macOS Monterey
+	\item Versi Python : Python 3.9.10
+\end{enumerate}
+
+Saat dijalankan, program menghasilkan pesan kesalahan yang serupa, seperti ditunjukkan pada kode \ref{kode:5:tkintererrormac}.
+
+\begin{lstlisting}[caption=Pesan kesalahan program tanpa \textit{tkinter} pada komputer alternatif, label=kode:5:tkintererrormac]
+ % python3 automatedTesting.py
+Traceback (most recent call last):
+  File "/Users/pascal/Downloads/Dosen/automatedTesting.py", line 13, in <module>
+    from tkinter import * 
+  File "/opt/homebrew/Cellar/python@3.9/3.9.10/Frameworks/Python.framework/Versions/3.9/lib/python3.9/tkinter/__init__.py", line 37, in <module>
+    import _tkinter # If this fails your Python may not be configured for Tk
+ModuleNotFoundError: No module named '_tkinter'
+\end{lstlisting}
+
+Dari pengamatan pesan kesalahan, didapatkan bahwa program ini membutuhkan pustaka lain, yaitu \texttt{tkinter}. Dalam kasus ini dosen pembimbing tidak melanjutkan \textit{troubleshooting} karena pada paket program yang dikirimkan tidak mengandung instruksi untuk melakukan instalasi pustaka tersebut. Oleh karena itu pengujian fungsional pada komputer dosen dinyatakan tidak berhasil, dan selengkapnya dapat dilihat pada tabel \ref{tab:fungsidosen}.
+
+\begin{table}[H]			
+	\caption{Tabel Pengujian Fungsional}
+	\centering
+	\begin{tabular}{|p{0.5cm} |p{4cm} |p{5.5cm}| p{3cm}|} \hline
+		No. & Aksi Pengguna & Reaksi yang diharapkan & Reaksi Perangkat Lunak\\ \hline     
+		1. & Dosen menjalankan perangkat lunak & Browser Google Chrome terbuka & Tidak sesuai\\ \hline 
+		 	& &  Browser menuju situs AKUHADIR & Tidak sesuai\\ \hline
+		 	& &  Browser menuju halaman web untuk perekaman kehadiran & Tidak sesuai\\ \hline
+		 	& &  Melakukan perekaman kehadiran daring secara otomatis & Tidak sesuai\\ \hline
+	\end{tabular}
+	\label{tab:fungsidosen}
+\end{table}
+
 
 \subsection{Pengujian Eksperimental}
 Pengujian eksperimental dilakukan terhadap beberapa mahasiswa Universitas Katolik Parahyangan jurusan Teknik Informatika yang sudah memiliki Google Chrome dan Python3. Metode pengujian dilakukan dengan cara menyebarkan perangkat lunak yang dapat diunduh melalui Google Drive. Setelah menjalankan perangkat lunak tersebut, mahasiswa diminta untuk mengisi Google Form untuk mengetahui kelancaran perangkat lunak ketika dijalankan dan mengetahui lama waktu yang dibutuhkan hingga program berhasil melakukan perekaman kehadiran. Berikut ini hasil yang didapatkan dari pengisian survei:
