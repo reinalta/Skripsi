@@ -1,43 +1,50 @@
 \chapter{Perancangan}
 \label{chap:perancangan}
-Pada bab ini akan dijelaskan perancangan perangkat lunak yang dibuat pada penelitian ini. Perancangan terdiri dari masukan perangkat lunak dan diagram aktivitas. 
+Pada bab ini akan dijelaskan perancangan program yang dibuat pada penelitian ini. Perancangan terdiri dari masukan program dan diagram aktivitas. 
 
-\section{Masukan Perangkat Lunak}
+\section{Masukan Program}
 \label{sec:inputConfig} 
-Perangkat lunak perekaman kehadiran daring otomatis membutuhkan 1 file sebagai masukan, yaitu \textit{file} .ini (\textit{file} konfigurasi). Pada \textit{file} .ini, nomor baris sebagai \textit{keys} dan \textit{string} berupa kata yang merupakan fungsi dari Selenium WebDriver dan elemen yang diambil untuk melakukan perekaman kehadiran daring otomatis sebagai \textit{values}. 
+Program perekaman kehadiran daring otomatis membutuhkan 1 file sebagai masukan, yaitu \textit{file} .ini (\textit{file} konfigurasi). Pada \textit{file} .ini, nomor baris sebagai \textit{keys} dan \textit{string} berupa kata yang merupakan fungsi dari Selenium WebDriver dan elemen yang diambil untuk melakukan perekaman kehadiran daring otomatis sebagai \textit{values}. 
 
-\subsection{Spesifikasi Masukan Perangkat Lunak}
-\textit{File} konfigurasi terdiri dari \textit{section}, \textit{key}, dan \textit{value}. \textit{Section} ini merupakan judul dari \textit{file} konfigurasi. \textit{Key} akan berisi angka secara terurut dan dimulai dari angka satu hingga seterusnya, fungsi angka ini sebagai penanda urutan langkah-langkah yang nantinya akan dijalankan secara terurut oleh perangkat lunak. \textit{Value} merupakan isi dari \textit{key}, \textit{value} terdiri dari kata kunci untuk perangkat lunak menjalankan perintah dan elemen yang telah diambil dari situs web untuk melakukan otomatisasi, berikut ini adalah penjelasan kata kunci pada \textit{value}:
+\subsection{Spesifikasi Masukan Program}
+\label{sec:spek}
+Pada subbab ini akan dijelaskan spesifikasi dari \textit{file} konfigurasi yang menjadi masukan untuk program. Gambar \ref{fig:spek} merupakan spesifikasi untuk \textit{file} konfigurasi.
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.7]{Gambar/strukturConf.png}
+	\caption{Gambar Spesifikasi Untuk Masukan Program} 
+	\label{fig:spek}
+\end{figure}
+Penjelasan dari Gambar \ref{fig:spek} sebagai berikut:
 \begin{itemize}
-	\item Kata \textit{open} merupakan kata kunci bagi perangkat lunak untuk membuka situs web yang ingin dituju. 
-	\item Kata \textit{click} merupakan kata kunci bagi perangkat lunak untuk menekan suatu tombol secara otomatis sesuai dengan elemen yang telah diambil pada situs web yang telah dibuka.
-	\item Kata \textit{sendkeys} merupakan kata kunci bagi perangkat lunak untuk mengetik atau memasukan suatu nilai dalam bentuk teks maupun angka secara otomatis pada suatu elemen yang telah diambil.
-	\item Kata \textit{or} merupakan kata kunci bagi perangkat lunak untuk melihat dua kemungkinan yang terjadi dan menekan tombol secara otomatis pada satu elemen yang telah diambil atau dua elemen yang telah diambil secara bertahap.  
-	\item Kata \textit{quit} merupakan kata kunci bagi perangkat lunak untuk menutup browser.
+	\item \textit{File} konfigurasi memiliki \textit{section} dan nama \textit{section} dapat diubah sesuai keinginan. Nama \textit{section} ini yang akan dipanggil di dalam program, agar program dapat mengetahui seluruh isi \textit{key} dan \textit{value} dari \textit{file} konfigurasi tersebut.
+	\item \textit{Key} akan berisi angka secara terurut dan dimulai dari angka satu hingga seterusnya. Diisi dengan angka secara terurut untuk memudahkan program dalam membaca langkap pertama hingga langkah terakhir.
+	\item \textit{Value} terdiri dari kata kunci \textit{open}, \textit{click}, \textit{or}, \textit{sendkeys}, dan \textit{quit} yang berguna untuk program menjalankan perintah. \textit{Value} terdiri juga dari alamat web atau URL, elemen, dan nilai.
+	\item Kata \textit{open} berpasangan dengan URL, karena kata \textit{open} merupakan kata kunci dari \textit{file} .ini bagi program untuk menjalankan fungsi \textit{get()} dari selenium, yaitu membuka situs web yang ingin dituju.
+	\item Kata \textit{click} berpasangan dengan satu elemen, karena kata \textit{click} merupakan kata kunci dari \textit{file} .ini bagi program untuk menjalankan fungsi \textit{click} dari selenium, yaitu menekan suatu tombol secara otomatis sesuai dengan elemen yang telah diambil pada situs web yang telah dibuka.
+	\item Kata \textit{sendkeys} berpasangan dengan satu elemen dan satu nilai, karena kata \textit{sendkeys} merupakan kata kunci dari \textit{file} .ini bagi program untuk menjalankan fungsi \textit{sendkeys()} dari selenium, yaitu mengetik atau memasukan suatu nilai dalam bentuk teks maupun angka secara otomatis pada suatu elemen yang telah diambil.
+	\item Kata \textit{or} berpasangan dengan dua elemen, karena kata \textit{or} merupakan kata kunci dari \textit{file} .ini bagi program untuk menjalankan fungsi \textit{click()} dari selenium. Perbedaan dengan kata \textit{click} adalah bahwa kata \textit{or} ini diberi dua elemen dari web yang kemungkinan dapat terjadi dua-duanya atau salah satu saja. Lalu menekan tombol secara otomatis pada satu elemen yang telah diambil atau menekan tombol secara otomatis dua elemen yang telah diambil secara bertahap.  
+	\item Kata \textit{quit} merupakan kata kunci dari \textit{file} .ini bagi program untuk menjalankan fungsi \textit{quit()} dari selenium, yaitu menutup browser.
 \end{itemize}
 
-\subsection{Kontrusksi Masukan Perangkat Lunak}
-Perancangan untuk penulisan \textit{file} .ini 
 
-Berikut ini adalah contoh serta penjelasan \textit{file} .ini dapat dilihat pada Listing \ref{kode:4:conf}.
+
+\subsection{Konstruksi Masukan Program}
+Konstruksi untuk masukan program dapat disusun setelah mengetahui spesifikasi dari masukan program yang sudah dibahas pada subbab \ref{sec:spek}. Konstruksi untuk masukan program dibuat dengan mengikuti langkah-langkah dari perekaman kehadiran daring secara manual. Hal ini dilakukan agar program dapat menjalankan perintah sesuai dengan langkah-langkah dari perekaman kehadiran daring secara manual. Pada subbab \ref{sec:alur} sudah dijelaskan alur untuk melakukan perekaman kehadiran daring secara manual dan tinggal diubah ke dalam file konfigurasi berdasarkan aturan dari spesifikasi dari masukan program, sehingga menghasil sebuah file konfigurasi esuai dengan alur perekaman kehadiran daring yang dapat dilihat pada Listing \ref{kode:4:conf}
 \begin{lstlisting}[caption=Contoh \textit{file} .ini untuk Masukan Perangkat Lunak Perekaman Kehadiran Daring Otomatis, label=kode:4:conf]
 	[database_config]
 	1 = open https://studentportal.unpar.ac.id
 	2 = click #login-button
 	3 = sendkeys #username 2017730035@student.unpar.ac.id 
-	4 = quit
+	4 = click #next_login
+	5 = sendkeys #password 12345
+	6 = click #appPass>div.login__form>button
+	7 = or a[href='https://studentportal.unpar.ac.id/jadwal'] .swal-button.swal-button--confirm.swal-button--danger
+	8 = click a[onclick="absenPerkuliahan(this)"]
+	9 = click .swal-button.swal-button--confirm.swal-button--danger9
+	10 = quit
 \end{lstlisting}
-Berikut ini penjelasan dari isi dari contoh \textit{file} .ini:
-\begin{itemize}
-	\item Baris pertama berisi nama \textit{section} untuk isi \textit{file} .ini.
-	\item \textit{keys} pada \textit{file} .ini ini pasti berupa angka yang terurut agar perangkat lunak dapat menjalankannya secara terurut.
-	\item Terdapat 4 fungsi kata dari Selenium WebDriver, yaitu \textit{open}, \textit{click}, \textit{sendkeys}, dan \textit{quit}.
-	\item \textit{Keys} 1 pasti diisi oleh fungsi \textit{open}, lalu diisi situs web (\url{https://studentportal.unpar.ac.id}), karena langkah pertama setelah berhasil membuka browser adalah menuju pada situs web yang akan diotomatisasi.
-	\item \textit{Keys} 2 memiliki fungsi \textit{click} untuk menekan tombol secara otomatis dan diisi elemen ``\#login-button'' yang diambil berdasarkan CSS Selector.
-	\item \textit{Keys} 3 memiliki fungsi \textit{sendkeys} untuk memasukan suatu nilai ke dalam elemen yang dipilih, yaitu elemen ``\#username'' dan isinya adalah ``2017730035@student.unpar.ac.id''.
-	\item \textit{Keys} 4 memiliki fungsi \textit{quit} untuk menutup browsernya.
-\end{itemize}
-Elemen yang dipakai dalam \textit{file} .ini ini diambil dengan cara melakukan \textit{inspect element} pada web yang ingin dilakukan otomatisasi. Pada Gambar \ref{fig:inspect} adalah cara yang dilakukan untuk mendapat elemen yang ingin digunakan untuk melakukan otomatisasi. Untuk mendapatkan elemen tersebut, perlu melakukan klik kanan pada bagian elemen yang ingin diambil, lalu pilih ``inspect''. Setelah melakukan ``inspect'' maka akan muncul dokumen HTML yang dapat dilihat pada bagian kanan Gambar \ref{fig:inspect}, sehingga dapat melakukan pengambilan elemen yang diperlukan.
+Elemen yang dipakai dalam \textit{file} .ini ini diambil dengan cara melakukan \textit{inspect element} pada web yang ingin dilakukan otomatisasi. Elemen yang dipilih berdasarkan \textit{CSS Selector} yang sudah dibahas pada subbab \ref{sec:terjemah}. Pada Gambar \ref{fig:inspect} adalah cara yang dilakukan untuk mendapat elemen yang ingin digunakan untuk melakukan otomatisasi. Untuk mendapatkan elemen tersebut, perlu melakukan klik kanan pada bagian elemen yang ingin diambil, lalu pilih ``inspect''. Setelah melakukan ``inspect'' maka akan muncul dokumen HTML yang dapat dilihat pada bagian kanan Gambar \ref{fig:inspect}, sehingga dapat melakukan pengambilan elemen yang diperlukan.
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.3]{Gambar/elemen.jpg}
@@ -47,15 +54,14 @@ Elemen yang dipakai dalam \textit{file} .ini ini diambil dengan cara melakukan \
 
 \section{Diagram Aktivitas}
 \label{sec:diagramAktivitas}
-Perangkat lunak perekaman absen daring otomatis adalah perangkat lunak yang digunakan untuk melakukan absensi secara otomatis bagi mahasiswa UNPAR. Perangkat lunak ini menggunakan Selenium WebDriver sebagai \textit{tools} yang berguna untuk melakukan otomatisasi pada browser web. Perangkat lunak ini juga membutuhkan masukan dari sebuah file konfigurasi untuk menjalankannya.
+Program perekaman absen daring otomatis adalah program yang digunakan untuk melakukan absensi secara otomatis bagi mahasiswa UNPAR. Program ini menggunakan Selenium WebDriver sebagai \textit{tools} yang berguna untuk melakukan otomatisasi pada browser web. Program ini juga membutuhkan masukan dari sebuah file konfigurasi untuk menjalankannya.
 Diagram Aktivitas untuk \textit{setup} menjalankan program dan menyiapkan file konfigurasi dapat dilihat Gambar \ref{fig:ActivitySetup}. Berikut ini adalah penjelasan langkah-langkah pada diagram aktivitas:
 \begin{enumerate}
 	\item Pengguna melakukan \textit{install} python, karena program perekaman absen daring otomatis menggunakan bahasa pemrograman python.
 	\item Pengguna melakukan \textit{install} selenium, karena untuk melakukan perekaman absen daring secara otomatis menggunakan selenium.
-	\item Pengguna melakukan \textit{install} chrome driver, karena menggunakan browser Google Chrome untuk melakukan perekaman absen daring otomatis.
-	\item Pengguna membuka file konfigurasi dan mengubah email serta password sesuai milik pengguna agar dapat digunakan sebagai masukan pada perangkat lunak untuk melakukan perekaman absen daring otomatis.
-	asdasfgadsgasdf
-	\item Pengguna menyimpan hasil perubahan yang telah dilakukan pada file konfigurasi. BELUM SELESAI !!!!!!!!!!!!!!!!!
+	\item Pengguna melakukan \textit{install} chrome driver sesuai versi dari browser Google Chrome, karena menggunakan browser Google Chrome untuk melakukan perekaman absen daring otomatis.
+	\item Pengguna membuka file konfigurasi dan mengubah email serta password sesuai milik pengguna agar dapat digunakan sebagai masukan pada program untuk melakukan perekaman absen daring otomatis.
+	\item Pengguna menyimpan hasil perubahan yang telah dilakukan pada file konfigurasi.
 \end{enumerate}
 \begin{figure}[H]
 	\centering
@@ -63,20 +69,24 @@ Diagram Aktivitas untuk \textit{setup} menjalankan program dan menyiapkan file k
 	\caption{Diagram Aktivitas untuk \textit{Setup} Menjalankan Program} 
 	\label{fig:ActivitySetup}
 \end{figure}
-Diagram Aktivitas untuk perangkat lunak perekaman kehadiran daring otomatis dapat dilihat pada Gambar \ref{fig:ActivityAplikasi}. Berikut ini adalah penjelasan langkah-langkah pada diagram aktivitas:
+Diagram Aktivitas untuk program perekaman kehadiran daring otomatis dapat dilihat pada Gambar \ref{fig:ActivityAplikasi}. Berikut ini adalah penjelasan langkah-langkah pada diagram aktivitas:
 \begin{enumerate}
 	\item Pengguna menjalankan langsung programnya.
-	\item Perangkat lunak akan membuka browser Google Chrome saat pertama kali program dijalankan.
-	\item Perangkat lunak menerima masukan dari file konfigurasi yang telah di-\textit{setup} oleh pengguna.
-	\item Perangkat lunak akan menjalankan perintah sesuai masukan file konfigurasi secara baris perbaris.
-	\item Perangkat lunak akan melakukan \textit{looping} jika masukkan dari file konfigurasi berisi kata ``\textit{open}'' maka perangkat lunak akan membuka situs web yang dituju.
-	\item 
-	\item
+	\item Program akan membuka browser Google Chrome saat pertama kali program dijalankan.
+	\item Program menerima masukan dari \textit{file} konfigurasi yang telah di-\textit{setup} oleh pengguna.
+	\item Program akan menjalankan perintah sesuai masukan \textit{file} konfigurasi secara baris perbaris dimulai dari baris pertama.
+	\item Setiap program selesai menjalankan satu baris perintah dari masukan \textit{file} konfigurasi maka program akan kembali melakukan cek baris berikutnya pada \textit{file} konfigurasi dan menjalankannya hingga baris terakhir.
+	\item Jika masukan dari value \textit{file} konfigurasi terdapat kata \textit{open} maka program diberi perintah untuk membuka situs web yang dituju pada browser Google Chrome secara otomatis.
+	\item Jika masukan dari value \textit{file} konfigurasi terdapat kata \textit{click} maka program diberi perintah untuk menekan suatu tombol yang diminta berdasarkan elemen yang telah diambil.
+	\item Jika masukan dari value \textit{file} konfigurasi terdapat kata \textit{sendkeys} maka program diberi perintah untuk melakukan \textit{input} suatu nilai berupa angka atau kata ke dalam suatu elemen yang telah dipilih.
+	\item Jika masukan dari value \textit{file} konfigurasi terdapat kata \textit{or} maka program akan menerima dua elemen secara langsung, jika elemen pertama telah ditemukan maka program langsung diberi perintah untuk menekan tombol berdasarkan elemen pertama, jika elemen kedua yang ditemukan terlebih dahulu maka program diberi perintah untuk menekan tombol berdasarkan elemen kedua terlebih dahulu lalu menekan tombol berdasarkan elemen pertama.
+	\item Jika masukan dari value \textit{file} konfigurasi terdapat kata \textit{quit} maka program diberi perintah untuk menutup menutup browser dan program selesai dijalankan.
+
 \end{enumerate}
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.4]{Gambar/ActivityAplikasi.png}
-	\caption{Diagram Aktivitas Perangkat Lunak Absen Daring Otomatis} 
+	\caption{Diagram Aktivitas Program Absen Daring Otomatis} 
 	\label{fig:ActivityAplikasi}
 \end{figure}
 

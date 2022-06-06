@@ -1,6 +1,6 @@
 \chapter{Analisis}
 \label{chap:analisis}
-Bab ini berisi analisis yang digunakan pada skripsi ini, analisis hasil survei perekaman kehadiran daring dan luring, analisis alur perekaman kehadiran online, cara menerjemahkan perekaman kehadiran online ke dalam selenium, dan analisis program sejenis.
+Bab ini berisi analisis yang digunakan pada skripsi ini, yaitu analisis hasil survei perekaman kehadiran daring dan luring, analisis alur perekaman kehadiran daring, cara menerjemahkan perekaman kehadiran daring ke dalam selenium, dan analisis program sejenis.
 
 \section{Analisis Hasil Survei Perekaman Kehadiran Daring dan Luring}
 \label{sec:survei} 
@@ -117,7 +117,7 @@ Berdasarkan hasil survei yang telah diterima dari 6 orang responden yang merupak
 \end{enumerate}
 Kesimpulan dari hasil survei dosen menunjukan bahwa rata-rata waktu yang dibutuhkan secara luring adalah 24,33 detik lebih cepat dibandingkan dengan rata-rata waktu yang dibutuhkan secara daring adalah 31,83 detik.
 
-\section{Analisis Alur Perekaman Kehadiran Online}
+\section{Analisis Alur Perekaman Kehadiran Daring}
 \label{sec:alur} 
 Portal Akademik Mahasiswa Universitas Katolik Parahyangan yang terbaru sejak 2020 sudah dapat melakukan perekaman kehadiran secara online untuk setiap mata kuliah yang diambil. Berikut ini adalah alur untuk melakukan perekaman kehadiran online melalui Portal Akademik Mahasiswa Universitas Katolik Parahyangan:
 \begin{enumerate}
@@ -181,7 +181,7 @@ Portal Akademik Mahasiswa Universitas Katolik Parahyangan yang terbaru sejak 202
 	\end{figure}
 \end{enumerate}
 
-\section{Cara Menerjemahkan Perekaman Kehadiran Online ke dalam Selenium}
+\section{Cara Menerjemahkan Perekaman Kehadiran Daring ke dalam Selenium}
 \label{sec:terjemah} 
 Otomatisasi perekaman kehadiran online ini akan menggunakan selenium, sehingga perlu diterjemahkan dari cara perekaman kehadiran online secara normal ke dalam selenium. Membuka situs web \url{https://studentportal.unpar.ac.id/} menggunakan selenium adalah dengan menggunakan \textit{method get()}. Setiap tombol yang ingin ditekan akan diambil elemennya agar dapat diotomatisasikan dengan selenium. Pada \textit{browser} Google Chrome, cara mendapatkan setiap elemen yang dibutuhkan adalah dengan melakukan \textit{inspect} elemen pada bagian yang ingin diambil elemennya. Elemen yang ingin diambil dapat dilakukan dengan berbagai macam cara seperti yang sudah dijelaskan pada Bab \ref{sec:selenium}. Beberapa faktor yang dapat dijadikan acuan untuk memilih cara untuk mengambil elemen dapat dilihat dari sebagai berikut:
 \begin{enumerate}
