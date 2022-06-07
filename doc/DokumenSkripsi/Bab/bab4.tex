@@ -31,7 +31,7 @@ Penjelasan dari Gambar \ref{fig:spek} sebagai berikut:
 
 \subsection{Konstruksi Masukan Program}
 Konstruksi untuk masukan program dapat disusun setelah mengetahui spesifikasi dari masukan program yang sudah dibahas pada subbab \ref{sec:spek}. Konstruksi untuk masukan program dibuat dengan mengikuti langkah-langkah dari perekaman kehadiran daring secara manual. Hal ini dilakukan agar program dapat menjalankan perintah sesuai dengan langkah-langkah dari perekaman kehadiran daring secara manual. Pada subbab \ref{sec:alur} sudah dijelaskan alur untuk melakukan perekaman kehadiran daring mahasiswa secara manual dan tinggal diubah ke dalam file konfigurasi berdasarkan aturan dari spesifikasi dari masukan program, sehingga menghasil sebuah file konfigurasi esuai dengan alur perekaman kehadiran daring mahasiswa yang dapat dilihat pada Listing \ref{kode:4:conf}
-\begin{lstlisting}[caption=Contoh \textit{file} .ini untuk Masukan Perangkat Lunak Perekaman Kehadiran Daring Otomatis, label=kode:4:conf]
+\begin{lstlisting}[caption=Contoh \textit{file} .ini untuk Masukan Program Perekaman Kehadiran Daring Otomatis, label=kode:4:conf]
 	[database_config]
 	1 = open https://studentportal.unpar.ac.id
 	2 = click #login-button
@@ -44,6 +44,19 @@ Konstruksi untuk masukan program dapat disusun setelah mengetahui spesifikasi da
 	9 = click .swal-button.swal-button--confirm.swal-button--danger9
 	10 = quit
 \end{lstlisting}
+Berikut ini penjelasan dari isi pada file .ini yang merupakan masukan program perekaman kehadiran daring otomatis:
+\begin{itemize}
+	\item 1 = open https://studentportal.unpar.ac.id, merupakan langkah pertama untuk melakukan absensi, yaitu membuka situs web Portal Akademik Mahasiswa dengan kata kunci \textit{open} dan mengambil alamat situs web Portal Akademik Mahasiswa.
+	\item 2 = click \#login-button, langkah kedua dengan kata kunci \textit{click} untuk menekan tombol \textit{``LOGIN''} yang memiliki elemen (#login-button) berdasarkan \textit{CSS selector} pada tombol \textit{``LOGIN''}.
+	\item 3 = sendkeys \#username 2017730035@student.unpar.ac.id, langkah ketiga dengan dengan kata kunci \textit{sendkeys} untuk memasukan sebuah nilai (2017730035@student.unpar.ac.id) pada elemen (\#username) yang merupakan tempat untuk memasukan \textit{email}.
+	\item 4 = click \#next\_login, langkah keempat dengan kata kunci \textit{click} untuk menekan tombol \textit{``NEXT''} dan mengambil element (\#next\_login) pada tombol \textit{``NEXT''}.
+	\item 5 = sendkeys \#password 12345, langkah kelima dengan kata kunci \textit{sendkeys} untuk memasukan sebuah nilai (12345) pada elemen (\#password) yang merupakan tempat untuk memasukan \textit{password}.
+	\item 6 = click \#appPass>div.login\_\_form>button, langkah keenam dengan kata kunci \textit{click} untuk menekan tombol \textit{``LOGIN''} yang memiliki elemen (\#appPass>div.login\_\_form>button) agar dapat masuk ke dalam halaman utama situs Portal Akademik Mahasiswa. 
+	\item 7 = or a[href='https://studentportal.unpar.ac.id/jadwal'] \\ .swal-button.swal-button--confirm.swal-button--danger, langkah ketujuh dengan kata kunci \textit{or} untuk membuat program melihat kondisi jika notifikasi peringatan muncul maka menekan tombol ``TUTUP'' dengan elemen (.swal-button.swal-button--confirm.swal-button--danger) lalu menekan tombol untuk masuk ke bagian halaman absensi dengan elemen (a[href='https://studentportal.unpar.ac.id/jadwal']), jika notifikasi peringatan tidak muncul maka langsung menekan tombol untuk masuk ke bagian halaman absensi dengan elemen \\ (a[href='https://studentportal.unpar.ac.id/jadwal']).
+	\item 8 = click a[onclick="absenPerkuliahan(this)"], langkah kedelapan dengan kata kunci \textit{click} untuk menekan tombol absensi yang memiliki elemen (a[onclick="absenPerkuliahan(this)"]).
+	\item 9 = click .swal-button.swal-button--confirm.swal-button--danger9, langkah kesembilan dengan kata kunci \textit{click} untuk menekan tombol \textit{``OK''} yang memiliki elemen (.swal-button.swal-button--confirm.swal-button--danger9) dari notifikasi yang menunjukan absensi telah berhasil.
+	\item 10 = quit, langkah terakhir dengan kata kunci \textit{quit} untuk keluar dari browser.
+\end{itemize}
 
 \begin{figure}[H]
 	\centering
