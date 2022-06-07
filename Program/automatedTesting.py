@@ -10,7 +10,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import TimeoutException
-from webdriver_manager.chrome import ChromeDriverManager
 from tkinter import * 
 from tkinter import messagebox
 import os
@@ -19,7 +18,7 @@ import os
 os.environ["PATH"] = os.getcwd()
 print(os.environ["PATH"])
 
-driver = webdriver.Chrome(ChromeDriverManager().install())
+driver = webdriver.Chrome()
 
 
 parser = ConfigParser()
