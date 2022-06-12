@@ -14,13 +14,10 @@ from tkinter import *
 from tkinter import messagebox
 import os
 
-
 os.environ["PATH"] = os.getcwd()
 print(os.environ["PATH"])
 
 driver = webdriver.Chrome()
-
-
 parser = ConfigParser()
 parser.read('database.ini')
 
