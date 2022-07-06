@@ -4,14 +4,14 @@
    
 \section{Latar Belakang}
 \label{sec:label}
-Perkuliahan di UNPAR biasanya membutuhkan perekaman kehadiran untuk mengetahui kehadiran mahasiswa dan dosen, bagi mahasiswa UNPAR perekaman kehadiran biasanya dilakukan dengan melakukan tanda tangan pada daftar kehadiran atau dicatat langsung oleh dosen yang memanggil mahasiswanya, sedangkan bagi dosen UNPAR perekaman kehadiran dilakukan dengan menggunakan  \textit{fingerprint}. Perekaman kehadiran diperkirakan membutuhkan waktu sekitar kurang dari 5 detik.
+Perkuliahan di UNPAR biasanya membutuhkan perekaman kehadiran untuk mengetahui kehadiran mahasiswa dan dosen. Perekaman kehadiran bagi mahasiswa UNPAR biasanya dilakukan dengan melakukan tanda tangan pada daftar kehadiran atau dicatat langsung oleh dosen yang memanggil mahasiswanya, sedangkan bagi dosen UNPAR perekaman kehadiran dilakukan dengan menggunakan  \textit{fingerprint}. Perekaman kehadiran diperkirakan membutuhkan waktu sekitar kurang lebih 5 detik.
 
-Pada tahun 2020 terjadi pandemi Covid-19 di seluruh negara. Pandemi Covid-19 masuk ke Indonesia pada awal bulan Maret tahun 2020. Covid-19 adalah penyakit yang disebabkan oleh virus \textit{severe acute respiratory syndrome coronavirus 2} (SARS-CoV-2) \footnote{\textit{Pandemi Covid-19 di Indonesia} \url{https://id.wikipedia.org/wiki/Pandemi_Covid-19_di_Indonesia}}. Penularan virus Covid-19 terjadi saat seseorang menyentuh barang yang sudah terkontaminasi oleh droplet orang yang terkena virus Covid-19 atau terkena droplet orang lain saat berinteraksi langsung dengan orang yang terkena virus Covid-19.  Akibat pandemi Covid-19 yang dapat menular ini, maka hampir seluruh kegiatan di Indonesia dilakukan secara daring untuk mengurangi interaksi orang secara langsung yang dapat meningkatkan angka penularan virus tersebut. 
+Pada tahun 2020 terjadi pandemi Covid-19 di seluruh negara. Pandemi Covid-19 masuk ke Indonesia pada awal bulan Maret tahun 2020. Covid-19 adalah penyakit yang disebabkan oleh virus \textit{severe acute respiratory syndrome coronavirus 2} (SARS-CoV-2) \footnote{\textit{Pandemi Covid-19 di Indonesia} \url{https://id.wikipedia.org/wiki/Pandemi_Covid-19_di_Indonesia}}. Penularan virus Covid-19 terjadi saat seseorang menyentuh barang yang sudah terkontaminasi oleh droplet orang yang terkena virus Covid-19 atau terkena droplet orang lain saat berinteraksi langsung dengan orang yang terkena virus Covid-19. Akibat pandemi Covid-19 yang dapat menular ini, maka hampir seluruh kegiatan di Indonesia dilakukan secara daring untuk mengurangi interaksi orang secara langsung yang dapat meningkatkan angka penularan virus tersebut. 
 
 Pembelajaran secara daring diberlakukan oleh UNPAR di akhir bulan Maret untuk seluruh kegiatan perkuliahan demi mencegah penularan virus Covid-19. Akibat diberlakukannya pembelajaran secara daring, maka perekaman kehadiran di UNPAR dilakukan dengan menggunakan aplikasi atau situs web milik UNPAR. Cara perekaman kehadiran secara daring di UNPAR ini mumbutuhkan waktu lebih agar dapat tercatat perekaman kehadirannya, karena butuh waktu untuk membuka situs web serta perlu memasukan \textit{email} dan \textit{password} hingga akhirnya melakukan perekaman kehadiran. 
 
-Selenium adalah \textit{open-source} \textit{framework} pengujian otomatisasi untuk aplikasi web\cite{selenium}. Cara kerja Selenium untuk melakukan otomatisasi pada browser web adalah seperti menirukan interaksi pengguna dengan browser, yang nantinya akan dijalankan otomatis oleh Selenium. WebDriver adalah \textit{Application Programming Interface} (API) yang berfungsi menghubungkan Selenium dengan browser web, sehingga Selenium dapat mengontrol atau melakukan otomatisasi pada browser web. WebDriver ini seolah-olah membuat pengguna secara langsung mengoperasi \textit{browser}, padahal dijalankan secara otomatis langsung oleh WebDriver tersebut. Selenium ini tersedia untuk bahasa pemrograman Ruby, Java, Python, C\#, dan JavaScript. Pembuatan Perekaman kehadiran daring otomatis ini akan menggunakan Selenium dengan bahasa pemrograman Python.  
-\newpage
+Terdapat berbagai macam \textit{framework} untuk pengujian otomatisasi, seperti Katalon Studi, Selenium, Appium, dan TestComplete. Pada skripsi ini akan digunakan \textit{framework} Selenium untuk membuat program perekaman kehadiran daring otomatis. Selenium adalah \textit{open-source} \textit{framework} untuk pengujian otomatisasi pada web\cite{selenium}. Cara kerja Selenium untuk melakukan otomatisasi pada browser web adalah seperti menirukan interaksi pengguna dengan browser, yang nantinya akan dijalankan otomatis oleh Selenium. WebDriver adalah \textit{Application Programming Interface} (API) yang berfungsi menghubungkan Selenium dengan browser web, sehingga Selenium dapat mengontrol atau melakukan otomatisasi pada browser web. WebDriver ini seolah-olah membuat pengguna secara langsung mengoperasi \textit{browser}, padahal dijalankan secara otomatis langsung oleh WebDriver tersebut. Kelebihan Selenium adalah tersedia untuk berbagai bahasa pemrograman Ruby, Java, Python, C\#, dan JavaScript. Selenium dapat dijalankan di berbagai sistem operasi seperti Windows, macOS, Linux, dan Solaris. Pembuatan Perekaman kehadiran daring otomatis ini akan menggunakan Selenium dengan bahasa pemrograman Python.  
+
 Proses perekaman kehadiran daring di UNPAR harus melakukan beberapa hal untuk dapat melakukan perekeman kehadiran daring untuk mata kuliah yang diambil. Berikut ini hal-hal yang perlu dilakukan untuk melakukan perekaman kehadiran daring di UNPAR:
 \begin{enumerate}
 	\item Membuka browser.
@@ -20,24 +20,28 @@ Proses perekaman kehadiran daring di UNPAR harus melakukan beberapa hal untuk da
 	\item Menuju ke halaman web untuk perekaman kehadiran mahasiswa.
 	\item Melakukan rekam kehadiran.
 \end{enumerate}
-Pada skripsi ini, akan dibuat sebuah program yang dapat melakukan perekaman kehadiran otomatis dengan sistem menerima rangsangan satu ``klik'' yang dapat menjalankan langkah-langkah perekaman kehadiran daring manual secara otomatis pada situs \url{https://studentportal.unpar.ac.id}, sehingga program yang dibuat ini menjalankan perintah yang biasa dilakukan mahasiswa lakukan secara manual untuk melakukan perekaman kehadiran daring menjadi otomatis dilakukan oleh program tersebut.
-Program ini bertujuan agar mahasiswa dapat melakukan perekaman kehadiran secara online di situs web Portal Akademik Mahasiswa UNPAR dengan lebih mudah dikarenakan mahasiswa hanya perlu menjalankan program tersebut untuk melakukan perekaman kehadiran serta mengurangi waktu yang dibutuhkan untuk berinteraksi dengan aplikasi atau situs web dan bukan untuk mempercepat waktu agar kehadiran terekam, sehingga membuat waktu perekaman kehadiran secara daring dapat mendekati atau menyamai waktu perekaman kehadiran secara luring. Dikarenakan terbimbing tidak memiliki akses ke \url{https://akuhadir.unpar.ac.id} situs perekaman kehadiran milik dosen, maka terbimbing mensimulasikan dengan Portal Akademik Mahasiswa dan kemudian Pembimbing mengubah aksesnya ke situs perekeman kehadiran milik dosen.
+Pada skripsi ini, akan dibuat sebuah program yang dapat melakukan perekaman kehadiran otomatis dengan sistem menerima rangsangan satu ``klik'' yang dapat menjalankan langkah-langkah perekaman kehadiran daring secara otomatis pada situs \url{https://studentportal.unpar.ac.id}, sehingga program yang dibuat ini menjalankan perintah yang biasa dilakukan mahasiswa secara manual untuk melakukan perekaman kehadiran daring menjadi otomatis dilakukan oleh program.
+Program ini bertujuan agar mahasiswa dapat melakukan perekaman kehadiran secara online di situs web Portal Akademik Mahasiswa UNPAR dengan lebih mudah. Mahasiswa hanya perlu menjalankan program tersebut untuk melakukan perekaman kehadiran daring serta mengurangi waktu yang dibutuhkan untuk berinteraksi dengan aplikasi atau situs web. Program yang dibuat bukan untuk mempercepat waktu agar kehadiran terekam, tetapi membuat waktu perekaman kehadiran secara daring dapat mendekati atau menyamai waktu perekaman kehadiran secara luring. Dikarenakan terbimbing tidak memiliki akses ke \url{https://akuhadir.unpar.ac.id} situs perekaman kehadiran milik dosen, maka terbimbing mensimulasikan dengan Portal Akademik Mahasiswa dan kemudian Pembimbing mengubah aksesnya ke situs perekeman kehadiran milik dosen.
 
 
 \section{Rumusan Masalah}
 \label{sec:rumusan}
 Rumusan masalah yang akan dibahas di skripsi ini adalah sebagai berikut :
 \begin{enumerate}
-	\item Bagaimana cara membangun program perekaman kehadiran daring otomatis?
+	\item Bagaimana menganalisis kebutuhan program perekaman kehadiran daring otomatis?
+	\item Bagaimana memodelkan program perekaman kehadiran daring otomatis?
 	\item Bagaimana cara mengurangi waktu interaksi dengan aplikasi atau situs web untuk merekam kehadiran secara otomatis?
+	\item Bagaimana cara membangun program perekaman kehadiran daring otomatis?
 \end{enumerate}
 
 \section{Tujuan}
 \label{sec:tujuan}
 Tujuan yang ingin dicapai dari penulisan skripsi ini sebagai berikut :
 \begin{enumerate}
-	\item Membangun program perekaman kehadiran daring otomatis dengan Selenium WebDriver.
+	\item Melakukan survei terhadap beberapa mahasiswa serta dosen terhadap perekaman kehadiran secara daring, menganalisis cara perekaman kehadiran daring, dan studi literatur tentang Selenium.
+	\item Membuat program yang dapat melakukan perekaman kehadiran daring dengan sekali menjalankan program.
 	\item Membuat program yang mampu mengurangi waktu interaksi dengan aplikasi atau situs web untuk merekam kehadiran secara otomatis.
+	\item Membangun program perekaman kehadiran daring otomatis dengan Selenium WebDriver.
 \end{enumerate}
 
 \section{Batasan Masalah}
@@ -53,10 +57,12 @@ Beberapa batasan yang dibuat terkait dengan pengerjaan skripsi ini adalah sebaga
 \label{sec:metlit}
 Metodologi yang dilakukan pada skripsi ini adalah sebagai berikut :
 \begin{enumerate}
-	\item Melakukan studi mengenai Selenium WebDriver.
-	\item Mempelajari bahasa pemrograman python.
-	\item Mempelajari cara menggunakan Selenium.
+	\item Melakukan analisis kebutuhan program perekaman kehadiran daring otomatis.
+	\item Melakukan studi mengenai Selenium.
+	\item Melakukan studi mengenai \textit{Cascading Style Sheets (CSS) Selector}.
 	\item Menganalisis web Student Portal UNPAR.
+	\item Menganalisis sistem kini.
+	\item Merancang program perekaman kehadiran daring otomatis.
 	\item Membangun program perekaman kehadiran daring otomatis.
 	\item Melakukan pengujian dan eksperimen.
 	\item Menulis dokumen skripsi.		
