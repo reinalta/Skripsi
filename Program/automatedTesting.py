@@ -10,8 +10,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import TimeoutException
-from tkinter import * 
-from tkinter import messagebox
 import os
 
 os.environ["PATH"] = os.getcwd()
@@ -34,10 +32,8 @@ while (i <= i):
                 elemen.click()
         except TimeoutException:
                 driver.quit()
-                root = Tk()
-                root.withdraw()
                 a = "Absensi Gagal, Elemen tidak ditemukan:", x[1] 
-                messagebox.showwarning("Warning", a)  
+                print ("Warning!", a)
                 break
         i+=1        
     elif x[0] == "sendkeys":
@@ -55,10 +51,8 @@ while (i <= i):
                 elemen1.click()
         i +=1
     elif x[0] == "quit":
-        driver.wait(3)
+        driver.wait(5)
         driver.quit()
-        root = Tk()
-        root.withdraw()
-        messagebox.showinfo("Information", "Absen Berhasil")  
+        print ("Information: Absensi Berhasil!")
         break
          

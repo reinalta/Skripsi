@@ -205,7 +205,20 @@ Interaksi elemen merupakan metode selenium yang dirancang untuk dapat melakukan 
 
 \section{\textit{Cascading Style Sheets} (CSS) \textit{Selector}}
 \label{sec:css}
-\textit{Cascading Style Sheets} (CSS) adalah bahasa untuk menerapkan tampilan pada sebuah halaman web, hal tersebut termasuk tata letak, warna, dan \textit{font}\cite{css}. CSS sudah menjadi bagian penting untuk sebuah Web. CSS \textit{Selector} digunakan untuk menemukan atau memilih elemen HTML yang diinginkan berdasarkan \textit{style} CSS\footnote{\textit{CSS Selector} \url{https://www.w3schools.com/css/css_selectors.asp}}. Terdapat lima kategori pada CSS \textit{Selector}:
+\textit{Cascading Style Sheets} (CSS) adalah bahasa untuk menerapkan tampilan pada sebuah halaman web, hal tersebut termasuk tata letak, warna, dan \textit{font}\cite{css}. CSS sudah menjadi bagian penting untuk sebuah web untuk suatu elemen dapat ditampilkan pada sebuah web dengan tata letak tertentu, warna tertentu, atau jenis \textit{font} tertentu. Pada contoh kode \ref{kode:2:css} merupakan contoh kode CSS yang dimana elemen ``h1'' diberi warna merah dan posisi teksnya di tengah serta elemen ``p'' dengan jenis huruf verdana dan ukuran hurufnya 10 pixel.
+\begin{lstlisting}[caption=Contoh kode CSS, label=kode:2:css]
+	h1 {
+		color: white;
+		text-align: center;
+	}
+
+	p {
+		font-family: verdana;
+		font-size: 10px;
+	}
+\end{lstlisting}
+
+CSS \textit{Selector} digunakan untuk menemukan atau memilih elemen HTML yang diinginkan berdasarkan \textit{style} CSS\footnote{\textit{CSS Selector} \url{https://www.w3schools.com/css/css_selectors.asp}}. Terdapat lima kategori pada CSS \textit{Selector}:
 \begin{enumerate}
 	\item \textit{Simple selectors} merupakan pemilihan elemen dari CSS berdasarkan \textit{name}, id, dan \textit{class}. Pada Tabel \ref{table:simpel} merupakan contoh cara mengambil elemen menggunakan cara \textit{simple selector}.
 	\begin{table}[h!]
@@ -279,6 +292,7 @@ Interaksi elemen merupakan metode selenium yang dirancang untuk dapat melakukan 
 			\hline
 		\end{tabular}
 	\end{table}
+\newpage
 	\item \textit{Attribute selectors} merupakan pemilihan elemen berdasarkan atribut tertentu atau nilai dari atributnya. Pada Tabel \ref{table:attribut} merupakan contoh cara mengambil elemen menggunakan cara \textit{attribute selector}.
 	\begin{table}[h!]
 		\centering
@@ -298,51 +312,6 @@ Interaksi elemen merupakan metode selenium yang dirancang untuk dapat melakukan 
 	\end{table}
 \end{enumerate}
 
-\section{AKUHADIR 2.1}
-\label{sec:akuhadir}
-AKUHADIR adalah sebuah portal web yang dibuat bagi pegawai UNPAR dalam melaporkan kehadiran kerja nya secara daring. Pegawai UNPAR melakukan perekaman kehadirannya setiap hari melalui portal AKUHADIR 2.1 yang dapat diakses pada \url{https://akuhadir.unpar.ac.id}. Hal tersebut sesuai surat edaran dari Rektor III/R/2020-07/1153 \cite{akuhadir}.
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.25]{Gambar/akuhadir-1-beranda.png}
-	\caption{Tampilan awal halaman AKUHADIR} 
-	\label{fig:akuhadir-1-beranda}
-\end{figure}
-
-Gambar \ref{fig:akuhadir-1-beranda} menunjukkan halaman awal portal AKUHADIR. Pegawai UNPAR melakukan \textit{login} melalui SSO (\textit{Single Sign On}) UNPAR untuk dapat melakukan perekaman kehadirannya. Setelah melakukan login para pegawai UNPAR dapat melakukan perekaman kehadiran secara daring dengan memilih menu WFH pada bagian bawah layar. Menu WFH ini akan membuka halaman di mana pegawai UNPAR dapat melakukan perekaman kehadiran. Halaman tersebut terdapat dua buah tombol, yaitu: satu tombol untuk \textit{check in} dan satu tombol lagi untuk \textit{check out}. Halaman dari menu WFH dapat dilihat pada Gambar \ref{fig:akuhadir-2-wfh}.
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.25]{Gambar/akuhadir-2-wfh.png}
-	\caption{Tampilan menu WFH} 
-	\label{fig:akuhadir-2-wfh}
-\end{figure}
-Pegawai UNPAR sebelum memulai bekerja di pagi hari harus melakukan perekaman kehadiran melalui AKUHADIR. Pegawai membuka situs AKUHADIR dan \textit{login} sesuai dengan \textit{email} serta \textit{password} milik pegawai. Pegawai mengklik menu WFH untuk masuk ke bagian halaman perekaman kehadiran milik situs AKUHADIR. Selanjutnya pegawai mengklik menu \textit{Check in}. Setelah tombol tersebut diklik, akan muncul pesan konfirmasi bahwa \textit{check in} sudah berhasil dilakukan (dapat dilihat pada Gambar \ref{fig:akuhadir-3-wfh-checkin}).
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.25]{Gambar/akuhadir-3-wfh-checkin.png}
-	\caption{Tampilan konfirmasi check in AKUHADIR} 
-	\label{fig:akuhadir-3-wfh-checkin}
-\end{figure}
-
-Setelah selesai bekerja, pegawai perlu kembali mengakses AKUHADIR dan masuk ke halaman perekaman kehadiran dari menu WFH. Lalu pegawai memilih menu \textit{check out}. Setelah melakukan \textit{check out}, pegawai UNPAR diminta untuk menuliskan laporan hasil pekerjaan yang sudah dilakukan pada hari tersebut. Bentuk halaman untuk menuliskan laporan hasil pekerjaan dapat dilihat pada Gambar \ref{fig:akuhadir-4-wfh-checkout}.
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.25]{Gambar/akuhadir-4-wfh-checkout.png}
-	\caption{Tampilan halaman check out AKUHADIR} 
-	\label{fig:akuhadir-4-wfh-checkout}
-\end{figure}
-Selain fitur untuk melakukan perekaman kehadiran daring pada AKUHADIR, terdapat beberapa fitur lainnya yang tidak dijelaskan lebih mendalam di sini karena tidak terkait erat dengan penelitian yang dilakukan:
-
-\begin{itemize}
-	\item \textbf{WFO} untuk melihat status pelaporan bekerja dari kantor (pelaporan bekerja dari kantor dilakukan oleh petugas keamanan UNPAR yang memindai kode batang pegawai).
-	\item \textbf{Rekap} untuk melihat rekapitulasi pelaporan bekerja, baik WFH maupun WFO.
-	\item \textbf{Profil} untuk menampilkan foto serta kode batang pegawai. Bisa digunakan untuk menunjukkan kode batang kepada petugas keamanan dalam rangka pelaporan WFO.
-	\item \textbf{About} saat ini hanya menampilkan informasi versi dan \textit{copyright}.
-\end{itemize}
-
 \section{\textit{Configuration File Parser} (ConfigParser)}
 ConfigParser merupakan sebuah modul yang sudah tersedia pada bahasa pemrograman Python dan mengimplementasikan bahasa konfigurasi dasar\cite{parser}. Penggunaan ConfigParser pada bahasa pemrograman python perlu melakukan \textit{import library} terlebih dahulu, sehingga dapat digunakan. Struktur dari file konfigurasi terdiri dari \textit{section} dari file tersebut dan masing-masing \textit{key} dan \textit{value}. ConfigParser ini dapat membaca dan menulis file tersebut. 
 \begin{figure}[H]
@@ -359,28 +328,13 @@ Pada Gambar \ref{fig:config} merupakan contoh file konfigurasi sederhana. Tulisa
 	\item \textit{Key} ketiga adalah ``Status'' dengan \textit{value} ``Admin''.
 \end{itemize}
 
-\section{\textit{Library} Tkinter}
-\textit{Library} Tkinter (Tk interface) adalah \textit{library} stadar dari Python untuk membuat aplikasi Python dengan antarmuka yang mudah diprogram. Tk merupakan sebuah fasilitas untuk grafis dan \textit{scripting} yang dikembangkan oleh John Ousterhout {\cite{tkinter}}. Modul yang digunakan dari \textit{library} Tkinter untuk pembuatan program ini adalah tkinter.messagebox. Modul tkinter.messagebox ini berguna untuk memberi suatu informasi mengenai status dari proses dalam menjalankan sebuah program. Berikut ini adalah beberapa fungsi untuk menampilkan status untuk \textit{message box} yang digunakan dalam pembuatan program:
-\begin{itemize}
-	\item messagebox.showinfo(): Menampilkan informasi yang berguna untuk pengguna. Pada Gambar \ref{fig:infoBox} yang merupakan sebuah contoh tampilan \textit{message box} berupa informasi yang berisi informasi bahwa ``Absensi Berhasil''. 
-	\begin{figure}[H]
-		\centering
-		\includegraphics[scale=0.9]{Gambar/infoBox.jpg}
-		\caption{Contoh Informasi dari \textit{Message Box}} 
-		\label{fig:infoBox}
-	\end{figure}
-	\item messagebox.showwarning(): Menampilkan sebuah peringatan kepada pengguna.  Pada Gambar \ref{fig:warningBox} yang merupakan sebuah contoh tampilan \textit{message box} berupa \textit{warning} yang berisi peringatan bahwa ``Absensi Gagal!''. 
-	\begin{figure}[H]
-		\centering
-		\includegraphics[scale=0.9]{Gambar/warningBox.jpg}
-		\caption{Contoh Warning dari \textit{Message Box}} 
-		\label{fig:warningBox}
-	\end{figure}
-\end{itemize}
-
 \section{\textit{Library} OS}
-\textit{Library} OS adalah modul sistem operasi pada python yang menyediakan cara untuk dapat berinteraksi langsung dengan sistem operasi. Sistem operasi yang dapat melakukan interaksi dengan python adalah windows, linux, dan mac. Berikut ini beberapa fungsi yang dimiliki pada \textit{Library} OS:
+\textit{Library} OS adalah modul sistem operasi pada python untuk program python yang menyediakan cara untuk dapat berinteraksi langsung dengan sistem operasi. Sistem operasi yang dapat melakukan interaksi dengan python adalah windows, linux, dan mac. Berikut ini beberapa fungsi yang dimiliki pada \textit{Library} OS:
 \begin{itemize}
 	\item os.environ: Melakukan pemetaan terhadap objek yang mewakili \textit{enviroment variable} milik pengguna.
-	\item os.getcwd() : Mengembalikan direktori kerja yang digunakan. 
+	\item os.getcwd(): Mengembalikan direktori kerja yang digunakan. 
+	\item os.name(): Menampilkan nama modul sistem operasi yang diimpornya.
+	\item os.rename(): Mengganti nama \textit{file} yang lama dan digantikan dengan nama \textit{file} yang baru.
+	\item os.listdir(): Mengembalikan semua daftar file dan direktori yang ditentukan.
+	\item os.rmdir(): Menghapus suatu direktori yang telah ditentukan.
 \end{itemize}

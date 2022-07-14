@@ -38,32 +38,38 @@ Perekaman kehadiran daring otomatis dapat dilakukan dengan menjalankan perangkat
 	\label{fig:cmd}
 \end{figure}
 
-Setelah pengguna menekan ``Enter'' pada \textit{Command Prompt} maka perangkat lunak akan melakukan perekaman kehadiran daring secara otomatis, bagi mahasiswa maka perangkat lunak akan melakukan perekaman kehadiran daring pada Portal Akademik Mahasiswa secara otomatis, dimana perangkat lunak akan menjalankan secara otomatis tahap-tahap perekaman kehadiran daring secara manual yang biasa dilakukan mahasiswa seperti yang dibahas pada Subbab \ref{sec:alur}, sedangkan bagi dosen maka perangkat lunak akan melakukan perekaman kehadiran daring pada AKUHADIR seperti yang dibahas pada Subbab \ref{sec:akuhadir}. Setelah berhasil melakukan perekaman kehadiran daring maka akan muncul notifikasi bahwa perekaman berhasil dilakukan, seperti pada tampilan Gambar \ref{fig:absenBerhasil}, selain itu akan muncul notifikasi berupa peringatan bahwa absensi gagal, seperti pada tampilan Gambar \ref{fig:absenGagal}. Absensi gagal terjadi karena tidak ada jadwal kuliah lagi bagi mahasiswa, atau sudah melakukan absensi sehingga tidak ada yang bisa lagi untuk melakukan perekaman kehadiran.
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.7]{Gambar/infoBox.jpg}
-	\caption{Tampilan Notifikasi Berhasil Absen} 
-	\label{fig:absenBerhasil}
-\end{figure}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.7]{Gambar/gagalAbsen.jpg}
-	\caption{Tampilan Notifikasi Gagal Absen} 
-	\label{fig:absenGagal}
-\end{figure}
+Setelah pengguna menekan ``Enter'' pada \textit{Command Prompt} maka perangkat lunak akan melakukan perekaman kehadiran daring secara otomatis, bagi mahasiswa maka perangkat lunak akan melakukan perekaman kehadiran daring pada Portal Akademik Mahasiswa secara otomatis, dimana perangkat lunak akan menjalankan secara otomatis tahap-tahap perekaman kehadiran daring secara manual yang biasa dilakukan mahasiswa seperti yang dibahas pada Subbab \ref{sec:alur}, sedangkan bagi dosen maka perangkat lunak akan melakukan perekaman kehadiran daring pada AKUHADIR seperti yang dibahas pada Subbab \ref{sec:akuhadir}. Setelah berhasil melakukan perekaman kehadiran daring maka akan muncul pemberitahuan pada \textit{Command Prompt} dengan tulisan ``Information: Absensi Berhasil!'' bahwa perekaman berhasil dilakukan. Pemberitahuan absensi gagal pada \textit{Command Prompt} akan ada tulisan ``Warning! Absensi Gagal, Elemen tidak ditemukan: (\textit{diisi dengan sesuai elemen yang tidak ditemukan})''. Absensi gagal terjadi karena tidak ada jadwal kuliah lagi bagi mahasiswa, atau sudah melakukan absensi sehingga tidak ada yang bisa lagi untuk melakukan perekaman kehadiran.
 
 \section{Pengujian}
 \label{sec:pengujian} 
 
 \subsection{Pengujian Fungsional Mahasiswa}
-Pengujian fungsional dilakukan untuk mengetahui kesesuaian reaksi perangkat lunak dengan reaksi yang diharapkan berdasarkan aksi pengguna terhadap perangkat lunak. Tabel \ref{tab:fungsi} merupakan tabel hasil pengujian perangkat lunak pada komputer penulis dengan spesifikasi berikut:
+Pengujian fungsional dilakukan untuk mengetahui kesesuaian reaksi perangkat lunak dengan reaksi yang diharapkan berdasarkan aksi pengguna terhadap perangkat lunak. Tabel \ref{tab:fungsiMahasiswa} merupakan tabel hasil pengujian perangkat lunak pada komputer penulis dengan spesifikasi berikut:
 \begin{enumerate}
 	\item \textit{Processor}: Intel Core i5 9400F
 	\item \textit{Random Access Memory} (RAM): 16 GB DDR4
 	\item Sistem Operasi: Windows 10
 	\item Versi Python : Python 3.8.5
 \end{enumerate}
+
+Mahasiswa melakukan perekaman kehadiran otomatis di Portal Akademik Mahasiswa. Mahasiswa perlu penyesuaian \textit{file} \texttt{database.ini} seperti dilihat pada kode \ref{kode:5:databasemahasiswa}.
+\\
+\begin{lstlisting}[caption=\textit{File} \texttt{database.ini} Portal Akademik Mahasiswa (\textit{password} disembunyikan), label=kode:5:databasemahasiswa]
+	[database_config]
+	1 = open https://studentportal.unpar.ac.id
+	2 = click #login-button
+	3 = sendkeys #username 2017730035@student.unpar.ac.id 
+	4 = click #next_login
+	5 = sendkeys #password 12345
+	6 = click #appPass>div.login__form>button
+	7 = or a[href='https://studentportal.unpar.ac.id/jadwal'] .swal-button.swal-button--confirm.swal-button--danger
+	8 = click a[onclick="absenPerkuliahan(this)"]
+	9 = click .swal-button.swal-button--confirm.swal-button--danger
+	10 = quit
+\end{lstlisting}
+
+
+Setelah menjalankan program, didapatkan bahwa program dapat berjalan dan berfungsi dengan baik untuk dapat melakukan perekaman kehadiran daring otomatis pada situs Portal Akademik Mahasiswa. Kesimpulan dari pengujian fungsional mahasiswa pada program dinyatakan berhasil, dan selengkapnya dapat dilihat pada tabel \ref{tab:fungsiMahasiswa}.
 
 \begin{table}[H]			
 	\caption{Tabel Pengujian Fungsional}
@@ -75,23 +81,23 @@ Pengujian fungsional dilakukan untuk mengetahui kesesuaian reaksi perangkat luna
 			& &  Browser menuju halaman web untuk perekaman kehadiran daring & Sesuai\\ \hline 
 			& &  Melakukan perekaman kehadiran daring secara otomatis & Sesuai\\ \hline
 	\end{tabular}
-	\label{tab:fungsi}
+	\label{tab:fungsiMahasiswa}
 \end{table}
 
 \subsection{Pengujian Fungsional Dosen}
 
-\textit{Subbab ini ditulis oleh dosen pembimbing.}
+\textit{Subbab ini ditulis berdasarkan hasil wawancara terhadap dosen pembimbing ketika mencoba program perekaman kehadiran daring otomatis.}
 
-Program yang sudah dibuat diujikan juga di komputer dosen pembimbing, untuk melakukan rekam kehadiran pada portal AKUHADIR (subbab \ref{sec:akuhadir}). Berikut adalah spesifikasi komputer yang digunakan untuk menguji:
+Program yang sudah dibuat diujikan juga di komputer dosen pembimbing, untuk melakukan rekam kehadiran pada portal AKUHADIR (subbab \ref{sec:akuhadir}). Berikut adalah spesifikasi komputer dosen pembimbing yang digunakan untuk menguji:
 
 \begin{enumerate}
-	\item \textit{Processor}: Intel Core i3-2120 CPU @ 3.30GHz $\times$ 4
-	\item \textit{Random Access Memory} (RAM): 6,0 GiB
-	\item Sistem Operasi: Ubuntu 22.04 LTS
-	\item Versi Python : Python 3.10.4
+	\item \textit{Processor}: Apple M1
+	\item \textit{Random Access Memory} (RAM): 8 GB
+	\item Sistem Operasi: macOS Monterey
+	\item Versi Python : Python 3.9.10
 \end{enumerate}
 
-Untuk melakukan perekaman kehadiran otomatis di AKUHADIR, perlu penyesuaian \textit{file} \texttt{database.ini} seperti dilihat pada kode \ref{kode:5:databasedosen}.
+Dosen pembimbing melakukan perekaman kehadiran otomatis di AKUHADIR. Dosen pembimbing perlu penyesuaian \textit{file} \texttt{database.ini} seperti dilihat pada kode \ref{kode:5:databasedosen}.
 
 \begin{lstlisting}[caption=\textit{File} \texttt{database.ini} AKUHADIR (\textit{password} disembunyikan), label=kode:5:databasedosen]
 [database_config]
@@ -105,48 +111,18 @@ Untuk melakukan perekaman kehadiran otomatis di AKUHADIR, perlu penyesuaian \tex
 8 = quit
 \end{lstlisting}
 
-Saat pertama kali dijalankan, program menghasilkan pesan kesalahan seperti ditunjukkan pada kode \ref{kode:5:tkintererror}.
 
-\begin{lstlisting}[caption=Pesan kesalahan program tanpa \textit{tkinter}, label=kode:5:tkintererror]
-$ python3 automatedTesting.py 
-Traceback (most recent call last):
-  File "/home/pascal/Downloads/Dosen/automatedTesting.py", line 11, in <module>
-    from tkinter import * 
-ModuleNotFoundError: No module named 'tkinter'
-\end{lstlisting}
-
-Dengan adanya kesalahan tersebut, dosen juga mengulangi pengujian di komputer lain, yaitu:
-
-\begin{enumerate}
-	\item \textit{Processor}: Apple M1
-	\item \textit{Random Access Memory} (RAM): 8 GB
-	\item Sistem Operasi: macOS Monterey
-	\item Versi Python : Python 3.9.10
-\end{enumerate}
-
-Saat dijalankan, program menghasilkan pesan kesalahan yang serupa, seperti ditunjukkan pada kode \ref{kode:5:tkintererrormac}.
-
-\begin{lstlisting}[caption=Pesan kesalahan program tanpa \textit{tkinter} pada komputer alternatif, label=kode:5:tkintererrormac]
- % python3 automatedTesting.py
-Traceback (most recent call last):
-  File "/Users/pascal/Downloads/Dosen/automatedTesting.py", line 13, in <module>
-    from tkinter import * 
-  File "/opt/homebrew/Cellar/python@3.9/3.9.10/Frameworks/Python.framework/Versions/3.9/lib/python3.9/tkinter/__init__.py", line 37, in <module>
-    import _tkinter # If this fails your Python may not be configured for Tk
-ModuleNotFoundError: No module named '_tkinter'
-\end{lstlisting}
-
-Dari pengamatan pesan kesalahan, didapatkan bahwa program ini membutuhkan pustaka lain, yaitu \texttt{tkinter}. Dalam kasus ini dosen pembimbing tidak melanjutkan \textit{troubleshooting} karena pada paket program yang dikirimkan tidak mengandung instruksi untuk melakukan instalasi pustaka tersebut. Oleh karena itu pengujian fungsional pada komputer dosen dinyatakan tidak berhasil, dan selengkapnya dapat dilihat pada tabel \ref{tab:fungsidosen}.
+Setelah dosen pembimbing menjalankan program, didapatkan bahwa program dapat berjalan dan berfungsi dengan baik untuk dapat melakukan perekaman kehadiran daring otomatis pada situs AKUHADIR. Kesimpulan dari pengujian fungsional program pada komputer dosen pembimbing dinyatakan berhasil, dan selengkapnya dapat dilihat pada tabel \ref{tab:fungsidosen}.
 
 \begin{table}[H]			
 	\caption{Tabel Pengujian Fungsional}
 	\centering
 	\begin{tabular}{|p{0.5cm} |p{4cm} |p{5.5cm}| p{3cm}|} \hline
 		No. & Aksi Pengguna & Reaksi yang diharapkan & Reaksi Perangkat Lunak\\ \hline     
-		1. & Dosen menjalankan perangkat lunak & Browser Google Chrome terbuka & Tidak sesuai\\ \hline 
-		 	& &  Browser menuju situs AKUHADIR & Tidak sesuai\\ \hline
-		 	& &  Browser menuju halaman web untuk perekaman kehadiran & Tidak sesuai\\ \hline
-		 	& &  Melakukan perekaman kehadiran daring secara otomatis & Tidak sesuai\\ \hline
+		1. & Dosen menjalankan perangkat lunak & Browser Google Chrome terbuka & Sesuai\\ \hline 
+		 	& &  Browser menuju situs AKUHADIR & Sesuai\\ \hline
+		 	& &  Browser menuju halaman web untuk perekaman kehadiran & Sesuai\\ \hline
+		 	& &  Melakukan perekaman kehadiran daring secara otomatis & Sesuai\\ \hline
 	\end{tabular}
 	\label{tab:fungsidosen}
 \end{table}
@@ -156,21 +132,21 @@ Dari pengamatan pesan kesalahan, didapatkan bahwa program ini membutuhkan pustak
 Pengujian eksperimental dilakukan terhadap beberapa mahasiswa dan dosen Universitas Katolik Parahyangan jurusan Teknik Informatika yang sudah memiliki Google Chrome dan Python3. Metode pengujian dilakukan dengan cara menyebarkan perangkat lunak yang dapat diunduh melalui Google Drive. Setelah menjalankan perangkat lunak tersebut, mahasiswa dan dosen diminta untuk mengisi Google Form untuk mengetahui kelancaran perangkat lunak ketika dijalankan dan mengetahui lama waktu yang dibutuhkan hingga program berhasil melakukan perekaman kehadiran. 
 
 \subsubsection{Hasil Survei Mahasiswa}
-Dari 7 responden yang telah mengisi survei, memberi respons bahwa perangkat lunak berjalan dengan baik dan dapat melakukan perekaman kehadiran daring secara otomatis. Hasil diagram lingkaran pada Gambar \ref{fig:noerror} menunjukan bahwa semua responden menyatakan setuju program tidak mengalami \textit{error} atau \textit{crash}.
+Dari 7 responden yang telah mengisi survei, memberi respons bahwa perangkat lunak berjalan dengan baik dan dapat melakukan perekaman kehadiran daring secara otomatis. Pertanyaan yang diajukan kepada responen dan rangkuman jawaban hasil survei sebagai berikut:
+\begin{enumerate}
+	\item \textbf{Apakah perangkat lunak berjalan dengan baik (tidak ada crash atau error) dan dapat melakukan perekaman kehadiran daring secara otomatis?}
+	
+	Berdasarkan jawaban dari semua responden menyatakan setuju bahwa program tidak mengalami \textit{error} atau \textit{crash}.
+	\item \textbf{Setelah menjalankan perangkat lunak perekaman kehadiran daring otomatis. Berapa lama(detik) waktu yang dibutuhkan untuk melakukan perekaman kehadiran daring menggunakan program perekaman kehadiran daring otomatis?}
+	
+	Histogram ini dikelompokan berdasarkan rentang waktu per 20 detik. Histogram menunjukan bahwa sebanyak 6 mahasiswa memiliki rentang waktu 0 sampai 20 detik dan sebanyak 1 mahasiswa memiliki rentang waktu 21 sampai 40 detik. 
 	\begin{figure}[H]
-		\centering
-		\includegraphics[scale=0.7]{Gambar/diagramLingkaran.jpg}
-		\caption{Diagram Lingkaran Kesetujuan Mahasiswa Terhadap Perangkat Lunak Tidak \textit{Error} atau \textit{Crash}} 
-		\label{fig:noerror}
-	\end{figure}
-Pada Gambar \ref{fig:olMahasiswa} merupakan visualisasi dari hasil survei mengenai lama waktu yang dibutuhkan dari 7 responden(mahasiswa) untuk melakukan perekaman kehadiran daring secara otomatis dengan menjalankan perangkat lunak. Histogram ini dikelompokan berdasarkan rentang waktu per 20 detik. Histogram menunjukan bahwa sebanyak 6 mahasiswa memiliki rentang waktu 0 sampai 20 detik dan sebanyak 1 mahasiswa memiliki rentang waktu 21 sampai 40 detik. 
-\begin{figure}[H]
 		\centering
 		\includegraphics[scale=0.75]{Gambar/HistogramDaringOtomatisMahasiswa.jpg}
 		\caption{Histogram Waktu Perekaman Kehadiran Daring Otomatis Mahasiswa}
 		\label{fig:olMahasiswa}
 	\end{figure}
-Hasil survei perekaman kehadiran daring otomatis untuk setiap mahasiswa secara jelas dapat dilihat pada tabel \ref{tab:otomatis} menunjukan waktu yang didapatkan dari 7 responden dalam menjalankan perangkat lunak untuk melakukan perekaman kehadiran daring otomatis. Hasil tabel tersebut menunjukan bahwa dalam melakukan perekaman kehadiran daring otomatis memiliki rata-rata waktu adalah 16,71 detik.
+	Hasil survei perekaman kehadiran daring otomatis untuk setiap mahasiswa secara jelas dapat dilihat pada tabel \ref{tab:otomatis} menunjukan waktu yang didapatkan dari 7 responden dalam menjalankan perangkat lunak untuk melakukan perekaman kehadiran daring otomatis. Hasil tabel tersebut menunjukan bahwa dalam melakukan perekaman kehadiran daring otomatis memiliki rata-rata waktu adalah 16,71 detik.
 	\begin{table}[ht]			
 		\caption{Tabel Perekaman Kehadiran Daring Otomatis Mahasiswa}
 		\centering
@@ -186,39 +162,27 @@ Hasil survei perekaman kehadiran daring otomatis untuk setiap mahasiswa secara j
 		\end{tabular}
 		\label{tab:otomatis}
 	\end{table}
-\\
-Hasil survei dari 7 mahasiswa menyatakan setuju bahwa perangkat lunak untuk melakukan perekaman kehadiran daring secara otomatis dapat membuat waktu interaksi dengan situs web atau browser menjadi lebih singkat. Hal tersebut dapat dilihat pada diagram lingkaran pada Gambar \ref{fig:interaksi}.
-	\begin{figure}[H]
-		\centering
-		\includegraphics[scale=0.7]{Gambar/diagramLingkaran.jpg}
-		\caption{Diagram Lingkaran Kesetujuan Mahasiswa Terhadap Perangkat Lunak Menghemat Waktu Interaksi dengan Browser} 
-		\label{fig:interaksi}
-	\end{figure}
+	\item \textbf{Apakah setuju dengan perangkat lunak perekaman kehadiran daring otomatis ini, membuat waktu interaksi dengan situs web/browser untuk melakukan absensi menjadi lebih singkat?}
+	
+	Berdasarkan jawaban dari semua responden menyatakan setuju bahwa perangkat lunak untuk melakukan perekaman kehadiran daring secara otomatis dapat membuat waktu interaksi dengan situs web atau browser menjadi lebih singkat.
+\end{enumerate}
 
 	
 \subsubsection{Hasil Survei Dosen}
-Hasil survei kepada dosen hanya mendapat 1 respon dosen. Hasil diagram lingkaran pada Gambar \ref{fig:noerrorDosen} menunjukan bahwa respon dari seorang dosen menyatakan setuju program tidak mengalami \textit{error} atau \textit{crash}.
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.7]{Gambar/diagramLingkaran.jpg}
-	\caption{Diagram Lingkaran Kesetujuan Dosen terhadap Perangkat Lunak Tidak \textit{Error} atau \textit{Crash}} 
-	\label{fig:noerrorDosen}
-\end{figure}
-\newpage
-Pada Gambar \ref{fig:olDosen} merupakan visualisasi dari hasil survei mengenai lama waktu yang dibutuhkan dari satu orang dosen untuk melakukan perekaman kehadiran daring secara otomatis dengan menjalankan perangkat lunak. Histogram ini dikelompokan berdasarkan rentang waktu per 20 detik. Histogram menunjukan bahwa sebanyak satu orang dosen memiliki rentang waktu 0 sampai 20 detik. Satu dosen menyatakan waktu yang dibutuhkan untuk melakukan perekaman kehadiran daring secara otomatis adalah 2 detik.
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.75]{Gambar/HistogramDaringOtomatisDosen.jpg}
-	\caption{Histogram Waktu Perekaman Kehadiran Daring Otomatis Dosen}
-	\label{fig:olDosen}
-\end{figure}
-Hasil survei dari 1 dosen menyatakan setuju bahwa perangkat lunak untuk melakukan perekaman kehadiran daring secara otomatis dapat membuat waktu interaksi dengan situs web atau browser menjadi lebih singkat. Hal tersebut dapat dilihat pada diagram lingkaran pada Gambar \ref{fig:interaksiDosen}.
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.7]{Gambar/diagramLingkaran.jpg}
-	\caption{Diagram Lingkaran Kesetujuan Dosen terhadap Perangkat Lunak Menghemat Waktu Interaksi dengan Browser} 
-	\label{fig:interaksiDosen}
-\end{figure}
+Hasil survei kepada dosen hanya mendapat 2 respon dosen. Pertanyaan yang diajukan kepada responen dan rangkuman jawaban hasil survei sebagai berikut:
+\begin{enumerate}
+	\item \textbf{Apakah perangkat lunak berjalan dengan baik (tidak ada crash atau error) dan dapat melakukan perekaman kehadiran daring secara otomatis?}
+	
+	Berdasarkan jawaban dari semua responden menyatakan setuju bahwa program tidak mengalami \textit{error} atau \textit{crash}.
+	\item \textbf{Setelah menjalankan perangkat lunak perekaman kehadiran daring otomatis. Berapa lama(detik) waktu yang dibutuhkan untuk melakukan perekaman kehadiran daring menggunakan program perekaman kehadiran daring otomatis?}
+	
+	Dua dosen yang menjadi responden menyatakan waktu yang dibutuhkan untuk melakukan perekaman kehadiran daring secara otomatis adalah 2 detik dan 15 detik. Rata-rata perekaman kehadiran daring otomatis yang dilakukan oleh dua dosen tersebut adalah 8,5 detik. 
+
+	\item \textbf{Apakah setuju dengan perangkat lunak perekaman kehadiran daring otomatis ini, membuat waktu interaksi dengan situs web/browser untuk melakukan absensi menjadi lebih singkat?}
+	
+	Berdasarkan jawaban dari semua responden menyatakan setuju bahwa perangkat lunak untuk melakukan perekaman kehadiran daring secara otomatis dapat membuat waktu interaksi dengan situs web atau browser menjadi lebih singkat.
+\end{enumerate}
+
 
 \subsubsection{Perbandingan Hasil Pengujian}
 Bagian ini akan membandingkan waktu yang didapatkan perekaman kehadiran daring secara otomatis menggunakan program dengan waktu perekaman kehadiran daring dan luring bagi mahasiswa maupun dosen yang didapatkan dari survei pada subbab \ref{sec:survei}. Tabel \ref{tab:banding} merupakan tabel hasil perbandingan rata-rata waktu untuk melakukan perekaman kehadiran.
@@ -228,7 +192,7 @@ Bagian ini akan membandingkan waktu yang didapatkan perekaman kehadiran daring s
  	\begin{tabular}{|p{2cm} |p{4cm} |p{4cm}| p{4cm}|} \hline
  		Pengguna & Rata-rata waktu dengan program & Rata-rata waktu luring & Rata-rata waktu daring\\ \hline     
  		Mahasiswa & 16,71 detik (7 respon)& 7,95 detik (21 respon)& 63 detik (21 respon)\\ \hline 
- 		Dosen & 2 detik (1 respon)&  24,33 detik (6 respon)& 31,83 detik (6 respon)\\ \hline 
+ 		Dosen & 8,5 detik (2 respon)&  24,33 detik (6 respon)& 31,83 detik (6 respon)\\ \hline 
  	\end{tabular}
  	\label{tab:banding} 
 \end{table}
