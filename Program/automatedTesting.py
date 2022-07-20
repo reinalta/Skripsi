@@ -20,7 +20,7 @@ parser = ConfigParser()
 parser.read('database.ini')
 
 i = 1
-while (i <= i):
+while (True):
     x = parser.get('database_config',str(i)).split()
     if  x[0] == "open" :
         driver.get(x[1]) 

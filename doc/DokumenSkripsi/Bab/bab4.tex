@@ -1,15 +1,6 @@
 \chapter{Perancangan}
 \label{chap:perancangan}
-Pada bab ini akan dijelaskan perancangan program yang dibuat pada penelitian ini. Perancangan terdiri dari perancangan antarmuka, masukan program dan aktivitas sistem. 
-
-\section{Perancangan Antarmuka}
-Pada program yang dibangun ini, tidak memerlukan antarmuka karena tujuan dari pembuatan program ini adalah melakukan otomatisasi yang dapat memperingkat interaksi dengan browser atau komputer. Jika program ini memiliki antarmuka sama saja program yang dibuat ini dengan perekaman kehadiran daring manual dimana penggunanya perlu melakukan beberapa langkah untuk dapat melakukan absensi daring. Program yang dibuat ini akan dijalankan melalui \textit{Command Prompt} dengan direktori file program tersebut disimpan. Lalu untuk menjalankan program tersebut hanya perlu mengetikan perintah ``py automatedTesting.py'' pada \textit{Command Prompt} dengan direktori file program, sehingga program dapat berjalan melakukan perekaman kehadiran daring otomatis.
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=0.5]{Gambar/cmd.jpg}
-	\caption{Tampilan \textit{Command Prompt} dengan \textit{Directory File}} 
-	\label{fig:cmd}
-\end{figure}
+Pada bab ini akan dijelaskan perancangan program yang dibuat pada penelitian ini. Perancangan terdiri dari masukan program dan aktivitas sistem. 
 
 \section{Masukan Program}
 \label{sec:inputConfig} 
@@ -54,7 +45,7 @@ Konstruksi untuk masukan program dapat disusun setelah mengetahui rancangan dari
 Berikut ini penjelasan dari isi pada file .ini yang merupakan masukan program perekaman kehadiran daring otomatis:
 \begin{itemize}
 	\item 1 = open https://studentportal.unpar.ac.id, merupakan langkah pertama untuk melakukan absensi, yaitu membuka situs web Portal Akademik Mahasiswa dengan kata kunci \textit{open} dan mengambil alamat situs web Portal Akademik Mahasiswa.
-	\item 2 = click \#login-button, langkah kedua dengan kata kunci \textit{click} untuk menekan tombol \textit{``LOGIN''} yang memiliki elemen (#login-button) berdasarkan \textit{CSS selector} pada tombol \textit{``LOGIN''}.
+	\item 2 = click \#login-button, langkah kedua dengan kata kunci \textit{click} untuk menekan tombol \textit{``LOGIN''} yang memiliki elemen (\#login-button) berdasarkan \textit{CSS selector} pada tombol \textit{``LOGIN''}.
 	\item 3 = sendkeys \#username 2017730035@student.unpar.ac.id, langkah ketiga dengan dengan kata kunci \textit{sendkeys} untuk memasukan sebuah nilai (2017730035@student.unpar.ac.id) pada elemen (\#username) yang merupakan tempat untuk memasukan \textit{email}.
 	\item 4 = click \#next\_login, langkah keempat dengan kata kunci \textit{click} untuk menekan tombol \textit{``NEXT''} dan mengambil element (\#next\_login) pada tombol \textit{``NEXT''}.
 	\item 5 = sendkeys \#password 12345, langkah kelima dengan kata kunci \textit{sendkeys} untuk memasukan sebuah nilai (12345) pada elemen (\#password) yang merupakan tempat untuk memasukan \textit{password}.
@@ -100,67 +91,59 @@ Diagram Aktivitas untuk program perekaman kehadiran daring otomatis dapat diliha
 \end{enumerate}
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.5]{Gambar/ActivityAplikasi.png}
+	\includegraphics[scale=0.45]{Gambar/ActivityAplikasi.png}
 	\caption{Diagram Aktivitas Program Absen Daring Otomatis} 
 	\label{fig:ActivityAplikasi}
 \end{figure}
+\vspace{-0.3cm}
+Pada diagram aktivitas program (Gambar \ref{fig:ActivityAplikasi}) hanya satu langkah saja yang dilakukan oleh pengguna untuk melakukan perekaman kehadiran daring, sedangkan pada diagram aktivitas absensi daring manual (Gambar \ref{fig:acPAM}) yang terletak pada subbab \ref{sec:alur} cukup banyak langkah yang perlu dilakukan untuk dapat melakukan perekaman kehadirang daring. Pengguna setidaknya perlu melakukan 10 langkah untuk dapat melakukan perekaman kehadiran daring secara manual. Program perekaman kehadiran daring otomatis ini mempersingkat langkah-langkah yang harus dilakukan pengguna untuk melakukan perekaman kehadiran daring dengan cukup menjalankan programnya.
+\vspace{-0.4cm}
+\section{Perancangan Algoritma} \vspace{-0.4cm}
+Perancangan algoritma ini memiliki \textit{input} berupa sebuah \textit{file} konfigurasi dan \textit{output} yang dihasilkan adalah program berhasil melakukan perekaman kehadiran daring. Algoritma ini akan melakukan perekaman kehadiran daring otomatis sesuai dari perintah masukan dari \textit{file} konfigurasi. 
 
-\section{Perancangan Pseudocode}
-Pada subab ini, dirancang sebuah pseudocode untuk membuat program ini. Pseudocode ini memiliki \textit{input} berupa sebuah \textit{file} konfigurasi dan \textit{output} yang dihasilkan adalah program berhasil melakukan perekaman kehadiran daring. Berikut ini adalah penjelasan dari pseudocode:
-\begin{itemize}
-	\item Baris 1 untuk mengambil direktori menggunakan \textit{library} OS.
-	\item Baris 2 untuk membuka Google Chrome secara otomatis.
-	\item Baris 3 dan 4 untuk memanggil \textit{method} \textit{read()} pada \textit{library} ConfigParser yang diisi sebuah \textit{file} konfigurasi. 
-	\item Melakukan \textit{looping}, lalu membuat sebuat atribut x yang memanggil \textit{method} \textit{split()} untuk memecah setiap kalimat pada file konfigurasi menjadi kata-perkata dan dapat dibaca oleh program secara baris perbaris.
-	\item Baris 8 sampai 10, jika array x ke-0 pada file konfigurasi mengandung kata \textit{open} maka program akan membuka situs sesuai array x ke-1 pada file konfigurasi.
-	\item Baris 11 sampai 19, jika array x ke-0 pada file konfigurasi mengandung kata \textit{click} maka program akan menggunakan \textit{method} \textit{click()} dari selenium pada array x ke-1.
-	\item Baris 20 sampai 23, jika array x ke-0 pada file konfigurasi mengandung kata \textit{sendkeys} maka program akan menggunakan \textit{method} \textit{sendkeys()} dari selenium pada elemen di array x ke-1 yang diisi dengan array x ke-2.
-	\item Baris 24 sampai 32, jika array x ke-0 pada file konfigurasi mengandung kata \textit{or} maka program akan menggunakan \textit{method} \textit{click()} dan melihat dua elemen pada array x ke-1 dan array x ke-2. Jika elemen array x ke-2 ada pada situs yang dibuak maka program akan menjalankan \textit{method} \textit{click()} pada elemen array ke-2 lalu pada elemen array ke-1, jika arrayx ke-2 tidak ada pada situs web yang dibuka maka program akan mencoba menjalankan \textit{method} \textit{click()} pada elemen array ke-1.
-	\item Baris34 sampai 37, jika array x ke-0 pada file konfigurasi mengandung kata \textit{quit} maka program akan menggunakan \textit{method} \textit{quit()} milik seleniumm untuk dapat menutup browser.
-\end{itemize}
-\begin{algorithm}
-	\caption{Algoritma untuk Perekaman Kehadiran Daring Otomatis}\label{euclid}
+\begin{algorithm} 
+	\caption{Algoritma untuk Perekaman Kehadiran Daring  Otomatis}\label{euclid}
 	\hspace*{\algorithmicindent} \textbf{Input: file\_konfigurasi} \\
 	\hspace*{\algorithmicindent} \textbf{Output: Perekaman daring secara otomatis pada Google Chrome} 
 	\begin{algorithmic}[1]
 	% Input: 
 	% Ouput: 
-	\State $os.environ["PATH"] \gets os.getcwd()$
-	\State $driver \gets webdriver.Chrome$
+	\State $osPathEnvironment \gets getCurrentDirectory()$
+	\State $driver \gets getChromeDriver()$ \Comment{Membuka browser}
 	\State $parser \gets ConfigParser()$
 	\State $parser.read(file\_konfigurasi)$
 	\State $index \gets 1$
-	\While{$index \geq index$}
-	\State $x = parser.get(file\_konfigurasi, str(index)).split()$
-	\If {$x[0] = "open"$}
-	\State $driver.get(x[1])$
+	\While{$TRUE$}
+	\State $(command, parameters) \gets parser.get(file\_konfigurasi, str(index)).split()$
+	\If {$command = "open"$}
+	\State $driver.get(parameters[0])$  \Comment{Membuka situs yang dituju}
 	\State $index \gets index + 1$
-	\ElsIf {$x[0] = "click"$}
-	\State $elemen \gets driver.find\_element(By.CSS\_SELECTOR, x[1])$
-	\If {$elemen.is\_displayed() and elemen.is\_enabled()$}
+	\ElsIf {$command = "click"$}
+	\State $elemen \gets findElementByCssSELECTOR(parameters[0])$
+	\If {$elemenIsDisplayed()$ $AND$ $elemenIsEnabled()$}
 	\State $elemen.click()$
 	\Else 
 	\State $driver.quit()$
-	\State $print ("Absensi Gagal")$
+	\State $print$ ($Absensi$ $Gagal$)
 	\State $index \gets index + 1$
 	\EndIf
-	\ElsIf {$x[0] = "sendkeys"$}
-	\State $inpt \gets driver.find\_element(By.CSS\_SELECTOR, x[1])$
-	\State $inpt.send\_keys(x[2])$
+	\ElsIf {$command = "sendkeys"$}
+	\State $inpt \gets findElementByCssSELECTOR(parameters[0])$
+	\State $inpt.send\_keys(parameters[1])$
 	\State $index \gets index + 1$
-	\ElsIf {$x[0] = "or"$}
-	\State $elemen1 \gets driver.find\_element(By.CSS\_SELECTOR, x[1])$
-	\State $elemen2 \gets driver.find\_element(By.CSS\_SELECTOR, x[2])$
-	\If {$elemen2.is\_displayed() and elemen2.is\_enabled()$}
+	\ElsIf {$command = "or"$}
+	\State $elemen1 \gets findElementByCssSELECTOR(parameters[0])$
+	\State $elemen2 \gets findElementByCssSELECTOR(parameters[1])$
+	\If {$elemenIsDisplayed()$ $AND$ $elemenIsEnabled()$}
 	\State $elemen2.click()$
 	\State $elemen1.click()$
 	\Else
 	\State $elemen1.click()$
 	\State $index \gets index + 1$
 	\EndIf
-	\ElsIf {$x[0] = "quit"$}
+	\ElsIf {$command = "quit"$}
 	\State $driver.quit() $  \Comment{Menutup browser}
-	\State $print ("Absensi Berhasil")$
+	\State $print$ ($Absensi$ $Berhasil$)
 	\EndIf
 	\EndWhile
 	\end{algorithmic}
