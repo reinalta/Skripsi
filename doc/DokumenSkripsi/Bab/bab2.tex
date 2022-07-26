@@ -32,7 +32,6 @@ Hal pertama yang perlu dilakukan setelah berhasil membuka \textit{browser} adala
 	link = driver.get(url)
 \end{lstlisting}
 WebDriver juga dapat melakukan otomatisasi untuk keluar dari \textit{browser} setelah selesai digunakan. Pada Kode \ref{kode:2:quit} merupakan contoh untuk dapat keluar dari \textit{browser} setelah selesai menggunakan. Pada baris 1 sampai 4 merupakan contoh untuk memunculkan situs web yang ingin dijalankan dengan selenium dan sudah dijelaskan pada Kode \ref{kode:2:navigate}. Baris 5 adalah \textit{string} dengan nama \textit{quit} yang memanggil \textit{method quit()} yang berfungsi untuk dapat keluar dari \textit{browser} setelah selesai digunakan.
-\newpage
 \begin{lstlisting}[language=python, caption=Contoh kode Get title, label=kode:2:quit]
 	from selenium import webdriver
 	driver = webdriver.Chrome()
@@ -66,7 +65,6 @@ Salah satu teknik mendasar untuk dipelajari saat menggunakan WebDriver adalah ca
 		driver.get(url)
 		kelas = driver.find_elements(By.CLASS_NAME, "text-center")
 	\end{lstlisting}
-\newpage
 	\item \textit{CSS selector}\\
 	Menemukan elemen yang cocok dengan pemilihan \textit{Cascading Style Sheets} (CSS). Pemilihan pada CSS adalah pola yang digunakan untuk memilih elemen dengan \textit{style} yang diinginkan. Pada Kode \ref{kode:2:elemencss} merupakan contoh untuk menemukan elemen yang cocok dengan pemilihan CSS. Baris 6 merupakan contoh kode yang disimpan dalam \textit{string} \textit{select} untuk mencari elemen berdasarkan pemilihan CSS dengan mengambil elemen dengan id ``selenium\_logo''.
 	\begin{lstlisting}[language=python, caption=Contoh kode untuk menemukan elemen dengan \textit{CSS selector}, label=kode:2:elemencss]
@@ -206,7 +204,7 @@ Interaksi elemen merupakan metode selenium yang dirancang untuk dapat melakukan 
 \section{\textit{Cascading Style Sheets} (CSS) \textit{Selector}}
 \label{sec:css}
 \textit{Cascading Style Sheets} (CSS) adalah bahasa untuk menerapkan tampilan pada sebuah halaman web, hal tersebut termasuk tata letak, warna, dan \textit{font}\cite{css}. CSS sudah menjadi bagian penting untuk sebuah web untuk suatu elemen dapat ditampilkan pada sebuah web dengan tata letak tertentu, warna tertentu, atau jenis \textit{font} tertentu. Pada contoh kode \ref{kode:2:css} merupakan contoh kode CSS yang dimana elemen ``h1'' diberi warna merah dan posisi teksnya di tengah serta elemen ``p'' dengan jenis huruf verdana dan ukuran hurufnya 10 pixel.
-\newpage
+
 \begin{lstlisting}[caption=Contoh kode CSS, label=kode:2:css]
 	h1 {
 		color: white;
@@ -218,7 +216,7 @@ Interaksi elemen merupakan metode selenium yang dirancang untuk dapat melakukan 
 		font-size: 10px;
 	}
 \end{lstlisting}
-
+\newpage
 CSS \textit{Selector} digunakan untuk menemukan atau memilih elemen HTML yang diinginkan berdasarkan \textit{style} CSS\footnote{\textit{CSS Selector} \url{https://www.w3schools.com/css/css_selectors.asp}}. Terdapat lima kategori pada CSS \textit{Selector}:
 \begin{enumerate}
 	
@@ -294,6 +292,7 @@ CSS \textit{Selector} digunakan untuk menemukan atau memilih elemen HTML yang di
 			\hline
 		\end{tabular}
 	\end{table}
+\newpage
 	\item \textit{Attribute selectors} merupakan pemilihan elemen berdasarkan atribut tertentu atau nilai dari atributnya. Pada Tabel \ref{table:attribut} merupakan contoh cara mengambil elemen menggunakan cara \textit{attribute selector}.
 	\begin{table}[h!] \vspace{-0.4cm}
 		\centering

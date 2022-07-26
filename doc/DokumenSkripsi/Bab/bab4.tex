@@ -1,6 +1,6 @@
 \chapter{Perancangan}
 \label{chap:perancangan}
-Pada bab ini akan dijelaskan perancangan program yang dibuat pada penelitian ini. Perancangan terdiri dari masukan program dan aktivitas sistem. 
+Pada bab ini akan dijelaskan perancangan program yang dibuat pada penelitian ini. Perancangan terdiri dari masukan program ,aktivitas sistem, dan perancangan algoritma. 
 
 \section{Masukan Program}
 \label{sec:inputConfig} 
@@ -97,13 +97,12 @@ Diagram Aktivitas untuk program perekaman kehadiran daring otomatis dapat diliha
 \end{figure}
 \vspace{-0.3cm}
 Pada diagram aktivitas program (Gambar \ref{fig:ActivityAplikasi}) hanya satu langkah saja yang dilakukan oleh pengguna untuk melakukan perekaman kehadiran daring, sedangkan pada diagram aktivitas absensi daring manual (Gambar \ref{fig:acPAM}) yang terletak pada subbab \ref{sec:alur} cukup banyak langkah yang perlu dilakukan untuk dapat melakukan perekaman kehadirang daring. Pengguna setidaknya perlu melakukan 10 langkah untuk dapat melakukan perekaman kehadiran daring secara manual. Program perekaman kehadiran daring otomatis ini mempersingkat langkah-langkah yang harus dilakukan pengguna untuk melakukan perekaman kehadiran daring dengan cukup menjalankan programnya.
-\vspace{-0.4cm}
+
 \section{Perancangan Algoritma} 
 Perancangan algoritma ini memiliki \textit{input} berupa sebuah \textit{file} konfigurasi dan \textit{output} yang dihasilkan adalah program berhasil melakukan perekaman kehadiran daring. Algoritma ini akan melakukan perekaman kehadiran daring otomatis sesuai dari perintah masukan dari \textit{file} konfigurasi. 
-
 \begin{algorithm} 
-	\caption{Algoritma untuk Perekaman Kehadiran Daring  Otomatis}\label{euclid}
-	\hspace*{\algorithmicindent} \textbf{Input: file\_konfigurasi} \\
+	\caption{Algoritma untuk Perekaman Kehadiran Daring  Otomatis}\label{euclid} 
+	\hspace*{\algorithmicindent} \textbf{Input: file\_konfigurasi}  \\
 	\hspace*{\algorithmicindent} \textbf{Output: Perekaman daring secara otomatis pada Google Chrome} 
 	\begin{algorithmic}[1]
 	% Input: 

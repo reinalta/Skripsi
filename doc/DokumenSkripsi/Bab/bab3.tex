@@ -404,7 +404,7 @@ Pegawai UNPAR sebelum memulai bekerja di pagi hari harus melakukan perekaman keh
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.3]{Gambar/akuhadir-3-wfh-checkin.png}
+	\includegraphics[scale=0.28]{Gambar/akuhadir-3-wfh-checkin.png}
 	\caption{Tampilan konfirmasi check in AKUHADIR} 
 	\label{fig:akuhadir-3-wfh-checkin}
 \end{figure}
@@ -413,7 +413,7 @@ Setelah selesai bekerja, pegawai perlu kembali mengakses AKUHADIR dan masuk ke h
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.3]{Gambar/akuhadir-4-wfh-checkout.png}
+	\includegraphics[scale=0.28]{Gambar/akuhadir-4-wfh-checkout.png}
 	\caption{Tampilan halaman check out AKUHADIR} 
 	\label{fig:akuhadir-4-wfh-checkout}
 \end{figure}
@@ -430,41 +430,36 @@ Selain fitur untuk melakukan perekaman kehadiran daring pada AKUHADIR, terdapat 
 
 \subsection{Selenium IDE}
 \label{sec:seleniumIDE}  
-Selenium IDE merupakan program \textit{open source} untuk otomatisasi di web. Selenium IDE dapat di \textit{install} di browser, contohnya di Google Chrome yang setelah di \textit{install} akan menjadi \textit{extensions}. \textit{Extensions} di Google Chrome adalah sebuah aplikasi kecil yang dapat dijalankan pada Google Chrome itu sendiri. Berikut ini cara untuk melakukan otomatisasi menggunakan Selenium IDE:
-\begin{enumerate}
-	\item Membuka Selenium Ide yang tersimpan di \textit{Extensions} pada Google Chrome.
-	\item Memilih menu \textit{Record a new test in a new project} (merekam tes baru untuk proyek baru).
-	\begin{figure}[H]
-		\centering
-		\includegraphics[scale=0.5]{Gambar/menuSeleniumIDE.jpg}
-		\caption{Tampilan Menu Awal Selenium IDE} 
-		\label{fig:menuSeleniumIDE}
-	\end{figure}
-	\newpage
-	\item Memasukan nama proyek, lalu tekan tombol ``OK''. 
-	\begin{figure}[H]
-		\centering
-		\includegraphics[scale=0.4]{Gambar/namaProyek.jpg}
-		\caption{Tampilan Memasukan Nama Proyek} 
-		\label{fig:namaProyek}
-	\end{figure}
-	\item Memasukan situs web, lalu menekan tombol ``START RECORDING''
-	\begin{figure}[H]
-		\centering
-		\includegraphics[scale=0.4]{Gambar/baseURL.jpg}
-		\caption{Tampilan Memasukan Situs Web} 
-		\label{fig:baseURL}
-	\end{figure}
-	Setelah menekan tombol ``\textit{START RECORDING}'' seperti pada Gambar \ref{fig:baseURL}, maka akan langsung muncul \textit{windows} Google Chrome baru yang langsung menuju situs web yang sudah dimasukan tadi.
-	\item Melakukan apa yang ingin diotomatisasikan di \textit{windows} Google Chrome baru yang sudah menuju situs web hingga selesai dan menutup \textit{windows} Google Chrome. 
-	Pada Gambar \ref{fig:testing} menunjukan hasil yang sudah terekam dari apa yang sudah dilakukan pada situs web yang ingin diotomatisasikan.
-	\begin{figure}[H]
-		\centering
-		\includegraphics[scale=0.5]{Gambar/testing.jpg}
-		\caption{Tampilan Otomatisasi pada Selenium IDE} 
-		\label{fig:testing}
-	\end{figure}	
-\end{enumerate}
+Selenium IDE merupakan program \textit{open source} untuk otomatisasi di web. Selenium IDE dapat di \textit{install} di browser, contohnya di Google Chrome yang setelah di \textit{install} akan menjadi \textit{extensions}. \textit{Extensions} di Google Chrome adalah sebuah aplikasi kecil yang dapat dijalankan pada Google Chrome itu sendiri. Selenium IDE tersimpan di \textit{extensions} pada Google Chrome. Pengguna yang ingin melakukan otomatisasi menggunakan Selenium IDE perlu memilih menu \textit{Record a new test in a new project} (merekam tes baru untuk proyek baru) seperti pada Gambar \ref{fig:menuSeleniumIDE}.
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{Gambar/menuSeleniumIDE.jpg}
+	\caption{Tampilan Menu Awal Selenium IDE} 
+	\label{fig:menuSeleniumIDE}
+\end{figure}
+
+Setelah memilih menu ,pengguna perlu memasukan nama proyek sesuai keinginan pengguna (Gambar \ref{fig:namaProyek}). Sehabis memasukan nama proyek, pengguna perlu memasukan situs web yang ingin diotomatisasi untuk dapat memulai melakukan otomatisasi pada situs yang dituju menggunakan Selenium IDE dan menekan tombol ``\textit{START RECORDING}''. Setelah menekan tombol ``\textit{START RECORDING}'' seperti pada Gambar \ref{fig:baseURL}, maka akan langsung muncul \textit{windows} Google Chrome baru yang langsung menuju situs web yang sudah dimasukan.
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{Gambar/namaProyek.jpg}
+	\caption{Tampilan Memasukan Nama Proyek} 
+	\label{fig:namaProyek}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{Gambar/baseURL.jpg}
+	\caption{Tampilan Memasukan Situs Web} 
+	\label{fig:baseURL}
+\end{figure}
+
+Pengguna perlu melakukan hal-hal yang ingin diotomatisasi hingga selesai pada \textit{windows} Google Chrome baru yang sudah menuju situs web agar dapat terekam oleh Selenium IDE. Pada Gambar \ref{fig:testing} menunjukan hasil yang sudah terekam dari apa yang sudah dilakukan pada situs web yang ingin diotomatisasikan.
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.4]{Gambar/testing.jpg}
+	\caption{Tampilan Otomatisasi pada Selenium IDE} 
+	\label{fig:testing}
+\end{figure}	
 
 Selenium IDE ini dapat digunakan untuk melakukan perekaman kehadiran otomatis pada Portal Akademik Mahasiswa. Program yang dibuat pada skripsi ini akan sejenis dengan Selenium IDE, namun program pada skripsi ini akan dapat dijalankan langsung melalui \textit{Command Prompt}. Pada program yang dibuat di skripsi ini membuat pengguna tidak perlu melakukan seperti pada Selenium IDE. Pengguna cukup menjalankan melalui \textit{Command Prompt} saja.
 
@@ -516,7 +511,8 @@ Parahyangan yang terdiri dari mahasiswa angkatan 2017 sampai 2019, dengan pertan
 		\caption{Histogram Waktu Perekaman Kehadiran Luring Mahasiswa} 
 		\label{fig:LuringMahasiswa}
 	\end{figure}
-	Pada Gambar \ref{fig:LuringMahasiswa} merupakan visualisasi dari hasil survei mengenai lama waktu yang dibutuhkan dari 21 mahasiswa untuk melakukan perekaman kehadiran secara luring. Histogram ini dikelompokan berdasarkan rentang waktu per 20 detik. Histogram tersebut menunjukan bahwa seluruh mahasiswa sebanyak 21 orang memiliki rentang waktu mulai dari 0 sampai 20 detik melakukan perekaman kehadiran secara daring. Hasil survei perekeman kehadiran secara luring untuk setiap mahasiswa secara jelas dapat dilihat pada tabel \ref{tab:luringMahasiswa}. Jawaban dari 21 orang responden adalah mulai dari waktu tercepat 5 detik hingga waktu terlama 15 detik.
+	Pada Gambar \ref{fig:LuringMahasiswa} merupakan visualisasi dari hasil survei mengenai lama waktu yang dibutuhkan dari 21 mahasiswa untuk melakukan perekaman kehadiran secara luring. Histogram ini dikelompokan berdasarkan rentang waktu per 20 detik. Histogram tersebut menunjukan bahwa seluruh mahasiswa sebanyak 21 orang memiliki rentang waktu mulai dari 0 sampai 20 detik melakukan perekaman kehadiran secara daring. Hasil survei perekeman kehadiran secara luring untuk setiap mahasiswa secara jelas dapat dilihat pada tabel \ref{tab:luringMahasiswa}. Jawaban dari 21 orang responden adalah mulai dari waktu tercepat 5 detik hingga waktu terlama 15 detik. Jika dihitung rata-rata waktu yang dibutuhkan untuk melakukan perekaman kehadiran luring bagi para mahasiswa adalah 7,95 detik. 
+	\newpage
 	\begin{table}[ht]			
 		\caption{Tabel Perekaman Luring Mahasiswa}
 		\centering
@@ -530,15 +526,14 @@ Parahyangan yang terdiri dari mahasiswa angkatan 2017 sampai 2019, dengan pertan
 			1 orang &  15 detik\\ \hline
 		\end{tabular}
 		\label{tab:luringMahasiswa}
-	\end{table}\\ 
-	Jika dihitung rata-rata waktu yang dibutuhkan untuk melakukan perekaman kehadiran luring bagi para mahasiswa adalah 7,95 detik. 
+	\end{table}
+
 \end{enumerate}
 Berdasarkan hasil survei terdapat beberapa informasi yang dirasakan mahasiswa ketika dalam melakukan perekaman kehadiran daring. Faktor yang menjadi kendala dalam melakukan perekaman kehadiran daring bagi mahasiswa, sebagai berikut:
 \begin{enumerate}
 	\item Faktor waktu berpengaruh pada kecepatan dalam melakukan perekaman kehadiran daring. Perkuliahan mahasiswa pada jam-jam padat, seperti jam 7 pagi, 9 pagi, 12 siang, atau 1 siang ini biasanya mahasiswa akan mengalami kendala waktu yang lama untuk dapat melakukan perekaman kehadiran daring.
 	\item Faktor internet berpengaruh pada kecepatan dalam perekaman kehadiran daring. Setiap mahasiswa pasti menggunakan internet dari provider yang berbeda sehingga waktu yang dibutuhkan dalam melakukan perekaman kehadiran daring bergantung pada internet yang digunakan oleh mahasiswa.
 \end{enumerate}
-
 Kesimpulan dari hasil survei mahasiswa menunjukan bahwa rata-rata waktu yang dibutuhkan secara luring adalah 7,95 detik lebih cepat dibandingkan dengan rata-rata waktu yang dibutuhkan secara daring adalah 63 detik.
 
 \subsubsection{Hasil Survei Dosen} 
@@ -547,7 +542,7 @@ Berdasarkan hasil survei yang telah diterima dari 6 orang responden yang merupak
 	\item \textbf{Berapa detik perkiraan waktu interaksi yang Anda butuhkan untuk melakukan perekaman kehadiran daring di \url{https://akuhadir.unpar.ac.id} ?}
 	
 	Pada Gambar \ref{fig:DaringDosen} merupakan visualisasi dari hasil survei mengenai lama waktu yang dibutuhkan dari 6 dosen untuk melakukan perekaman kehadiran secara daring. Histogram ini dikelompokan berdasarkan rentang waktu per 20 detik. Histogram menunjukan bahwa sebanyak 4 dosen memiliki rentang waktu 0 sampai 20 detik, 1 dosen memiliki rentang waktu 21 sampai 40 detik, dan 1 dosen memiliki rentang waktu 101 sampai 120 detik. 
-		\begin{figure}[H] \vspace{-0.6cm}
+		\begin{figure}[H] 
 		\centering
 		\includegraphics[scale=0.7]{Gambar/DaringDosen.jpg}
 		\caption{Histogram Waktu Perekaman Kehadiran Daring Dosen} 
@@ -578,8 +573,9 @@ Berdasarkan hasil survei yang telah diterima dari 6 orang responden yang merupak
 		\label{fig:LuringDosen}
 	\end{figure}
 	
-	Jika dihitung rata-rata waktu yang dibutuhkan untuk melakukan perekaman kehadiran luring bagi para dosen adalah 24,33 detik.Hasil survei perekeman kehadiran luring untuk setiap dosen secara jelas dapat dilihat pada tabel \ref{tab:luringDosen}.	
-	\begin{table}[ht]			
+	Jika dihitung rata-rata waktu yang dibutuhkan untuk melakukan perekaman kehadiran luring bagi para dosen adalah 24,33 detik.Hasil survei perekeman kehadiran luring untuk setiap dosen secara jelas dapat dilihat pada tabel \ref{tab:luringDosen}. Kesimpulan dari hasil survei dosen menunjukan bahwa rata-rata waktu yang dibutuhkan secara luring adalah 24,33 detik lebih cepat dibandingkan dengan rata-rata waktu yang dibutuhkan secara daring adalah 31,83 detik.
+		
+	\begin{table}[ht]	\vspace{-0.4cm}
 		\caption{Tabel Perekaman Luring Dosen}
 		\centering
 		\begin{tabular}{|p{4cm} |p{7cm}|}
@@ -593,8 +589,6 @@ Berdasarkan hasil survei yang telah diterima dari 6 orang responden yang merupak
 		\label{tab:luringDosen}
 	\end{table}
 \end{enumerate}
-
-Kesimpulan dari hasil survei dosen menunjukan bahwa rata-rata waktu yang dibutuhkan secara luring adalah 24,33 detik lebih cepat dibandingkan dengan rata-rata waktu yang dibutuhkan secara daring adalah 31,83 detik.
 
 \subsection{Perekaman Kehadiran Daring ke dalam Selenium}
 \label{sec:terjemah} 

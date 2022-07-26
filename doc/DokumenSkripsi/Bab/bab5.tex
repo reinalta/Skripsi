@@ -52,14 +52,13 @@ Pengujian fungsional dilakukan untuk mengetahui kesesuaian reaksi perangkat luna
 	\item Versi Python : Python 3.8.5
 \end{enumerate}
 Mahasiswa melakukan perekaman kehadiran otomatis di Portal Akademik Mahasiswa. Mahasiswa perlu penyesuaian \textit{file} \texttt{database.ini} seperti dilihat pada kode \ref{kode:5:databasemahasiswa}.
-\\
 \begin{lstlisting}[caption=\textit{File} \texttt{database.ini} Portal Akademik Mahasiswa (\textit{password} disembunyikan), label=kode:5:databasemahasiswa]
 	[database_config]
 	1 = open https://studentportal.unpar.ac.id
 	2 = click #login-button
 	3 = sendkeys #username 2017730035@student.unpar.ac.id 
 	4 = click #next_login
-	5 = sendkeys #password 12345
+	5 = sendkeys #password xxx
 	6 = click #appPass>div.login__form>button
 	7 = or a[href='https://studentportal.unpar.ac.id/jadwal'] .swal-button.swal-button--confirm.swal-button--danger
 	8 = click a[onclick="absenPerkuliahan(this)"]
@@ -112,8 +111,8 @@ Dosen pembimbing melakukan perekaman kehadiran otomatis di AKUHADIR. Dosen pembi
 
 
 Setelah dosen pembimbing menjalankan program, didapatkan bahwa program dapat berjalan dan berfungsi dengan baik untuk dapat melakukan perekaman kehadiran daring otomatis pada situs AKUHADIR. Kesimpulan dari pengujian fungsional program pada komputer dosen pembimbing dinyatakan berhasil, dan selengkapnya dapat dilihat pada tabel \ref{tab:fungsidosen}.
-
-\begin{table}[H]			
+\newpage
+\begin{table}[H] 		
 	\caption{Tabel Pengujian Fungsional}
 	\centering
 	\begin{tabular}{|p{0.5cm} |p{4cm} |p{5.5cm}| p{3cm}|} \hline
@@ -138,7 +137,7 @@ Dari 7 responden yang telah mengisi survei, memberi respons bahwa perangkat luna
 	\item \textbf{Setelah menjalankan perangkat lunak perekaman kehadiran daring otomatis. Berapa lama(detik) waktu yang dibutuhkan untuk melakukan perekaman kehadiran daring menggunakan program perekaman kehadiran daring otomatis?}
 	
 	Histogram ini dikelompokan berdasarkan rentang waktu per 20 detik. Histogram menunjukan bahwa sebanyak 6 mahasiswa memiliki rentang waktu 0 sampai 20 detik dan sebanyak 1 mahasiswa memiliki rentang waktu 21 sampai 40 detik. 
-	\begin{figure}[H]
+	\begin{figure}[H] \vspace{-0.3cm}
 		\centering
 		\includegraphics[scale=0.75]{Gambar/HistogramDaringOtomatisMahasiswa.jpg}
 		\caption{Histogram Waktu Perekaman Kehadiran Daring Otomatis Mahasiswa}
@@ -172,7 +171,7 @@ Hasil survei kepada dosen hanya mendapat 2 respon dosen. Pertanyaan yang diajuka
 	\item \textbf{Apakah perangkat lunak berjalan dengan baik (tidak ada crash atau error) dan dapat melakukan perekaman kehadiran daring secara otomatis?}
 	
 	Berdasarkan jawaban dari semua responden menyatakan setuju bahwa program tidak mengalami \textit{error} atau \textit{crash}.
-	\newpage
+
 	\item \textbf{Setelah menjalankan perangkat lunak perekaman kehadiran daring otomatis. Berapa lama(detik) waktu yang dibutuhkan untuk melakukan perekaman kehadiran daring menggunakan program perekaman kehadiran daring otomatis?}
 	
 	Dua dosen yang menjadi responden menyatakan waktu yang dibutuhkan untuk melakukan perekaman kehadiran daring secara otomatis adalah 2 detik dan 15 detik. Rata-rata perekaman kehadiran daring otomatis yang dilakukan oleh dua dosen tersebut adalah 8,5 detik. 
